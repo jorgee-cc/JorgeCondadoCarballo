@@ -35,7 +35,7 @@ export const MainProject = () => {
             <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
               {/* Image from unsplash for visual appeal */}
               <img
-                src="https://images.unsplash.com/photo-1531113165519-5eb0816d7e02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZW9uJTIwZXNwb3J0cyUyMHN0YWdlfGVufDF8fHx8MTc3NDQ0NTM5M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                src="/LaVeladaVI_preview.png"
                 alt="Prototipo Velada VI Preview"
                 className="h-full w-full object-cover opacity-80 mix-blend-screen transition-transform duration-700 group-hover:scale-105"
               />
