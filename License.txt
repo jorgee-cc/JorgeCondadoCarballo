@@ -1,0 +1,4 @@
+Copyright (c) 2026 Jorge Condado Carballo. Todos los derechos reservados.
+
+El código fuente y diseño de este portfolio son propiedad exclusiva de su autor. 
+Queda prohibida la copia, clonación o uso comercial de la estructura o diseño de este proyecto sin permiso explícito.

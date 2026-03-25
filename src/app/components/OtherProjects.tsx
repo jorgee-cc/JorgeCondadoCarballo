@@ -1,0 +1,108 @@
+import React from "react";
+import { motion } from "motion/react";
+import { Mic, ShieldAlert, Cpu, Share2, Compass, Cog, ArrowRight } from "lucide-react";
+
+const projects = [
+  {
+    title: "Aplicaciones Web APIs",
+    description: "Interfaces avanzadas que conectan el mundo físico con el digital usando APIs nativas del navegador y Node.js.",
+    image: "https://images.unsplash.com/photo-1765445665883-085301570c87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2glMjBjb2RlfGVufDF8fHx8MTc3NDQ0NTM5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    link: "https://github.com/jorgee-cc/Apps_JS.git",
+    features: [
+      { icon: <Compass className="h-4 w-4" />, text: "Geolocalización" },
+      { icon: <Cpu className="h-4 w-4" />, text: "Sensores" },
+      { icon: <Mic className="h-4 w-4" />, text: "Reconocimiento Voz" },
+      { icon: <Share2 className="h-4 w-4" />, text: "Backend Node.js" },
+    ],
+    color: "from-cyan-500/20 to-blue-500/20",
+    border: "group-hover:border-cyan-500/50",
+    textHover: "group-hover:text-cyan-400"
+  },
+  {
+    title: "Sistema Talleres (Flask + n8n)",
+    description: "Arquitectura backend robusta para gestión con flujos de trabajo automatizados y patrones de mensajería fiables.",
+    image: "https://images.unsplash.com/photo-1680992046617-e2e35451bcdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwc2VydmVyJTIwcm9vbSUyMG5lb258ZW58MXx8fHwxNzc0NDQ1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    link: "https://github.com/jorgee-cc/Web_Taller.git",
+    features: [
+      { icon: <Cog className="h-4 w-4" />, text: "Automatización n8n" },
+      { icon: <ShieldAlert className="h-4 w-4" />, text: "Seguridad Avanzada" },
+      { icon: <Share2 className="h-4 w-4" />, text: "Outbox Pattern" },
+      { icon: <Cpu className="h-4 w-4" />, text: "MVC + Roles" },
+    ],
+    color: "from-fuchsia-500/20 to-purple-500/20",
+    border: "group-hover:border-fuchsia-500/50",
+    textHover: "group-hover:text-fuchsia-400"
+  }
+];
+
+export const OtherProjects = () => {
+  return (
+    <section className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12">
+      <div className="mb-16 flex flex-col items-center justify-between gap-8 md:flex-row">
+        <div>
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+            MÁS PROYECTOS
+          </h2>
+          <p className="mt-4 text-xl text-zinc-400">
+            De la infraestructura al frontend inmersivo
+          </p>
+        </div>
+        <div className="h-[1px] flex-1 bg-gradient-to-r from-purple-500/50 to-transparent" />
+      </div>
+
+      <div className="grid gap-8 lg:grid-cols-2">
+        {projects.map((project, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: idx * 0.2 }}
+            className={`group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-1 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(168,85,247,0.3)] ${project.border}`}
+          >
+            {/* Inner background glow */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
+            
+            <div className="relative flex flex-1 flex-col rounded-xl bg-zinc-950 p-6 sm:p-8">
+              <div className="mb-6 aspect-video w-full overflow-hidden rounded-lg bg-zinc-800">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-full w-full object-cover opacity-60 mix-blend-screen transition-transform duration-700 group-hover:scale-110 group-hover:opacity-80"
+                />
+              </div>
+
+              <h3 className={`mb-3 text-2xl font-bold text-white transition-colors duration-300 ${project.textHover}`}>
+                {project.title}
+              </h3>
+              
+              <p className="mb-8 text-zinc-400">
+                {project.description}
+              </p>
+
+              <div className="mt-auto">
+                <div className="grid grid-cols-2 gap-3">
+                  {project.features.map((feature, fIdx) => (
+                    <div key={fIdx} className="flex items-center gap-2 rounded-md bg-zinc-900 px-3 py-2 text-sm text-zinc-300">
+                      <span className="text-purple-400">{feature.icon}</span>
+                      {feature.text}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-purple-700 hover:shadow-lg"
+              >
+                Ver Detalles <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
