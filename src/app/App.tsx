@@ -1,27 +1,37 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, Suspense, lazy } from "react";
 import { BackgroundEffects } from "./components/BackgroundEffects";
 import { Hero } from "./components/Hero";
-import { MainProject } from "./components/MainProject";
-import { OtherProjects } from "./components/OtherProjects";
-import { TechStack } from "./components/TechStack";
-import { ExperienceEducation } from "./components/ExperienceEducation";
-import { Contact } from "./components/Contact";
+
+// Lazy loading de componentes pesados fuera del viewport inicial
+const MainProject = lazy(() => import("./components/MainProject").then(m => ({ default: m.MainProject })));
+const OtherProjects = lazy(() => import("./components/OtherProjects").then(m => ({ default: m.OtherProjects })));
+const TechStack = lazy(() => import("./components/TechStack").then(m => ({ default: m.TechStack })));
+const ExperienceEducation = lazy(() => import("./components/ExperienceEducation").then(m => ({ default: m.ExperienceEducation })));
+const Contact = lazy(() => import("./components/Contact").then(m => ({ default: m.Contact })));
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Smooth cursor glow effect following mouse
+  // Smooth cursor glow effect optimizado con requestAnimationFrame
   useEffect(() => {
+    let animationFrameId: number;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const { clientX, clientY } = e;
-        containerRef.current.style.setProperty("--x", `${clientX}px`);
-        containerRef.current.style.setProperty("--y", `${clientY}px`);
-      }
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      
+      animationFrameId = requestAnimationFrame(() => {
+        if (containerRef.current) {
+          containerRef.current.style.setProperty("--x", `${e.clientX}px`);
+          containerRef.current.style.setProperty("--y", `${e.clientY}px`);
+        }
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   return (
@@ -59,11 +69,14 @@ export default function App() {
       {/* Content Sections */}
       <main className="relative flex flex-col items-center w-full">
         <Hero />
-        <MainProject />
-        <OtherProjects />
-        <TechStack />
-        <ExperienceEducation />
-        <Contact />
+        {/* Usamos Suspense para manejar la carga de los componentes diferidos */}
+        <Suspense fallback={<div className="h-screen w-full" />}>
+          <MainProject />
+          <OtherProjects />
+          <TechStack />
+          <ExperienceEducation />
+          <Contact />
+        </Suspense>
       </main>
     </div>
   );

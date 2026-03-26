@@ -13,7 +13,7 @@ const stackCategories = [
   {
     title: "Backend",
     icon: <Server className="h-6 w-6 text-cyan-400" />,
-    skills: ["Python", "Flask", "SQL", "C", "C++"],
+    skills: ["Python", "Flask", "SQL"],
     glow: "shadow-[0_0_30px_rgba(34,211,238,0.15)]",
     border: "border-cyan-500/20"
   },

@@ -35,7 +35,7 @@ export const MainProject = () => {
             <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
               {/* Image from unsplash for visual appeal */}
               <img
-                src="/LaVeladaVI_preview.png"
+                src="/Preview.png"
                 alt="Prototipo Velada VI Preview"
                 className="h-full w-full object-cover opacity-80 mix-blend-screen transition-transform duration-700 group-hover:scale-105"
               />
@@ -44,7 +44,7 @@ export const MainProject = () => {
               {/* Overlay link */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <a
-                  href="https://prototipo-velada-vi-jorge-condado-c.vercel.app/"
+                  href="https://prototipo-velada-vi-jorge-condad-git-cc4870-jorgee-ccs-projects.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-black shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-transform hover:scale-105"

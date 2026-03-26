@@ -7,7 +7,6 @@ const projects = [
     title: "Aplicaciones Web APIs",
     description: "Interfaces avanzadas que conectan el mundo físico con el digital usando APIs nativas del navegador y Node.js.",
     image: "https://images.unsplash.com/photo-1765445665883-085301570c87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2glMjBjb2RlfGVufDF8fHx8MTc3NDQ0NTM5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    link: "https://github.com/jorgee-cc/Apps_JS.git",
     features: [
       { icon: <Compass className="h-4 w-4" />, text: "Geolocalización" },
       { icon: <Cpu className="h-4 w-4" />, text: "Sensores" },
@@ -22,7 +21,6 @@ const projects = [
     title: "Sistema Talleres (Flask + n8n)",
     description: "Arquitectura backend robusta para gestión con flujos de trabajo automatizados y patrones de mensajería fiables.",
     image: "https://images.unsplash.com/photo-1680992046617-e2e35451bcdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwc2VydmVyJTIwcm9vbSUyMG5lb258ZW58MXx8fHwxNzc0NDQ1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    link: "https://github.com/jorgee-cc/Web_Taller.git",
     features: [
       { icon: <Cog className="h-4 w-4" />, text: "Automatización n8n" },
       { icon: <ShieldAlert className="h-4 w-4" />, text: "Seguridad Avanzada" },
@@ -91,14 +89,9 @@ export const OtherProjects = () => {
                 </div>
               </div>
 
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-purple-700 hover:shadow-lg"
-              >
+              <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-zinc-500 transition-colors group-hover:text-white">
                 Ver Detalles <ArrowRight className="h-4 w-4" />
-              </a>
+              </div>
             </div>
           </motion.div>
         ))}

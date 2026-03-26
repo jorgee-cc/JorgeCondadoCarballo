@@ -41,25 +41,25 @@ export const ExperienceEducation = () => {
           <div className="flex flex-col gap-6">
             {experiences.map((exp, idx) => (
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className="group relative flex items-start gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 backdrop-blur-md transition-all hover:bg-zinc-800/60"
+          key={idx}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: idx * 0.15 }}
+          className="group relative flex items-start gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 backdrop-blur-md transition-all hover:bg-zinc-800/60"
               >
-                <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-zinc-950 shadow-inner group-hover:scale-110 transition-transform duration-300">
-                  {exp.icon}
-                </div>
-                <div>
-                  <div className="mb-1 flex items-baseline gap-3">
-                    <h3 className="text-xl font-bold text-white">{exp.reframe}</h3>
-                    <span className="text-sm font-medium text-zinc-500 line-through decoration-zinc-600 decoration-2">
-                      ({exp.title})
-                    </span>
-                  </div>
-                  <p className="text-zinc-400">{exp.description}</p>
-                </div>
+          <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-zinc-950 shadow-inner group-hover:scale-110 transition-transform duration-300">
+            {exp.icon}
+          </div>
+          <div>
+            <div className="mb-1 flex items-baseline gap-3">
+              <h3 className="text-xl font-bold text-white">{exp.reframe}</h3>
+              <span className="text-sm font-medium text-zinc-500">
+                ({exp.title})
+              </span>
+            </div>
+            <p className="text-zinc-400">{exp.description}</p>
+          </div>
               </motion.div>
             ))}
           </div>

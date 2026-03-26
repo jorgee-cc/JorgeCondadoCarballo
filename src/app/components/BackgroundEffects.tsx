@@ -5,13 +5,11 @@ export const BackgroundEffects = () => {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-black">
       {/* Dynamic light orbs */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-          rotate: [0, 90, 0],
-        }}
+    <motion.div
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3], rotate: [0, 90, 0] }}
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        // Añadido 'will-change-transform' e 'isolation' / backface-visibility
+        style={{ willChange: "transform, opacity", backfaceVisibility: "hidden", transform: "translateZ(0)" }}
         className="absolute -top-[20%] -left-[10%] w-[50vw] h-[50vw] bg-purple-600/30 rounded-full blur-[120px]"
       />
       <motion.div

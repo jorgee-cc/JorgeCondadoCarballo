@@ -39,13 +39,20 @@ export const Hero = () => {
         </motion.div>
 
         <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+{/* Sustituimos la animación de CSS background por una transformación GPU. 
+    Nota: Tailwind requerirá una clase personalizada o manejarlo vía styled/motion */}
+        <span className="relative mb-2 block overflow-hidden inline-block text-3xl font-bold sm:text-4xl lg:text-5xl drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
+          <span className="invisible"> Jorge Condado </span>
           <motion.span 
-            animate={{ backgroundPosition: ["200% auto", "0% auto"] }}
+            animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="mb-2 block bg-[linear-gradient(90deg,#e2e8f0,#ffffff,#94a3b8,#475569,#ffffff,#e2e8f0)] bg-[length:200%_auto] bg-clip-text text-3xl font-bold text-transparent sm:text-4xl lg:text-5xl drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]"
+            className="absolute top-0 left-0 w-[200%] h-full bg-[linear-gradient(90deg,#e2e8f0,#ffffff,#94a3b8,#475569,#ffffff,#e2e8f0,#ffffff,#94a3b8)] bg-clip-text text-transparent flex"
+            style={{ willChange: "transform" }}
           >
-            Jorge Condado
+            <span className="w-1/2"> Jorge Condado </span>
+            <span className="w-1/2"> Jorge Condado </span>
           </motion.span>
+        </span>
           <motion.span 
             animate={{ backgroundPosition: ["200% auto", "0% auto"] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
