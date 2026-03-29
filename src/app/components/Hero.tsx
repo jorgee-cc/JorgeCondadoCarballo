@@ -1,65 +1,89 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "motion/react";
 import { ChevronDown, ExternalLink, Play } from "lucide-react";
 import { ImageWithFallback } from "./ui/ImageWithFallback";
 
-export const Hero = () => {
+// ⚡ PERF: Objetos de transición fuera del componente
+// Evitan crear nuevas referencias en cada render
+const TRANSITIONS = {
+  avatar:    { delay: 0.1, duration: 0.8 },
+  badge:     { delay: 0.2, duration: 0.8 },
+  container: { duration: 0.8, ease: "easeOut" as const },
+  scroll:    { duration: 2, repeat: Infinity, ease: "easeInOut" as const },
+};
+
+const INITIAL_STATES = {
+  fadeUp:    { opacity: 0, y: 50 },
+  scaleIn:   { opacity: 0, scale: 0.5 },
+  scaleDown: { opacity: 0, scale: 0.9 },
+};
+
+const ANIMATE_IN = { opacity: 1, y: 0, scale: 1 };
+
+// ⚡ PERF: React.memo — este componente no recibe props
+// Si el padre (App) re-renderiza, Hero NO se re-renderiza
+export const Hero = memo(() => {
   return (
     <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-20 text-center sm:px-12">
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        initial={INITIAL_STATES.fadeUp}
+        animate={ANIMATE_IN}
+        transition={TRANSITIONS.container}
         className="max-w-4xl"
       >
+        {/* Avatar — fetchpriority="high" para mejorar LCP */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.8 }}
+          initial={INITIAL_STATES.scaleIn}
+          animate={ANIMATE_IN}
+          transition={TRANSITIONS.avatar}
           className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.4)]"
         >
           <ImageWithFallback
             src="/1726564320490.jpeg"
             alt="Jorge Condado"
             className="h-full w-full object-cover"
+            fetchPriority="high"   /* ⚡ LCP: carga prioritaria */
+            width={128}
+            height={128}
           />
         </motion.div>
 
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
+          initial={INITIAL_STATES.scaleDown}
+          animate={ANIMATE_IN}
+          transition={TRANSITIONS.badge}
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-md"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-500"></span>
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-500" />
           </span>
           DESARROLLADOR FULL-STACK / FRONTEND ARCHITECT
         </motion.div>
 
         <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-{/* Sustituimos la animación de CSS background por una transformación GPU. 
-    Nota: Tailwind requerirá una clase personalizada o manejarlo vía styled/motion */}
-        <span className="relative mb-2 block overflow-hidden inline-block text-3xl font-bold sm:text-4xl lg:text-5xl drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
-          <span className="invisible"> Jorge Condado </span>
-          <motion.span 
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-[200%] h-full bg-[linear-gradient(90deg,#e2e8f0,#ffffff,#94a3b8,#475569,#ffffff,#e2e8f0,#ffffff,#94a3b8)] bg-clip-text text-transparent flex"
-            style={{ willChange: "transform" }}
-          >
-            <span className="w-1/2"> Jorge Condado </span>
-            <span className="w-1/2"> Jorge Condado </span>
-          </motion.span>
-        </span>
-          <motion.span 
-            animate={{ backgroundPosition: ["200% auto", "0% auto"] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="inline-block bg-[linear-gradient(90deg,#e2e8f0,#ffffff,#94a3b8,#475569,#ffffff,#e2e8f0)] bg-[length:200%_auto] bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
+
+          {/* ⚡ PERF: Efecto marquee con CSS class en vez de inline animate prop
+              transform: translateX() = GPU compositor thread = 0 JS overhead */}
+          <span className="relative mb-2 block overflow-hidden inline-block text-3xl font-bold sm:text-4xl lg:text-5xl drop-shadow-[0_0_5px_rgba(255,255,255,0.3)] gradient-text-container">
+            <span className="invisible"> Jorge Condado </span>
+            <span
+              className="animate-name-marquee absolute top-0 left-0 w-[200%] h-full bg-[linear-gradient(90deg,#e2e8f0,#ffffff,#94a3b8,#475569,#ffffff,#e2e8f0,#ffffff,#94a3b8)] bg-clip-text text-transparent flex"
+            >
+              <span className="w-1/2"> Jorge Condado </span>
+              <span className="w-1/2"> Jorge Condado </span>
+            </span>
+          </span>
+
+          {/* ⚡ PERF CRÍTICO: backgroundPosition movido a CSS animation
+              Antes: Framer Motion animaba backgroundPosition vía JS → repaint/frame
+              Ahora: CSS @keyframes → browser gestiona batching sin bloquear JS thread */}
+          <span
+            className="animate-gradient-shift inline-block bg-[linear-gradient(90deg,#e2e8f0,#ffffff,#94a3b8,#475569,#ffffff,#e2e8f0)] bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
           >
             RENDIMIENTO EXTREMO
-          </motion.span>
+          </span>
         </h1>
 
         <p className="mx-auto mb-10 max-w-2xl text-lg font-medium text-zinc-300 sm:text-2xl">
@@ -74,7 +98,7 @@ export const Hero = () => {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="https://prototipo-velada-vi-jorge-condad-git-cc4870-jorgee-ccs-projects.vercel.app/"
+            href="https://prototipo-velada-vi-jorge-condado-c.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-white px-8 py-4 font-bold text-black transition-all hover:bg-zinc-200 sm:w-auto"
@@ -101,11 +125,13 @@ export const Hero = () => {
       {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        transition={TRANSITIONS.scroll}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-500"
       >
         <ChevronDown className="h-8 w-8 opacity-50" />
       </motion.div>
     </section>
   );
-};
+});
+
+Hero.displayName = "Hero";

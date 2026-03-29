@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "motion/react";
 import { Mic, ShieldAlert, Cpu, Share2, Compass, Cog, ArrowRight } from "lucide-react";
 
@@ -31,9 +31,9 @@ const projects = [
     border: "group-hover:border-fuchsia-500/50",
     textHover: "group-hover:text-fuchsia-400"
   }
-];
+] as const;
 
-export const OtherProjects = () => {
+export const OtherProjects = memo(() => {
   return (
     <section className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12">
       <div className="mb-16 flex flex-col items-center justify-between gap-8 md:flex-row">
@@ -51,7 +51,7 @@ export const OtherProjects = () => {
       <div className="grid gap-8 lg:grid-cols-2">
         {projects.map((project, idx) => (
           <motion.div
-            key={idx}
+            key={project.title}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -66,6 +66,10 @@ export const OtherProjects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
+                  width={800}
+                  height={450}
                   className="h-full w-full object-cover opacity-60 mix-blend-screen transition-transform duration-700 group-hover:scale-110 group-hover:opacity-80"
                 />
               </div>
@@ -98,4 +102,6 @@ export const OtherProjects = () => {
       </div>
     </section>
   );
-};
+});
+
+OtherProjects.displayName = "OtherProjects";

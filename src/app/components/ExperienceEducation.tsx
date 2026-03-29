@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "motion/react";
 import { MessageCircle, ShieldAlert, HeartHandshake, GraduationCap } from "lucide-react";
 
@@ -21,9 +21,9 @@ const experiences = [
     description: "Tratar con el usuario final te enseña más de usabilidad y flujos que cualquier libro de diseño. Empatía extrema.",
     icon: <HeartHandshake className="h-6 w-6 text-pink-400" />
   }
-];
+] as const;
 
-export const ExperienceEducation = () => {
+export const ExperienceEducation = memo(() => {
   return (
     <section className="relative z-10 mx-auto max-w-7xl px-6 py-32 sm:px-12">
       <div className="grid gap-16 lg:grid-cols-2">
@@ -41,7 +41,7 @@ export const ExperienceEducation = () => {
           <div className="flex flex-col gap-6">
             {experiences.map((exp, idx) => (
               <motion.div
-          key={idx}
+          key={exp.title}
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -100,4 +100,6 @@ export const ExperienceEducation = () => {
       </div>
     </section>
   );
-};
+});
+
+ExperienceEducation.displayName = "ExperienceEducation";

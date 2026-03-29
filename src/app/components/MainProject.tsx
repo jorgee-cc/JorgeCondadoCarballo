@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "motion/react";
 import { ExternalLink, Zap, MonitorPlay, Cloud, Activity } from "lucide-react";
 
-export const MainProject = () => {
+export const MainProject = memo(() => {
   return (
     <section id="proyectos" className="relative z-10 mx-auto max-w-7xl px-6 py-32 sm:px-12">
       <div className="mb-20 text-center">
@@ -37,6 +37,10 @@ export const MainProject = () => {
               <img
                 src="/Preview.png"
                 alt="Prototipo Velada VI Preview"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={450}
                 className="h-full w-full object-cover opacity-80 mix-blend-screen transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
@@ -118,4 +122,6 @@ export const MainProject = () => {
       </div>
     </section>
   );
-};
+});
+
+MainProject.displayName = "MainProject";

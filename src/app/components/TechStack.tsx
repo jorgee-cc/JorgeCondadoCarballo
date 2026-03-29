@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "motion/react";
 import { Code2, Server, Terminal, Settings } from "lucide-react";
 
@@ -31,9 +31,9 @@ const stackCategories = [
     glow: "shadow-[0_0_30px_rgba(52,211,153,0.15)]",
     border: "border-emerald-500/20"
   }
-];
+] as const;
 
-export const TechStack = () => {
+export const TechStack = memo(() => {
   return (
     <section className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12">
       <div className="mb-20 text-center">
@@ -53,7 +53,7 @@ export const TechStack = () => {
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {stackCategories.map((category, idx) => (
           <motion.div
-            key={idx}
+            key={category.title}
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -84,4 +84,6 @@ export const TechStack = () => {
       </div>
     </section>
   );
-};
+});
+
+TechStack.displayName = "TechStack";

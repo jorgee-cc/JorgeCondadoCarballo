@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "motion/react";
 import { Mail, Phone, ChevronRight, Github } from "lucide-react";
 
-export const Contact = () => {
+export const Contact = memo(() => {
   return (
     <section id="contacto" className="relative z-10 mx-auto max-w-7xl px-6 py-32 sm:px-12">
       <motion.div
@@ -58,4 +58,6 @@ export const Contact = () => {
       </motion.div>
     </section>
   );
-};
+});
+
+Contact.displayName = "Contact";
