@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Mic, ShieldAlert, Cpu, Share2, Compass, Cog, ArrowRight } from "lucide-react";
+import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity } from "lucide-react";
 
 const projects = [
   {
@@ -15,21 +15,23 @@ const projects = [
     ],
     color: "from-cyan-500/20 to-blue-500/20",
     border: "group-hover:border-cyan-500/50",
-    textHover: "group-hover:text-cyan-400"
+    textHover: "group-hover:text-cyan-400",
+    link: null
   },
   {
-    title: "Sistema Talleres (Flask + n8n)",
-    description: "Arquitectura backend robusta para gestión con flujos de trabajo automatizados y patrones de mensajería fiables.",
-    image: "https://images.unsplash.com/photo-1680992046617-e2e35451bcdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwc2VydmVyJTIwcm9vbSUyMG5lb258ZW58MXx8fHwxNzc0NDQ1MzkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Prototipo La Velada VI",
+    description: "Frontend de alto rendimiento diseñado para aguantar tráfico masivo y ofrecer una experiencia de streaming fluida.",
+    image: "/Preview.png",
     features: [
-      { icon: <Cog className="h-4 w-4" />, text: "Automatización n8n" },
-      { icon: <ShieldAlert className="h-4 w-4" />, text: "Seguridad Avanzada" },
-      { icon: <Share2 className="h-4 w-4" />, text: "Outbox Pattern" },
-      { icon: <Cpu className="h-4 w-4" />, text: "MVC + Roles" },
+      { icon: <MonitorPlay className="h-4 w-4" />, text: "React & Tailwind" },
+      { icon: <Zap className="h-4 w-4" />, text: "Framer Motion" },
+      { icon: <Activity className="h-4 w-4" />, text: "60 FPS Animaciones" },
+      { icon: <Cpu className="h-4 w-4" />, text: "Rendimiento Extremo" },
     ],
-    color: "from-fuchsia-500/20 to-purple-500/20",
-    border: "group-hover:border-fuchsia-500/50",
-    textHover: "group-hover:text-fuchsia-400"
+    color: "from-purple-500/20 to-cyan-500/20",
+    border: "group-hover:border-purple-500/50",
+    textHover: "group-hover:text-purple-400",
+    link: "https://prototipo-velada-vi-jorge-condado-c.vercel.app/"
   }
 ] as const;
 
@@ -93,9 +95,16 @@ export const OtherProjects = memo(() => {
                 </div>
               </div>
 
-              <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-zinc-500 transition-colors group-hover:text-white">
-                Ver Detalles <ArrowRight className="h-4 w-4" />
-              </div>
+              {project.link ? (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 transition-colors group-hover:text-white"
+                >
+                  Ver Detalles <ArrowRight className="h-4 w-4" />
+                </a>
+              ) : null}
             </div>
           </motion.div>
         ))}

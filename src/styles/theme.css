@@ -206,6 +206,15 @@
   will-change: transform;
 }
 
+/* Marquee: evitar saltos al cambiar layout
+   - forzar línea única y evitar que los items se encojan
+   - uso de flex para alineado estable */
+.animate-name-marquee {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+}
+
 /* Aislamiento de stacking context para bg-clip-text */
 .gradient-text-container {
   isolation: isolate;

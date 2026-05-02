@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { ExternalLink, Zap, MonitorPlay, Cloud, Activity } from "lucide-react";
+import { ExternalLink, MonitorPlay, Database, Server, Cog, Cloud } from "lucide-react";
 
 export const MainProject = memo(() => {
   return (
@@ -12,10 +12,10 @@ export const MainProject = memo(() => {
           viewport={{ once: true, amount: 0.5 }}
           className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-4xl font-extrabold uppercase tracking-tight text-transparent sm:text-6xl drop-shadow-[0_0_10px_rgba(168,85,247,0.3)]"
         >
-          El Prototipo
+          Proyecto Destacado
         </motion.h2>
         <p className="mt-4 text-xl font-medium text-zinc-400">
-          La Velada VI Showcase
+          Sistema de Gestión - Talleres Oja
         </p>
       </div>
 
@@ -33,30 +33,18 @@ export const MainProject = memo(() => {
           
           <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 p-2 shadow-2xl">
             <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
-              {/* Image from unsplash for visual appeal */}
+              {/* Project presentation image */}
               <img
-                src="/Preview.png"
-                alt="Prototipo Velada VI Preview"
+                src="/TalleresOja.png"
+                alt="Sistema de Gestión Talleres Oja"
                 loading="lazy"
                 decoding="async"
                 width={800}
                 height={450}
-                className="h-full w-full object-cover opacity-80 mix-blend-screen transition-transform duration-700 group-hover:scale-105"
+                className="h-full w-full object-contain object-center bg-zinc-900 p-2 opacity-90 transition-transform duration-700 group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
               
-              {/* Overlay link */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <a
-                  href="https://prototipo-velada-vi-jorge-condado-c.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-black shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-transform hover:scale-105"
-                >
-                  <MonitorPlay className="h-5 w-5" />
-                  Ver Demo en Vivo
-                </a>
-              </div>
             </div>
           </div>
         </motion.div>
@@ -71,51 +59,50 @@ export const MainProject = memo(() => {
         >
           <div className="flex items-center gap-4">
             <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/20 text-purple-400 ring-1 ring-purple-500/50 backdrop-blur-sm">
-              <Zap className="h-6 w-6" />
+              <Server className="h-6 w-6" />
             </span>
-            <h3 className="text-3xl font-bold text-white">Rendimiento Extremo</h3>
+            <h3 className="text-3xl font-bold text-white">Infraestructura de Producción</h3>
           </div>
           
           <p className="text-lg text-zinc-400">
-            Diseñado para aguantar tráfico masivo y ofrecer una experiencia fluida. 
-            No es solo frontend, es una arquitectura pensada para eventos virales.
+            Un sistema orientado a operación real, con automatización, seguridad y despliegue estable para entornos de negocio.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2 mt-4">
             <div className="flex flex-col gap-2 rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur-md transition-colors hover:border-purple-500/50 hover:bg-zinc-800/80">
               <div className="flex items-center gap-3 font-semibold text-white">
-                <Activity className="h-5 w-5 text-cyan-400" />
-                Animaciones 60 FPS
+                <Database className="h-5 w-5 text-cyan-400" />
+                Arquitectura Full-Stack
               </div>
-              <p className="text-sm text-zinc-500">Optimizadas con aceleración por hardware (GPU) para transiciones sin caídas de frames.</p>
+              <p className="text-sm text-zinc-500">Plataforma web que digitaliza un taller mecánico. Construido con Python, Flask, y PostgreSQL.</p>
             </div>
 
             <div className="flex flex-col gap-2 rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur-md transition-colors hover:border-purple-500/50 hover:bg-zinc-800/80">
               <div className="flex items-center gap-3 font-semibold text-white">
                 <Cloud className="h-5 w-5 text-fuchsia-400" />
-                CI/CD + CDN Edge
+                Automatización & n8n
               </div>
-              <p className="text-sm text-zinc-500">Despliegues continuos automatizados y distribución global para latencia mínima.</p>
+              <p className="text-sm text-zinc-500">Flujos de trabajo automatizados para notificaciones y gestión de estados sin intervención manual.</p>
             </div>
             
             <div className="flex flex-col gap-2 rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur-md transition-colors hover:border-purple-500/50 hover:bg-zinc-800/80 sm:col-span-2">
               <div className="flex items-center gap-3 font-semibold text-white">
-                <MonitorPlay className="h-5 w-5 text-purple-400" />
-                Stack Moderno
+                <Cog className="h-5 w-5 text-purple-400" />
+                Seguridad & Despliegue
               </div>
-              <p className="text-sm text-zinc-500">Construido con React, Tailwind CSS y Framer Motion. Código modular, mantenible y escalable pensado para componentes de streaming y show en directo.</p>
+              <p className="text-sm text-zinc-500">VPS propio en Hetzner, proxy inverso con Traefik, Dockerizado y auditado bajo estándares OWASP Top 10.</p>
             </div>
           </div>
           
           <div className="mt-4">
             <a
-              href="https://github.com/jorgee-cc"
+              href="/talleresoja-portfolio.html"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-purple-400 font-semibold transition-colors hover:text-purple-300"
             >
               <ExternalLink className="h-5 w-5" />
-              Explorar el código en GitHub
+              Explorar en detalle
             </a>
           </div>
         </motion.div>

@@ -1,6 +1,7 @@
 // App.tsx — VERSIÓN OPTIMIZADA
 import React, { useEffect, useRef, Suspense, lazy, memo } from "react";
 import { BackgroundEffects } from "./components/BackgroundEffects";
+import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 
 // ⚡ PERF: Lazy loading ya estaba implementado — se mantiene
@@ -75,6 +76,8 @@ export default function App() {
       <div className="pointer-glow" />
 
       <BackgroundEffects />
+
+      <Header />
 
       <main className="relative flex flex-col items-center w-full">
         <Hero />
