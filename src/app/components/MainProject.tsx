@@ -35,7 +35,7 @@ export const MainProject = memo(() => {
             <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
               {/* Project presentation image */}
               <img
-                src="/TalleresOja.png"
+                src="/images/TalleresOja.png"
                 alt="Sistema de Gestión Talleres Oja"
                 loading="lazy"
                 decoding="async"
@@ -96,7 +96,7 @@ export const MainProject = memo(() => {
           
           <div className="mt-4">
             <a
-              href="/talleresoja-portfolio.html"
+              href="/templates/talleresoja-portfolio.html"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-purple-400 font-semibold transition-colors hover:text-purple-300"

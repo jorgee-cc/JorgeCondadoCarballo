@@ -39,7 +39,7 @@ export const Hero = memo(() => {
           className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.4)]"
         >
           <ImageWithFallback
-            src="/1726564320490.jpeg"
+            src="/images/1726564320490.jpeg"
             alt="Jorge Condado"
             className="h-full w-full object-cover"
             fetchPriority="high"   /* ⚡ LCP: carga prioritaria */
