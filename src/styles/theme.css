@@ -119,6 +119,11 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+:root {
+  --x: 50vw;
+  --y: 50vh;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -178,85 +183,82 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
+}
 
+@layer components {
   /* =====================================================
    PERFORMANCE: Animaciones CSS puras (sin JS overhead)
    background-position gestionado por browser compositor
    ===================================================== */
 
-@keyframes gradientShift {
-  from { background-position: 200% auto; }
-  to   { background-position: 0%   auto; }
-}
+  @keyframes gradientShift {
+    from { background-position: 200% auto; }
+    to   { background-position: 0%   auto; }
+  }
 
-@keyframes nameMarquee {
-  0%   { transform: translateX(0%);   }
-  100% { transform: translateX(-50%); }
-}
+  @keyframes nameMarquee {
+    0%   { transform: translateX(0%);   }
+    100% { transform: translateX(-50%); }
+  }
 
-.animate-gradient-shift {
-  background-size: 200% auto;
-  animation: gradientShift 4s linear infinite;
-  /* Hint al browser para optimizar */
-  will-change: background-position;
-}
+  .animate-gradient-shift {
+    background-size: 200% auto;
+    animation: gradientShift 4s linear infinite;
+    /* Hint al browser para optimizar */
+    will-change: background-position;
+  }
 
-.animate-name-marquee {
-  animation: nameMarquee 4s linear infinite;
-  will-change: transform;
-}
+  .animate-name-marquee {
+    animation: nameMarquee 4s linear infinite;
+    will-change: transform;
+  }
 
-/* Marquee: evitar saltos al cambiar layout
-   - forzar línea única y evitar que los items se encojan
-   - uso de flex para alineado estable */
-.animate-name-marquee {
-  display: flex;
-  white-space: nowrap;
-  align-items: center;
-}
+  /* Marquee: evitar saltos al cambiar layout
+     - forzar línea única y evitar que los items se encojan
+     - uso de flex para alineado estable */
+  .animate-name-marquee {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+  }
 
-/* Aislamiento de stacking context para bg-clip-text */
-.gradient-text-container {
-  isolation: isolate;
-}
+  /* Aislamiento de stacking context para bg-clip-text */
+  .gradient-text-container {
+    isolation: isolate;
+  }
 
-/* =====================================================
-   POINTER GLOW — Movido de <style> inline a CSS puro
-   CSS custom properties actualizadas vía JS → compositor
-   Cero repaint: radial-gradient con opacity compositing
-   ===================================================== */
-:root {
-  --x: 50vw;
-  --y: 50vh;
-}
+  /* =====================================================
+     POINTER GLOW — Movido de <style> inline a CSS puro
+     CSS custom properties actualizadas vía JS → compositor
+     Cero repaint: radial-gradient con opacity compositing
+     ===================================================== */
+  .pointer-glow::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(
+      600px circle at var(--x) var(--y),
+      rgba(168, 85, 247, 0.05),
+      transparent 40%
+    );
+    pointer-events: none;
+    z-index: 10;
+    /* ⚡ PERF: Forzar GPU layer para este pseudo-elemento
+       La actualización de CSS vars solo triggerea composite, no paint */
+    will-change: background;
+    transform: translateZ(0);
+  }
 
-.pointer-glow::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(
-    600px circle at var(--x) var(--y),
-    rgba(168, 85, 247, 0.05),
-    transparent 40%
-  );
-  pointer-events: none;
-  z-index: 10;
-  /* ⚡ PERF: Forzar GPU layer para este pseudo-elemento
-     La actualización de CSS vars solo triggerea composite, no paint */
-  will-change: background;
-  transform: translateZ(0);
-}
-
-/* =====================================================
-   CONTENT VISIBILITY — Renderizado diferido de secciones
-   Browser skip layout+paint de secciones off-screen
-   ===================================================== */
-section:not(:first-of-type) {
-  content-visibility: auto;
-  /* containIntrinsicSize evita scroll jumps al estimar la altura */
-  contain-intrinsic-size: 0 800px;
-}
+  /* =====================================================
+     CONTENT VISIBILITY — Renderizado diferido de secciones
+     Browser skip layout+paint de secciones off-screen
+     ===================================================== */
+  section:not(:first-of-type) {
+    content-visibility: auto;
+    /* containIntrinsicSize evita scroll jumps al estimar la altura */
+    contain-intrinsic-size: 0 800px;
+  }
 }

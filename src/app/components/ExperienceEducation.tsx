@@ -1,27 +1,38 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { MessageCircle, ShieldAlert, HeartHandshake, GraduationCap } from "lucide-react";
+import { MessageCircle, ShieldAlert, HeartHandshake, GraduationCap, LucideIcon } from "lucide-react";
 
-const experiences = [
+type Experience = {
+  title: string;
+  reframe: string;
+  description: string;
+  Icon: LucideIcon;
+  iconColor: string;
+};
+
+const experiences: Experience[] = [
   {
     title: "Ventas",
     reframe: "Comunicación & Persuasión",
     description: "Saber vender una idea es tan importante como programarla. Experiencia real convenciendo a usuarios y stakeholders.",
-    icon: <MessageCircle className="h-6 w-6 text-yellow-400" />
+    Icon: MessageCircle,
+    iconColor: "text-yellow-400"
   },
   {
     title: "Árbitro",
     reframe: "Decisiones bajo presión",
     description: "Cuando el partido está caliente y todos te miran, tienes milisegundos para actuar. Igual que cuando el servidor falla en producción.",
-    icon: <ShieldAlert className="h-6 w-6 text-red-400" />
+    Icon: ShieldAlert,
+    iconColor: "text-red-400"
   },
   {
     title: "Atención al Cliente",
     reframe: "UX en el mundo real",
     description: "Tratar con el usuario final te enseña más de usabilidad y flujos que cualquier libro de diseño. Empatía extrema.",
-    icon: <HeartHandshake className="h-6 w-6 text-pink-400" />
+    Icon: HeartHandshake,
+    iconColor: "text-pink-400"
   }
-] as const;
+];
 
 export const ExperienceEducation = memo(() => {
   return (
@@ -49,7 +60,7 @@ export const ExperienceEducation = memo(() => {
           className="group relative flex items-start gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 backdrop-blur-md transition-all hover:bg-zinc-800/60"
               >
           <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-zinc-950 shadow-inner group-hover:scale-110 transition-transform duration-300">
-            {exp.icon}
+            <exp.Icon className={`h-6 w-6 ${exp.iconColor}`} />
           </div>
           <div>
             <div className="mb-1 flex items-baseline gap-3">

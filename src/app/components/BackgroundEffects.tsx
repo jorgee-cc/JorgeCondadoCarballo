@@ -32,9 +32,9 @@ const GPU_LAYER_STYLE: React.CSSProperties = {
   willChange: "transform, opacity",
   backfaceVisibility: "hidden",
   transform: "translateZ(0)",
-  // contain: "strict" aisla el cálculo del blur a este elemento
+  // contain: "layout style paint" aisla el cálculo del blur a este elemento
   // evita que el filtro invalide regiones del DOM adyacentes
-  contain: "strict" as any,
+  contain: "layout style paint",
 };
 
 // ⚡ PERF: React.memo — BackgroundEffects nunca cambia

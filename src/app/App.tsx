@@ -14,13 +14,13 @@ const Contact           = lazy(() => import("./components/Contact").then(m => ({
 // ⚡ PERF: Skeleton de sección optimizado
 // Evita layout shift (CLS) durante la carga lazy
 // Usa content-visibility:auto para no renderizar fuera del viewport
-const SectionSkeleton = () => (
+const SectionSkeleton = ({ height = "100vh" }: { height?: string }) => (
   <div
     className="w-full"
     style={{
-      minHeight: "100vh",
+      minHeight: height,
       contentVisibility: "auto",
-      containIntrinsicSize: "0 100vh",
+      containIntrinsicSize: `0 ${height}`,
     }}
   />
 );
@@ -28,13 +28,13 @@ const SectionSkeleton = () => (
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   // ⚡ PERF: Guardamos el ID del RAF para cancelarlo en cleanup
-  const rafIdRef = useRef<number>(0);
+  const rafIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       // Cancelar RAF anterior si aún no ejecutó
       // Evita acumulación de callbacks en cola
-      if (rafIdRef.current) {
+      if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
       }
 
@@ -55,7 +55,7 @@ export default function App() {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       // ⚡ PERF: Cancelar RAF pendiente en cleanup
-      if (rafIdRef.current) {
+      if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
       }
     };
@@ -81,11 +81,19 @@ export default function App() {
 
       <main className="relative flex flex-col items-center w-full">
         <Hero />
-        <Suspense fallback={<SectionSkeleton />}>
+        <Suspense fallback={<SectionSkeleton height="100vh" />}>
           <MainProject />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton height="80vh" />}>
           <OtherProjects />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton height="60vh" />}>
           <TechStack />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton height="60vh" />}>
           <ExperienceEducation />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton height="40vh" />}>
           <Contact />
         </Suspense>
       </main>

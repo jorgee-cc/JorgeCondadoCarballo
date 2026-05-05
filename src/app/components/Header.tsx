@@ -1,6 +1,11 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Github, Menu } from "lucide-react";
+import { Github } from "lucide-react";
+
+const NAV_LINKS = [
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#contacto",  label: "Contacto"  },
+] as const;
 
 export const Header = memo(() => {
   return (
@@ -17,13 +22,27 @@ export const Header = memo(() => {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-2"
           >
-            <span className="text-xl font-black uppercase tracking-tight text-white">
-              Jorge
-            </span>
-            <span className="text-xl font-black uppercase tracking-tight bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-              Condado
-            </span>
+            <a href="/" className="flex items-center gap-2" aria-label="Ir a la página de inicio">
+              <span className="text-xl font-black uppercase tracking-tight text-white">
+                Jorge
+              </span>
+              <span className="text-xl font-black uppercase tracking-tight bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+                Condado
+              </span>
+            </a>
           </motion.div>
+          
+          <nav className="hidden sm:flex items-center gap-6">
+            {NAV_LINKS.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
         </div>
 
         {/* GitHub Button */}

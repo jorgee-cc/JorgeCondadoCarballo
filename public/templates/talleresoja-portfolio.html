@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TalleresOja — Portfolio</title>
+<meta name="description" content="TalleresOja — Sistema de gestión de citas para taller mecánico. Flask, n8n, Docker, Hetzner VPS, auditado OWASP Top 10.">
+<meta name="author" content="Jorge Condado">
+<meta property="og:title" content="TalleresOja — Proyecto Full-Stack en Producción">
+<meta property="og:description" content="Plataforma web completa: Flask, n8n, PostgreSQL, Traefik, Docker. 31 funcionalidades. 10/10 vulnerabilidades OWASP corregidas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tu-dominio.com/templates/talleresoja-portfolio.html">
+<meta property="og:image" content="https://tu-dominio.com/images/TalleresOja.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -41,6 +49,116 @@
     line-height: 1.7;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── OJA PORTFOLIO HEADER ──────────────────────────────── */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(168,85,247,0.1);
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .site-header-inner {
+    max-width: 1280px; /* max-w-7xl */
+    margin: 0 auto;
+    padding: 1rem 1.5rem; /* px-6 py-4 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .site-header-inner { padding: 1rem 3rem; } /* sm:px-12 */
+  }
+
+  .site-header-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(ellipse at right, rgba(88,28,135,0.2), #000, #000);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .site-header-left {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .site-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+
+  .site-brand-j, .site-brand-c {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 900; /* font-black */
+    text-transform: uppercase;
+    letter-spacing: -0.025em; /* tracking-tight */
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .site-brand-j { color: #ffffff; }
+
+  .site-brand-c {
+    background: linear-gradient(to right, #c084fc, #e879f9); /* from-purple-400 to-fuchsia-400 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .site-header-right {
+    position: relative;
+    z-index: 10;
+  }
+
+  .github-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(168,85,247,0.3);
+    background: rgba(168,85,247,0.1);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    color: #d8b4fe; /* text-purple-300 */
+    box-shadow: 0 0 15px rgba(168,85,247,0.2);
+    transition: all 0.3s;
+    text-decoration: none;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .github-btn:hover {
+    border-color: rgba(168,85,247,0.5);
+    background: rgba(168,85,247,0.2);
+    box-shadow: 0 0 30px rgba(168,85,247,0.4);
+    transform: scale(1.05);
+  }
+
+  .github-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .github-text {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .github-text { display: inline; }
   }
 
   /* ─── HERO ─────────────────────────────────────── */
@@ -740,6 +858,7 @@
 
   /* ─── RESPONSIVE ───────────────────────────────── */
   @media (max-width: 768px) {
+    .site-header-inner { padding: 0.9rem 1rem; }
     .problem-grid,
     .security-intro,
     .challenge,
@@ -758,13 +877,20 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .hero-tag,
+  .hero-tag {
     color: var(--accent);
     background: linear-gradient(90deg, rgba(168,85,247,0.04), rgba(6,182,212,0.02));
     border: 1px solid rgba(168,85,247,0.12);
+  }
+
+  .hero-tag,
+  .hero h1,
+  .hero-desc,
+  .hero-badges,
   .hero-stats {
     animation: fadeUp 0.6s ease both;
   }
+
   .hero h1      { animation-delay: 0.08s; }
   .hero-desc    { animation-delay: 0.16s; }
   .hero-badges  { animation-delay: 0.24s; }
@@ -773,8 +899,26 @@
 </head>
 <body>
 
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="site-header-bg"></div>
+    <div class="site-header-left">
+      <a class="site-brand" href="/" aria-label="Ir a la página de inicio">
+        <span class="site-brand-j">Jorge</span>
+        <span class="site-brand-c">Condado</span>
+      </a>
+    </div>
+    <div class="site-header-right">
+      <a href="https://github.com/jorgee-cc" target="_blank" rel="noopener noreferrer" class="github-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        <span class="github-text">GitHub</span>
+      </a>
+    </div>
+  </div>
+</header>
+
 <!-- ═══════════════ HERO ═══════════════ -->
-<header class="hero">
+<section class="hero">
   <div class="hero-inner">
     <div class="hero-tag">Proyecto Full-Stack · Producción Real</div>
 
@@ -816,7 +960,7 @@
       </div>
     </div>
   </div>
-</header>
+</section>
 
 <!-- ═══════════════ PROBLEMA ═══════════════ -->
 <section>

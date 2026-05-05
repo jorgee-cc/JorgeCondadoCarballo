@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity } from "lucide-react";
+import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Lock } from "lucide-react";
 
 const projects = [
   {
@@ -21,7 +21,7 @@ const projects = [
   {
     title: "Prototipo La Velada VI",
     description: "Frontend de alto rendimiento diseñado para aguantar tráfico masivo y ofrecer una experiencia de streaming fluida.",
-    image: "/Preview.png",
+    image: "/images/Preview.png",
     features: [
       { icon: <MonitorPlay className="h-4 w-4" />, text: "React & Tailwind" },
       { icon: <Zap className="h-4 w-4" />, text: "Framer Motion" },
@@ -104,7 +104,12 @@ export const OtherProjects = memo(() => {
                 >
                   Ver Detalles <ArrowRight className="h-4 w-4" />
                 </a>
-              ) : null}
+              ) : (
+                <span className="mt-8 inline-flex items-center gap-2 text-sm text-zinc-600 cursor-default select-none">
+                  <Lock className="h-3.5 w-3.5" />
+                  Repositorio privado
+                </span>
+              )}
             </div>
           </motion.div>
         ))}
