@@ -123,6 +123,7 @@ export const OtherProjects = memo(() => {
                 </a>
               ) : (
                 <span className="mt-8 inline-flex items-center gap-2 text-sm text-zinc-600 cursor-default select-none">
+
                 </span>
               )}
             </div>
