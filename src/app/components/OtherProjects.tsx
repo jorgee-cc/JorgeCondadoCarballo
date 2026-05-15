@@ -16,7 +16,8 @@ const projects = [
     color: "from-cyan-500/20 to-blue-500/20",
     border: "group-hover:border-cyan-500/50",
     textHover: "group-hover:text-cyan-400",
-    link: null
+    link: null,
+    external: false
   },
   {
     title: "Prototipo La Velada VI",
@@ -31,7 +32,24 @@ const projects = [
     color: "from-purple-500/20 to-cyan-500/20",
     border: "group-hover:border-purple-500/50",
     textHover: "group-hover:text-purple-400",
-    link: "https://prototipo-velada-vi-jorge-condado-c.vercel.app/"
+    link: "https://prototipo-velada-vi-jorge-condado-c.vercel.app/",
+    external: true
+  },
+  {
+    title: "IronMan Ubiquitous System",
+    description: "Sistema ubicuo para triatlón que coordina atleta, dron y equipo de apoyo con comunicación en tiempo real y control por NUI.",
+    image: "/images/ironman-portfolio-thumb.svg",
+    features: [
+      { icon: <Mic className="h-4 w-4" />, text: "Voz y SOS" },
+      { icon: <Cpu className="h-4 w-4" />, text: "Sensores y gestos" },
+      { icon: <Share2 className="h-4 w-4" />, text: "Socket.IO" },
+      { icon: <Lock className="h-4 w-4" />, text: "Redundancia total" },
+    ],
+    color: "from-orange-500/20 to-red-500/20",
+    border: "group-hover:border-orange-500/50",
+    textHover: "group-hover:text-orange-400",
+    link: "/templates/ironman-portfolio.html",
+    external: false
   }
 ] as const;
 
@@ -50,7 +68,7 @@ export const OtherProjects = memo(() => {
         <div className="h-[1px] flex-1 bg-gradient-to-r from-purple-500/50 to-transparent" />
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
         {projects.map((project, idx) => (
           <motion.div
             key={project.title}
@@ -98,16 +116,13 @@ export const OtherProjects = memo(() => {
               {project.link ? (
                 <a
                   href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
+                  {...(project.external ? { target: "_blank", rel: "noreferrer" } : {})}
                   className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 transition-colors group-hover:text-white"
                 >
                   Ver Detalles <ArrowRight className="h-4 w-4" />
                 </a>
               ) : (
                 <span className="mt-8 inline-flex items-center gap-2 text-sm text-zinc-600 cursor-default select-none">
-                  <Lock className="h-3.5 w-3.5" />
-                  Repositorio privado
                 </span>
               )}
             </div>
