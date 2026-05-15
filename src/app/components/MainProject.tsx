@@ -97,8 +97,6 @@ export const MainProject = memo(() => {
           <div className="mt-4">
             <a
               href="/templates/talleresoja-portfolio.html"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-purple-400 font-semibold transition-colors hover:text-purple-300"
             >
               <ExternalLink className="h-5 w-5" />
