@@ -64,7 +64,7 @@ export default function App() {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen bg-black font-sans text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-white"
+      className="relative min-h-screen bg-black font-sans text-zinc-300 antialiased selection:bg-vigilante-red/30 selection:text-white"
       /*
        * ⚡ PERF: El efecto pointer-glow se mueve a CSS (ver theme.css)
        * Ya no hay <style> inline → cero overhead de reconciliación React

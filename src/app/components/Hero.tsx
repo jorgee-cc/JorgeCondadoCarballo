@@ -36,7 +36,7 @@ export const Hero = memo(() => {
           initial={INITIAL_STATES.scaleIn}
           animate={ANIMATE_IN}
           transition={TRANSITIONS.avatar}
-          className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.4)]"
+          className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-vigilante-red/40 shadow-[0_0_30px_rgba(217,22,22,0.4)]"
         >
           <ImageWithFallback
             src="/images/1726564320490.jpeg"
@@ -53,13 +53,13 @@ export const Hero = memo(() => {
           initial={INITIAL_STATES.scaleDown}
           animate={ANIMATE_IN}
           transition={TRANSITIONS.badge}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-md"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-vigilante-red/40 bg-vigilante-red/10 px-4 py-1.5 text-sm font-semibold text-red-200 shadow-[0_0_15px_rgba(217,22,22,0.2)] backdrop-blur-md"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-vigilante-red opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-vigilante-red" />
           </span>
-          ESTUDIANTE INGENIERIA INFORMATICA UC3M
+          ESTUDIANTE DE ING. INFORMÁTICA · UC3M — CONSTRUYENDO PRODUCTOS REALES
         </motion.div>
 
         <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
@@ -70,8 +70,8 @@ export const Hero = memo(() => {
           </span>
         </h1>
 
-        <div className="mx-auto mb-10 max-w-2xl rounded-xl border-l-4 border-purple-500/60 bg-zinc-900/50 p-6 text-lg font-medium text-zinc-300 sm:text-2xl">
-          Especializado en la creación de aplicaciones web escalables de principio a fin. Mi enfoque combina un frontend moderno, fluido y accesible con sistemas backend robustos, automatizados y desplegados en infraestructura propia. Construyo productos digitales que no solo destacan visualmente, sino que están diseñados para soportar tráfico masivo y entornos de producción exigentes.
+        <div className="mx-auto mb-10 max-w-2xl rounded-xl border-l-4 border-vigilante-red/60 bg-zinc-900/50 p-6 text-lg font-medium text-zinc-300 sm:text-2xl">
+          Construyo interfaces que no solo se ven bien, sino que aguantan cuando de verdad importa: tráfico real, producción real, usuarios reales. Frontend cuidado al detalle, respaldado por sistemas que yo mismo despliego y mantengo.
         </div>
 
       </motion.div>

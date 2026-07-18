@@ -50,38 +50,41 @@ export const BackgroundEffects = memo(() => {
       className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-black"
       style={{ isolation: "isolate" }}
     >
-      {/* BLOB 1 — Purple top-left
+      {/* BLOB 1 — Vigilante Red top-left
           GPU layer explícita con will-change + translateZ(0)
-          Estos ya estaban bien implementados en el original */}
+          Estos ya estaban bien implementados en el original
+          ⚡ REBRAND: recoloreado a la paleta real del proyecto Spider-Man */}
       <motion.div
         animate={BLOB_1_ANIMATE}
         transition={BLOB_1_TRANSITION}
         style={GPU_LAYER_STYLE}
-        className="absolute -top-[20%] -left-[10%] w-[50vw] h-[50vw] bg-purple-600/30 rounded-full blur-[120px]"
+        className="absolute -top-[20%] -left-[10%] w-[50vw] h-[50vw] bg-vigilante-red/30 rounded-full blur-[120px]"
       />
 
-      {/* BLOB 2 — Fuchsia right
+      {/* BLOB 2 — Reflective Blue right
           ⚡ FIX: Añadido GPU_LAYER_STYLE que faltaba
-          Sin will-change, este blob podía rasterizarse en CPU */}
+          Sin will-change, este blob podía rasterizarse en CPU
+          ⚡ REBRAND: recoloreado a la paleta real del proyecto Spider-Man */}
       <motion.div
         animate={BLOB_2_ANIMATE}
         transition={BLOB_2_TRANSITION}
         style={GPU_LAYER_STYLE}  /* ← AÑADIDO: faltaba en el original */
-        className="absolute top-[30%] -right-[10%] w-[40vw] h-[40vw] bg-fuchsia-600/30 rounded-full blur-[100px]"
+        className="absolute top-[30%] -right-[10%] w-[40vw] h-[40vw] bg-reflective-blue/40 rounded-full blur-[100px]"
       />
 
-      {/* BLOB 3 — Cyan bottom
+      {/* BLOB 3 — Golden Amber bottom
           ⚡ FIX CRÍTICO: 
           - Añadido GPU_LAYER_STYLE (faltaba)
           - Reducido de w-[60vw]/h-[60vw] a w-[50vw]/h-[50vw]
             y blur de 150px a 130px: misma percepción visual,
             ~30% menos textura GPU a rasterizar
-          - contain:strict aisla el cálculo del filtro */}
+          - contain:strict aisla el cálculo del filtro
+          ⚡ REBRAND: recoloreado a la paleta real del proyecto Spider-Man */}
       <motion.div
         animate={BLOB_3_ANIMATE}
         transition={BLOB_3_TRANSITION}
         style={GPU_LAYER_STYLE}  /* ← AÑADIDO: faltaba en el original */
-        className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] bg-cyan-600/20 rounded-full blur-[130px]"
+        className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] bg-golden-amber/20 rounded-full blur-[130px]"
       />
 
       {/* Noise overlay — estático, no necesita GPU layer */}

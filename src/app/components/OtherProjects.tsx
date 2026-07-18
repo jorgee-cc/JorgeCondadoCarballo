@@ -1,22 +1,22 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Lock, Eye, Fingerprint, CameraOff, ShieldAlert } from "lucide-react";
+import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Lock, Database, Cloud, Cog } from "lucide-react";
 
 const projects = [
   {
-    title: "Aplicaciones Web APIs",
-    description: "Interfaces avanzadas que conectan el mundo físico con el digital usando APIs nativas del navegador y Node.js.",
-    image: "https://images.unsplash.com/photo-1765445665883-085301570c87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2glMjBjb2RlfGVufDF8fHx8MTc3NDQ0NTM5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Sistema de Gestión - Talleres Oja",
+    description: "Plataforma full-stack que digitaliza un taller mecánico, con automatización, seguridad y despliegue estable para entornos de negocio reales.",
+    image: "/images/TalleresOja.png",
     features: [
-      { icon: <Compass className="h-4 w-4" />, text: "Geolocalización" },
-      { icon: <Cpu className="h-4 w-4" />, text: "Sensores" },
-      { icon: <Mic className="h-4 w-4" />, text: "Reconocimiento Voz" },
-      { icon: <Share2 className="h-4 w-4" />, text: "Backend Node.js" },
+      { icon: <Database className="h-4 w-4" />, text: "Flask & PostgreSQL" },
+      { icon: <Cloud className="h-4 w-4" />, text: "Automatización n8n" },
+      { icon: <Cog className="h-4 w-4" />, text: "VPS + Traefik + Docker" },
+      { icon: <Lock className="h-4 w-4" />, text: "Auditado OWASP Top 10" },
     ],
-    color: "from-cyan-500/20 to-blue-500/20",
-    border: "group-hover:border-cyan-500/50",
-    textHover: "group-hover:text-cyan-400",
-    link: null,
+    color: "from-blue-500/20 to-zinc-500/20",
+    border: "group-hover:border-reflective-blue/60",
+    textHover: "group-hover:text-blue-400",
+    link: "/templates/talleresoja-portfolio.html",
     external: false
   },
   {
@@ -29,9 +29,9 @@ const projects = [
       { icon: <Activity className="h-4 w-4" />, text: "60 FPS Animaciones" },
       { icon: <Cpu className="h-4 w-4" />, text: "Rendimiento Extremo" },
     ],
-    color: "from-purple-500/20 to-cyan-500/20",
-    border: "group-hover:border-purple-500/50",
-    textHover: "group-hover:text-purple-400",
+    color: "from-red-500/20 to-blue-500/20",
+    border: "group-hover:border-vigilante-red/50",
+    textHover: "group-hover:text-red-400",
     link: "https://prototipo-velada-vi-jorge-condado-c.vercel.app/",
     external: true
   },
@@ -52,19 +52,18 @@ const projects = [
     external: false
   },
   {
-    title: "Spiderman: Brand New Day",
-    description: "Interfaz forense D.O.D.C. en clave noir digital, donde el traje, la evidencia y el tráiler se presentan como un caso de investigación visual.",
-    image: "/images/Spiderman_BrandNewDay.png",
+    title: "Aplicaciones Web APIs",
+    description: "Interfaces avanzadas que conectan el mundo físico con el digital usando APIs nativas del navegador y Node.js.",
+    image: "https://images.unsplash.com/photo-1765445665883-085301570c87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2glMjBjb2RlfGVufDF8fHx8MTc3NDQ0NTM5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
     features: [
-      { icon: <CameraOff className="h-4 w-4" />, text: "UX inmersiva" },
-      { icon: <Fingerprint className="h-4 w-4" />, text: "Story Telling" },
-      { icon: <Eye className="h-4 w-4" />, text: "Fluidez" },
-      { icon: <ShieldAlert className="h-4 w-4" />, text: "Audio y videos" },
+      { icon: <Compass className="h-4 w-4" />, text: "Geolocalización" },
+      { icon: <Cpu className="h-4 w-4" />, text: "Sensores" },
+      { icon: <Mic className="h-4 w-4" />, text: "Reconocimiento Voz" },
+      { icon: <Share2 className="h-4 w-4" />, text: "Backend Node.js" },
     ],
-    color: "from-red-500/20 to-blue-500/20",
-    border: "group-hover:border-red-500/50",
-    textHover: "group-hover:text-red-400",
-    demoLink: "https://spiderman-brand-new-day-gamma.vercel.app/",
+    color: "from-cyan-500/20 to-blue-500/20",
+    border: "group-hover:border-cyan-500/50",
+    textHover: "group-hover:text-cyan-400",
     link: null,
     external: false
   }
@@ -79,10 +78,10 @@ export const OtherProjects = memo(() => {
             MÁS PROYECTOS
           </h2>
           <p className="mt-4 text-xl text-zinc-400">
-            De la infraestructura al frontend inmersivo
+            Más allá de esta pieza, mi trabajo cubre tanto el frontend inmersivo como la infraestructura que lo sostiene: desde un sistema en producción con Docker y VPS propio, hasta un frontend a 60fps pensado para aguantar la avalancha de tráfico de un evento en directo.
           </p>
         </div>
-        <div className="h-[1px] flex-1 bg-gradient-to-r from-purple-500/50 to-transparent" />
+        <div className="h-[1px] flex-1 bg-gradient-to-r from-vigilante-red/50 to-transparent" />
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
@@ -93,7 +92,7 @@ export const OtherProjects = memo(() => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: idx * 0.2 }}
-            className={`group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-1 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(168,85,247,0.3)] ${project.border}`}
+            className={`group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-1 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(217,22,22,0.3)] ${project.border}`}
           >
             {/* Inner background glow */}
             <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
@@ -123,23 +122,12 @@ export const OtherProjects = memo(() => {
                 <div className="grid grid-cols-2 gap-3">
                   {project.features.map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-center gap-2 rounded-md bg-zinc-900 px-3 py-2 text-sm text-zinc-300">
-                      <span className="text-purple-400">{feature.icon}</span>
+                      <span className="text-red-400">{feature.icon}</span>
                       {feature.text}
                     </div>
                   ))}
                 </div>
               </div>
-
-              {"demoLink" in project && project.demoLink ? (
-                <a
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-8 inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-300 transition-colors hover:border-red-400/70 hover:bg-red-500/20 hover:text-white"
-                >
-                  Ver demo en vivo <ArrowRight className="h-4 w-4" />
-                </a>
-              ) : null}
 
               {project.link ? (
                 <a

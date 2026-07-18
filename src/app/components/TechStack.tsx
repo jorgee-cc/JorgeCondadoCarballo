@@ -5,10 +5,10 @@ import { Code2, Server, Terminal, Settings } from "lucide-react";
 const stackCategories = [
   {
     title: "Frontend",
-    icon: <Code2 className="h-6 w-6 text-fuchsia-400" />,
-    skills: ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
-    glow: "shadow-[0_0_30px_rgba(217,70,239,0.15)]",
-    border: "border-fuchsia-500/20"
+    icon: <Code2 className="h-6 w-6 text-red-400" />,
+    skills: ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Framer Motion", "Web Audio API"],
+    glow: "shadow-[0_0_30px_rgba(217,22,22,0.15)]",
+    border: "border-vigilante-red/20"
   },
   {
     title: "Backend",
@@ -19,10 +19,10 @@ const stackCategories = [
   },
   {
     title: "DevOps & Cloud",
-    icon: <Terminal className="h-6 w-6 text-purple-400" />,
+    icon: <Terminal className="h-6 w-6 text-amber-400" />,
     skills: ["Git", "GitHub", "Vercel", "CI/CD"],
-    glow: "shadow-[0_0_30px_rgba(168,85,247,0.15)]",
-    border: "border-purple-500/20"
+    glow: "shadow-[0_0_30px_rgba(201,151,75,0.15)]",
+    border: "border-golden-amber/20"
   },
   {
     title: "Sistemas & Arquitectura",

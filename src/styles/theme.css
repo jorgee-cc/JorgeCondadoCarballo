@@ -79,6 +79,15 @@
 }
 
 @theme inline {
+  /* Tokens tomados del sistema de diseño real del proyecto
+     Spiderman_BrandNewDay (tailwind.config.js) para dar coherencia
+     de marca entre la landing y el portfolio. */
+  --color-vigilante-red: #d91616;
+  --color-reflective-blue: #0e325c;
+  --color-void-black: #0b0c0d;
+  --color-golden-amber: #c9974b;
+  --color-bone-white: #e7e4dd;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -241,7 +250,7 @@
     height: 100vh;
     background: radial-gradient(
       600px circle at var(--x) var(--y),
-      rgba(168, 85, 247, 0.05),
+      rgba(217, 22, 22, 0.05),
       transparent 40%
     );
     pointer-events: none;

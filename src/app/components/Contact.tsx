@@ -13,20 +13,20 @@ export const Contact = memo(() => {
         className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950/90 p-6 text-center shadow-[0_24px_120px_rgba(0,0,0,0.45)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-16"
       >
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.22),_transparent_46%),linear-gradient(180deg,rgba(24,24,27,0.96),rgba(9,9,11,1))] opacity-90 transition-opacity duration-1000 group-hover:opacity-100" />
-        <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-fuchsia-500/10 blur-3xl" />
-        <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-violet-500/10 blur-3xl" />
+        <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-vigilante-red/10 blur-3xl" />
+        <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-reflective-blue/20 blur-3xl" />
 
         <div className="relative z-10 mx-auto max-w-4xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-fuchsia-200/80 sm:text-sm">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-red-200/80 sm:text-sm">
             Contacto
           </p>
 
           <h2 className="mx-auto max-w-3xl text-3xl font-black uppercase tracking-tight text-white sm:text-5xl md:text-6xl">
-            ¿Construimos juntos nuevos proyectos?
+            ¿Construimos la landing?
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-300 sm:text-base sm:leading-8">
-            Si tienes una idea, una colaboración o necesitas ayuda con un proyecto, puedes escribirme o llamarme.
+            Aquí puedes escribirme directamente si tienes una idea, una colaboración, o quieres hablar del proyecto.
           </p>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-4 sm:mt-10 sm:flex-row sm:items-center">
@@ -34,7 +34,7 @@ export const Contact = memo(() => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="mailto:jorge.condado.carballo@gmail.com" // Placeholder email, user only provided "Email"
-              className="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-fuchsia-600 to-violet-600 px-5 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(168,85,247,0.35)] transition-all hover:shadow-[0_18px_50px_rgba(168,85,247,0.5)] sm:w-auto sm:px-7"
+              className="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-vigilante-red to-red-800 px-5 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(217,22,22,0.35)] transition-all hover:shadow-[0_18px_50px_rgba(217,22,22,0.5)] sm:w-auto sm:px-7"
             >
               <Mail className="h-5 w-5" />
               <span>jorge.condado.carballo@gmail.com</span>
