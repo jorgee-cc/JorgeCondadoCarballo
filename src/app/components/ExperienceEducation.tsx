@@ -57,9 +57,9 @@ export const ExperienceEducation = memo(() => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, delay: idx * 0.15 }}
-          className="group relative flex items-start gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 backdrop-blur-md transition-all hover:bg-zinc-800/60"
+            className="group relative flex items-start gap-4 rounded-2xl border border-zinc-800 bg-[#0b1a31]/30 p-6 backdrop-blur-md transition-all hover:bg-[#102742]/60"
               >
-          <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-zinc-950 shadow-inner group-hover:scale-110 transition-transform duration-300">
+            <div className="mt-1 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#07111f] shadow-inner group-hover:scale-110 transition-transform duration-300">
             <exp.Icon className={`h-6 w-6 ${exp.iconColor}`} />
           </div>
           <div>
@@ -89,7 +89,7 @@ export const ExperienceEducation = memo(() => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-2xl border border-blue-500/20 bg-blue-950/20 p-8 shadow-[0_0_30px_rgba(59,130,246,0.1)] backdrop-blur-md"
+            className="relative overflow-hidden rounded-2xl border border-blue-500/20 bg-[#0b1a31]/20 p-8 shadow-[0_0_30px_rgba(59,130,246,0.1)] backdrop-blur-md"
           >
             <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blue-600/20 blur-3xl" />
             
@@ -101,7 +101,7 @@ export const ExperienceEducation = memo(() => {
               <h3 className="mb-2 text-2xl font-bold text-white">Ingeniería Informática</h3>
               <p className="mb-4 text-xl font-medium text-blue-300">Universidad Carlos III</p>
               
-              <div className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-4 py-1.5 text-sm font-semibold text-zinc-300">
+              <div className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-[#102742] px-4 py-1.5 text-sm font-semibold text-zinc-300">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 Impartido en Inglés
               </div>

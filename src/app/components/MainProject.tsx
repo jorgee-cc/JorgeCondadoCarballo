@@ -34,8 +34,8 @@ export const MainProject = memo(() => {
           {/* Neon border glow effect — recoloreado a la paleta real del proyecto */}
           <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-red-700 via-red-500 to-blue-600 opacity-70 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
 
-          <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 p-2 shadow-2xl">
-            <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
+          <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-[#0b1a31] p-2 shadow-2xl">
+            <div className="relative aspect-video overflow-hidden rounded-xl bg-[#07111f]">
               {/* Project presentation image */}
               <img
                 src="/images/Spiderman_BrandNewDay.png"

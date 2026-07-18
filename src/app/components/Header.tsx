@@ -9,10 +9,10 @@ const NAV_LINKS = [
 
 export const Header = memo(() => {
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-vigilante-red/10 bg-black/80 backdrop-blur-2xl">
+    <header className="fixed top-0 z-50 w-full border-b border-vigilante-red/10 bg-[#081629]/80 backdrop-blur-2xl">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-12">
         {/* Glow effect background */}
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-red-950/20 via-black to-black opacity-60" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-blue-950/30 via-[#07111f] to-[#050b14] opacity-60" />
 
         <div className="relative z-10 flex items-center gap-8 flex-1">
           {/* Logo/Name */}
@@ -26,7 +26,7 @@ export const Header = memo(() => {
               <span className="text-xl font-black uppercase tracking-tight text-white">
                 Jorge
               </span>
-              <span className="text-xl font-black uppercase tracking-tight bg-gradient-to-r from-red-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="text-xl font-black uppercase tracking-tight bg-gradient-to-r from-red-400 to-cyan-300 bg-clip-text text-transparent">
                 Condado
               </span>
             </a>

@@ -47,7 +47,7 @@ export const BackgroundEffects = memo(() => {
      * y fuercen recomposición del árbol entero en cada frame
      */
     <div
-      className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-black"
+      className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#07111f]"
       style={{ isolation: "isolate" }}
     >
       {/* BLOB 1 — Vigilante Red top-left
@@ -98,7 +98,7 @@ export const BackgroundEffects = memo(() => {
       />
 
       {/* Gradient fade — estático */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06101d]/50 to-[#050b14]" />
     </div>
   );
 });

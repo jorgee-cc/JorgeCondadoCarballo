@@ -1,0 +1,21 @@
+import{c as t,r as o,j as e,m as i}from"./index-DNXmO0bA.js";/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const n=[["path",{d:"m18 16 4-4-4-4",key:"1inbqp"}],["path",{d:"m6 8-4 4 4 4",key:"15zrgr"}],["path",{d:"m14.5 4-5 16",key:"e7oirm"}]],c=t("code-xml",n);/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const d=[["rect",{width:"20",height:"8",x:"2",y:"2",rx:"2",ry:"2",key:"ngkwjq"}],["rect",{width:"20",height:"8",x:"2",y:"14",rx:"2",ry:"2",key:"iecqi9"}],["line",{x1:"6",x2:"6.01",y1:"6",y2:"6",key:"16zg32"}],["line",{x1:"6",x2:"6.01",y1:"18",y2:"18",key:"nzw8ys"}]],x=t("server",d);/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const m=[["path",{d:"M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z",key:"1qme2f"}],["circle",{cx:"12",cy:"12",r:"3",key:"1v7zrd"}]],h=t("settings",m);/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const p=[["polyline",{points:"4 17 10 11 4 5",key:"akl6gq"}],["line",{x1:"12",x2:"20",y1:"19",y2:"19",key:"q2wloq"}]],y=t("terminal",p),w=[{title:"Frontend",icon:e.jsx(c,{className:"h-6 w-6 text-red-400"}),skills:["React","JavaScript","HTML","CSS","Tailwind CSS","Framer Motion","Web Audio API"],glow:"shadow-[0_0_30px_rgba(217,22,22,0.15)]",border:"border-vigilante-red/20"},{title:"Backend",icon:e.jsx(x,{className:"h-6 w-6 text-cyan-400"}),skills:["Python","Flask","SQL","C","C++"],glow:"shadow-[0_0_30px_rgba(34,211,238,0.15)]",border:"border-cyan-500/20"},{title:"DevOps & Cloud",icon:e.jsx(y,{className:"h-6 w-6 text-amber-400"}),skills:["Git","GitHub","Vercel","CI/CD"],glow:"shadow-[0_0_30px_rgba(201,151,75,0.15)]",border:"border-golden-amber/20"},{title:"Sistemas & Arquitectura",icon:e.jsx(h,{className:"h-6 w-6 text-emerald-400"}),skills:["n8n","Automatización","Colas (Message Queues)"],glow:"shadow-[0_0_30px_rgba(52,211,153,0.15)]",border:"border-emerald-500/20"}],b=o.memo(()=>e.jsxs("section",{className:"relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12",children:[e.jsxs("div",{className:"mb-20 text-center",children:[e.jsx(i.h2,{initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0,amount:.5},className:"text-4xl font-extrabold tracking-tight text-white sm:text-6xl drop-shadow-md",children:"STACK TÉCNICO"}),e.jsx("p",{className:"mt-4 text-xl font-medium text-zinc-400",children:"Herramientas para escalar a millones de usuarios"})]}),e.jsx("div",{className:"grid gap-8 sm:grid-cols-2 lg:grid-cols-4",children:w.map((a,l)=>e.jsxs(i.div,{initial:{opacity:0,scale:.9,y:30},whileInView:{opacity:1,scale:1,y:0},viewport:{once:!0,amount:.2},transition:{duration:.5,delay:l*.1},whileHover:{y:-5},className:`flex flex-col rounded-2xl border bg-[#0b1a31]/50 p-6 backdrop-blur-xl transition-all duration-300 ${a.border} ${a.glow}`,children:[e.jsx("div",{className:"mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#07111f] shadow-inner",children:a.icon}),e.jsx("h3",{className:"mb-4 text-xl font-bold text-white",children:a.title}),e.jsx("div",{className:"flex flex-wrap gap-2",children:a.skills.map((s,r)=>e.jsx("span",{className:"rounded-md border border-zinc-800 bg-[#07111f] px-3 py-1 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-700 hover:text-white",children:s},r))})]},a.title))})]}));b.displayName="TechStack";export{b as TechStack};

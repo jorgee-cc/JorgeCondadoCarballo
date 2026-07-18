@@ -59,9 +59,9 @@ export const TechStack = memo(() => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             whileHover={{ y: -5 }}
-            className={`flex flex-col rounded-2xl border bg-zinc-900/50 p-6 backdrop-blur-xl transition-all duration-300 ${category.border} ${category.glow}`}
+            className={`flex flex-col rounded-2xl border bg-[#0b1a31]/50 p-6 backdrop-blur-xl transition-all duration-300 ${category.border} ${category.glow}`}
           >
-            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-zinc-950 shadow-inner">
+            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#07111f] shadow-inner">
               {category.icon}
             </div>
             
@@ -73,7 +73,7 @@ export const TechStack = memo(() => {
               {category.skills.map((skill, sIdx) => (
                 <span
                   key={sIdx}
-                  className="rounded-md border border-zinc-800 bg-zinc-950 px-3 py-1 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-700 hover:text-white"
+                  className="rounded-md border border-zinc-800 bg-[#07111f] px-3 py-1 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-700 hover:text-white"
                 >
                   {skill}
                 </span>

@@ -10,9 +10,9 @@ export const Contact = memo(() => {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
-        className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950/90 p-6 text-center shadow-[0_24px_120px_rgba(0,0,0,0.45)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-16"
+        className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1a31]/90 p-6 text-center shadow-[0_24px_120px_rgba(0,0,0,0.45)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-16"
       >
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.22),_transparent_46%),linear-gradient(180deg,rgba(24,24,27,0.96),rgba(9,9,11,1))] opacity-90 transition-opacity duration-1000 group-hover:opacity-100" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,_rgba(79,143,224,0.2),_transparent_46%),linear-gradient(180deg,rgba(11,26,49,0.96),rgba(7,17,31,1))] opacity-90 transition-opacity duration-1000 group-hover:opacity-100" />
         <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-vigilante-red/10 blur-3xl" />
         <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-reflective-blue/20 blur-3xl" />
 
