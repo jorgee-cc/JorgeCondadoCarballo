@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Lock } from "lucide-react";
+import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Lock, Eye, Fingerprint, CameraOff, ShieldAlert } from "lucide-react";
 
 const projects = [
   {
@@ -49,6 +49,23 @@ const projects = [
     border: "group-hover:border-orange-500/50",
     textHover: "group-hover:text-orange-400",
     link: "/templates/ironman-portfolio.html",
+    external: false
+  },
+  {
+    title: "Spiderman: Brand New Day",
+    description: "Interfaz forense D.O.D.C. en clave noir digital, donde el traje, la evidencia y el tráiler se presentan como un caso de investigación visual.",
+    image: "/images/Spiderman_BrandNewDay.png",
+    features: [
+      { icon: <CameraOff className="h-4 w-4" />, text: "UX inmersiva" },
+      { icon: <Fingerprint className="h-4 w-4" />, text: "Story Telling" },
+      { icon: <Eye className="h-4 w-4" />, text: "Fluidez" },
+      { icon: <ShieldAlert className="h-4 w-4" />, text: "Audio y videos" },
+    ],
+    color: "from-red-500/20 to-blue-500/20",
+    border: "group-hover:border-red-500/50",
+    textHover: "group-hover:text-red-400",
+    demoLink: "https://spiderman-brand-new-day-gamma.vercel.app/",
+    link: null,
     external: false
   }
 ] as const;
@@ -112,6 +129,17 @@ export const OtherProjects = memo(() => {
                   ))}
                 </div>
               </div>
+
+              {"demoLink" in project && project.demoLink ? (
+                <a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-300 transition-colors hover:border-red-400/70 hover:bg-red-500/20 hover:text-white"
+                >
+                  Ver demo en vivo <ArrowRight className="h-4 w-4" />
+                </a>
+              ) : null}
 
               {project.link ? (
                 <a
