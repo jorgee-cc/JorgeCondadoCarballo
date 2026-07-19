@@ -18,7 +18,7 @@ export const MainProject = memo(() => {
           Spider-Man: Brand New Day
         </motion.h2>
         <p className="mt-4 text-xl font-medium text-zinc-400">
-          Una landing pensada como caso de investigación, no como página de fans
+          Una landing pensada como caso de investigación, una historia en la que el usuario es protagonista 
         </p>
       </div>
 
@@ -91,8 +91,7 @@ export const MainProject = memo(() => {
                 Audio real, no de adorno
               </div>
               <p className="text-sm text-zinc-500">
-                Web Audio API (AudioContext, buffers decodificados) para ambiente de lluvia y una
-                secuencia de "desencriptado" antes de revelar el contenido.
+                Web Audio API (AudioContext, buffers decodificados) para ambiente de lluvia y una musica de tensión para cerrar la experiencia del usuario.
               </p>
             </div>
 
