@@ -2,7 +2,7 @@
 
 Bienvenido al repositorio de mi portfolio personal. Esta plataforma no es solo un escaparate visual, sino una **Single Page Application (SPA)** de alto rendimiento diseñada y desarrollada desde cero para demostrar mis capacidades como Desarrollador Full-Stack y Frontend avanzado.
 
-🌐 **Ver Portfolio en Vivo:** [AQUÍ TU ENLACE DE VERCEL]
+🌐 **Ver Portfolio en Vivo:** https://jorge-condado-carballo.vercel.app/ 
 
 ---
 
