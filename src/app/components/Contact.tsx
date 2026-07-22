@@ -22,11 +22,11 @@ export const Contact = memo(() => {
           </p>
 
           <h2 className="mx-auto max-w-3xl text-3xl font-black uppercase tracking-tight text-white sm:text-5xl md:text-6xl">
-            ¿Construimos la landing?
+            Una gran pagina web conlleva una gran responsabilidad ¿ Hablamos ?
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-300 sm:text-base sm:leading-8">
-            Aquí puedes escribirme directamente si tienes una idea, una colaboración, o quieres hablar del proyecto.
+            Ya tengo experiencia tejiendo redes en este multiverso. En mi portfolio puedes ver cómo aterrizo ideas inmersivas utilizando React y Framer Motion, exactamente como hice en mi proyecto de Spider-Man: Brand New Day. Pero no me quedo solo en lo visual: empiezo desde los cimientos y me aseguro de que el rendimiento sea extremo (a 60fps) y la arquitectura tan robusta como para aguantar una portada del Daily Bugle. Si buscas un desarrollo cuidado al milímetro y capaz de soportar tráfico real, escríbeme y nos ponemos la máscara.
           </p>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-4 sm:mt-10 sm:flex-row sm:items-center">
