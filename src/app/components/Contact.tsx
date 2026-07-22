@@ -21,19 +21,29 @@ export const Contact = memo(() => {
             Contacto
           </p>
 
-          <h2 className="mx-auto max-w-3xl text-3xl font-black uppercase tracking-tight text-white sm:text-5xl md:text-6xl">
-            Una gran pagina web conlleva una gran responsabilidad ¿ Hablamos ?
+          {/* Título más corto y sin uppercase para que respire mejor en móvil */}
+          <h2 className="mx-auto max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl md:text-6xl">
+            Un gran proyecto conlleva una gran web. <br className="hidden sm:block" /> ¿Hablamos?
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-300 sm:text-base sm:leading-8">
-            Ya tengo experiencia tejiendo redes en este multiverso. En mi portfolio puedes ver cómo aterrizo ideas inmersivas utilizando React y Framer Motion, exactamente como hice en mi proyecto de Spider-Man: Brand New Day. Pero no me quedo solo en lo visual: empiezo desde los cimientos y me aseguro de que el rendimiento sea extremo (a 60fps) y la arquitectura tan robusta como para aguantar una portada del Daily Bugle. Si buscas un desarrollo cuidado al milímetro y capaz de soportar tráfico real, escríbeme y nos ponemos la máscara.
-          </p>
+          {/* Párrafos separados y reducidos para facilitar la lectura en móvil */}
+          <div className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base sm:leading-8 flex flex-col gap-4">
+            <p>
+              Ya tengo experiencia tejiendo redes en este multiverso. En mi portfolio puedes ver cómo aterrizo ideas inmersivas utilizando <strong className="text-white font-semibold">React y Framer Motion</strong>.
+            </p>
+            <p>
+              Pero no me quedo solo en lo visual: me aseguro de que el rendimiento sea extremo (a 60fps) y la arquitectura tan robusta como para aguantar una portada del Daily Bugle.
+            </p>
+            <p>
+              Si buscas un desarrollo capaz de soportar tráfico real, escríbeme y nos ponemos la máscara.
+            </p>
+          </div>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-4 sm:mt-10 sm:flex-row sm:items-center">
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="mailto:jorge.condado.carballo@gmail.com" // Placeholder email, user only provided "Email"
+              href="mailto:jorge.condado.carballo@gmail.com"
               className="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-vigilante-red to-red-800 px-5 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(217,22,22,0.35)] transition-all hover:shadow-[0_18px_50px_rgba(217,22,22,0.5)] sm:w-auto sm:px-7"
             >
               <Mail className="h-5 w-5" />
@@ -43,7 +53,7 @@ export const Contact = memo(() => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="tel:+34611176138" // Placeholder phone
+              href="tel:+34611176138"
               className="flex w-full items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3.5 font-semibold text-white transition-all hover:border-white/20 hover:bg-white/10 sm:w-auto sm:px-7"
             >
               <Phone className="h-5 w-5" />
