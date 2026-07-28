@@ -45,7 +45,7 @@ export const Contact = memo(() => {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500"></span>
               </span>
               <Globe className="h-3.5 w-3.5" />
-              <span>Actualmente fuera de la UE. Mejor por WhatsApp.</span>
+              <span>Actualmente no me llegan llamadas, mejor por WhatsApp. Muchas gracias !</span>
             </div>
           </div>
 
