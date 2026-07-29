@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Mail, MessageCircle, Github, Globe } from "lucide-react";
+import { Mail, Phone, Github } from "lucide-react";
 
 export const Contact = memo(() => {
   return (
@@ -21,10 +21,12 @@ export const Contact = memo(() => {
             Contacto
           </p>
 
+          {/* Título más corto y sin uppercase para que respire mejor en móvil */}
           <h2 className="mx-auto max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl md:text-6xl">
             Un gran proyecto conlleva una gran web. <br className="hidden sm:block" /> ¿Hablamos?
           </h2>
 
+          {/* Párrafos separados y reducidos para facilitar la lectura en móvil */}
           <div className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base sm:leading-8 flex flex-col gap-4">
             <p>
               Ya tengo experiencia tejiendo redes en este multiverso. En mi portfolio puedes ver cómo aterrizo ideas inmersivas utilizando <strong className="text-white font-semibold">React y Framer Motion</strong>.
@@ -37,19 +39,7 @@ export const Contact = memo(() => {
             </p>
           </div>
 
-          {/* Badge animado de estado - Aviso Fuera de UE */}
-          <div className="mt-8 flex justify-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-2 text-xs font-medium text-amber-200 backdrop-blur-md sm:text-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500"></span>
-              </span>
-              <Globe className="h-3.5 w-3.5" />
-              <span>Actualmente no me llegan llamadas, mejor por WhatsApp. Muchas gracias !</span>
-            </div>
-          </div>
-
-          <div className="mt-6 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col items-stretch justify-center gap-4 sm:mt-10 sm:flex-row sm:items-center">
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -63,13 +53,11 @@ export const Contact = memo(() => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="https://wa.me/34611176138"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3.5 font-semibold text-white transition-all hover:border-green-400/40 hover:bg-green-500/10 hover:text-green-300 sm:w-auto sm:px-7"
+              href="tel:+34611176138"
+              className="flex w-full items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3.5 font-semibold text-white transition-all hover:border-white/20 hover:bg-white/10 sm:w-auto sm:px-7"
             >
-              <MessageCircle className="h-5 w-5" />
-              <span>WhatsApp: +34 611 17 61 38</span>
+              <Phone className="h-5 w-5" />
+              <span>+34 611 17 61 38</span>
             </motion.a>
           </div>
           
