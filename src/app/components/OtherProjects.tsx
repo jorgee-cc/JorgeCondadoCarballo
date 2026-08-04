@@ -1,23 +1,23 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Lock, Database, Cloud, Cog } from "lucide-react";
+import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Palette } from "lucide-react";
 
 const projects = [
   {
-    title: "Sistema de Gestión - Talleres Oja",
-    description: "Plataforma full-stack que digitaliza un taller mecánico, con automatización, seguridad y despliegue estable para entornos de negocio reales.",
-    image: "/images/TalleresOja.png",
+    title: "Spider-Man: Brand New Day",
+    description: "Landing narrativa interactiva con animaciones de alto rendimiento ligadas al scroll y ambiente sonoro real.",
+    image: "/images/Spiderman_BrandNewDay.png",
     features: [
-      { icon: <Database className="h-4 w-4" />, text: "Flask & PostgreSQL" },
-      { icon: <Cloud className="h-4 w-4" />, text: "Automatización n8n" },
-      { icon: <Cog className="h-4 w-4" />, text: "VPS + Traefik + Docker" },
-      { icon: <Lock className="h-4 w-4" />, text: "Auditado OWASP Top 10" },
+      { icon: <MonitorPlay className="h-4 w-4" />, text: "Astro & React" },
+      { icon: <Zap className="h-4 w-4" />, text: "Framer Motion" },
+      { icon: <Activity className="h-4 w-4" />, text: "Web Audio API" },
+      { icon: <Palette className="h-4 w-4" />, text: "UI/UX Cinematográfica" },
     ],
-    color: "from-blue-500/20 to-zinc-500/20",
-    border: "group-hover:border-reflective-blue/60",
-    textHover: "group-hover:text-blue-400",
-    link: "/templates/talleresoja-portfolio.html",
-    external: false
+    color: "from-red-500/20 to-blue-500/20",
+    border: "group-hover:border-red-500/50",
+    textHover: "group-hover:text-red-400",
+    link: "https://spiderman-brand-new-day-gamma.vercel.app/",
+    external: true
   },
   {
     title: "Prototipo La Velada VI",
@@ -29,9 +29,9 @@ const projects = [
       { icon: <Activity className="h-4 w-4" />, text: "60 FPS Animaciones" },
       { icon: <Cpu className="h-4 w-4" />, text: "Rendimiento Extremo" },
     ],
-    color: "from-red-500/20 to-blue-500/20",
-    border: "group-hover:border-vigilante-red/50",
-    textHover: "group-hover:text-red-400",
+    color: "from-purple-500/20 to-blue-500/20",
+    border: "group-hover:border-purple-500/50",
+    textHover: "group-hover:text-purple-400",
     link: "https://prototipo-velada-vi-jorge-condado-c.vercel.app/",
     external: true
   },
@@ -43,7 +43,7 @@ const projects = [
       { icon: <Mic className="h-4 w-4" />, text: "Voz y SOS" },
       { icon: <Cpu className="h-4 w-4" />, text: "Sensores y gestos" },
       { icon: <Share2 className="h-4 w-4" />, text: "Socket.IO" },
-      { icon: <Lock className="h-4 w-4" />, text: "Redundancia total" },
+      { icon: <Activity className="h-4 w-4" />, text: "Redundancia total" },
     ],
     color: "from-orange-500/20 to-red-500/20",
     border: "group-hover:border-orange-500/50",
@@ -78,10 +78,10 @@ export const OtherProjects = memo(() => {
             MÁS PROYECTOS
           </h2>
           <p className="mt-4 text-xl text-zinc-400">
-            Más allá de esta pieza, mi trabajo cubre tanto el frontend inmersivo como la infraestructura que lo sostiene: desde un sistema en producción con Docker y VPS propio, hasta un frontend a 60fps pensado para aguantar la avalancha de tráfico de un evento en directo.
+            Experiencia desarrollando desde interfaces ultra fluidas a 60fps hasta sistemas ubicuos conectados en tiempo real.
           </p>
         </div>
-        <div className="h-[1px] flex-1 bg-gradient-to-r from-vigilante-red/50 to-transparent" />
+        <div className="h-[1px] flex-1 bg-gradient-to-r from-blue-500/50 to-transparent" />
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
@@ -92,9 +92,8 @@ export const OtherProjects = memo(() => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: idx * 0.2 }}
-            className={`group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-1 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(217,22,22,0.3)] ${project.border}`}
+            className={`group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-1 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(59,130,246,0.2)] ${project.border}`}
           >
-            {/* Inner background glow */}
             <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
             
             <div className="relative flex flex-1 flex-col rounded-xl bg-zinc-950 p-6 sm:p-8">
@@ -122,7 +121,7 @@ export const OtherProjects = memo(() => {
                 <div className="grid grid-cols-2 gap-3">
                   {project.features.map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-center gap-2 rounded-md bg-zinc-900 px-3 py-2 text-sm text-zinc-300">
-                      <span className="text-red-400">{feature.icon}</span>
+                      <span className="text-blue-400">{feature.icon}</span>
                       {feature.text}
                     </div>
                   ))}
@@ -139,7 +138,6 @@ export const OtherProjects = memo(() => {
                 </a>
               ) : (
                 <span className="mt-8 inline-flex items-center gap-2 text-sm text-zinc-600 cursor-default select-none">
-
                 </span>
               )}
             </div>
