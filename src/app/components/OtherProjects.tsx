@@ -1,8 +1,44 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Palette } from "lucide-react";
+import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Palette, Github } from "lucide-react";
 
 const projects = [
+  {
+    title: "DistributedMessagingSystem-Multi-threaded-TCP-RPC-SOAP-Architecture",
+    description: "Sistema distribuido de mensajería de alta concurrencia con servidor multihilo en C, clientes Python, entregas diferidas, transferencia P2P y servicios SOAP y ONC-RPC.",
+    image: "/images/distributed-messaging-system-thumb.svg",
+    features: [
+      { icon: <Cpu className="h-4 w-4" />, text: "C · pthreads" },
+      { icon: <Share2 className="h-4 w-4" />, text: "TCP + P2P" },
+      { icon: <Compass className="h-4 w-4" />, text: "SOAP + ONC-RPC" },
+      { icon: <Activity className="h-4 w-4" />, text: "Store & Forward" },
+    ],
+    color: "from-emerald-500/20 to-cyan-500/20",
+    border: "group-hover:border-emerald-500/50",
+    textHover: "group-hover:text-emerald-300",
+    link: "https://github.com/jorgee-cc/DistributedMessagingSystem-Multi-threaded-TCP-RPC-SOAP-Architecture",
+    external: true,
+    isGithub: true,
+    ctaLabel: "Ver en GitHub",
+  },
+  {
+    title: "Optimización de Flotas de Autobuses",
+    description: "Case study de Investigación Operativa con dos modelos MIP en GNU MathProg, resueltos por GLPK y orquestados desde Python.",
+    image: "/images/linear-programming-bus-scheduling-thumb.svg",
+    features: [
+      { icon: <MonitorPlay className="h-4 w-4" />, text: "Python 3" },
+      { icon: <Cpu className="h-4 w-4" />, text: "GLPK" },
+      { icon: <Compass className="h-4 w-4" />, text: "Programación MIP" },
+      { icon: <Activity className="h-4 w-4" />, text: "GNU MathProg" },
+    ],
+    color: "from-emerald-500/20 to-amber-500/20",
+    border: "group-hover:border-emerald-500/50",
+    textHover: "group-hover:text-emerald-300",
+    link: "/templates/Linear-Programming-Bus-Scheduling.html",
+    external: false,
+    isGithub: false,
+    ctaLabel: "Ver Detalles",
+  },
   {
     title: "Binairo CSP & A* Search Engine",
     description: "Case study de IA aplicada con un solver CSP para Binairo y un motor A* en C++ sobre grafos DIMACS de carreteras reales.",
@@ -18,6 +54,8 @@ const projects = [
     textHover: "group-hover:text-cyan-300",
     link: "/templates/AI-csp-HeuristicSearch.html",
     external: false,
+    isGithub: false,
+    ctaLabel: "Ver Detalles",
   },
   {
     title: "Spider-Man: Brand New Day",
@@ -33,7 +71,9 @@ const projects = [
     border: "group-hover:border-red-500/50",
     textHover: "group-hover:text-red-400",
     link: "https://spiderman-brand-new-day-gamma.vercel.app/",
-    external: true
+    external: true,
+    isGithub: false,
+    ctaLabel: "Ver en vivo",
   },
   {
     title: "Prototipo La Velada VI",
@@ -49,7 +89,9 @@ const projects = [
     border: "group-hover:border-purple-500/50",
     textHover: "group-hover:text-purple-400",
     link: "https://prototipo-velada-vi-jorge-condado-c.vercel.app/",
-    external: true
+    external: true,
+    isGithub: false,
+    ctaLabel: "Ver en vivo",
   },
   {
     title: "IronMan Ubiquitous System",
@@ -65,7 +107,9 @@ const projects = [
     border: "group-hover:border-orange-500/50",
     textHover: "group-hover:text-orange-400",
     link: "/templates/ironman-portfolio.html",
-    external: false
+    external: false,
+    isGithub: false,
+    ctaLabel: "Ver Detalles",
   },
   {
     title: "Aplicaciones Web APIs",
@@ -81,7 +125,9 @@ const projects = [
     border: "group-hover:border-cyan-500/50",
     textHover: "group-hover:text-cyan-400",
     link: null,
-    external: false
+    external: false,
+    isGithub: false,
+    ctaLabel: "Ver Detalles",
   }
 ] as const;
 
@@ -150,7 +196,8 @@ export const OtherProjects = memo(() => {
                   {...(project.external ? { target: "_blank", rel: "noreferrer" } : {})}
                   className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 transition-colors group-hover:text-white"
                 >
-                  Ver Detalles <ArrowRight className="h-4 w-4" />
+                  {project.isGithub ? <Github className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
+                  {project.ctaLabel}
                 </a>
               ) : (
                 <span className="mt-8 inline-flex items-center gap-2 text-sm text-zinc-600 cursor-default select-none">
