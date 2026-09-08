@@ -7,7 +7,7 @@ export const MainProject = memo(() => {
     <section id="proyectos" className="relative z-10 mx-auto max-w-7xl px-6 py-32 sm:px-12">
       <div className="mb-6 text-center">
         <p className="mb-4 font-mono text-xs uppercase tracking-[0.35em] text-blue-400/80">
-          Caso de Estudio Principal
+          Proyecto Principal
         </p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,8 @@ export const MainProject = memo(() => {
                 decoding="async"
                 width={800}
                 height={450}
-                className="h-full w-full object-cover object-center opacity-90 transition-transform duration-700 group-hover:scale-[1.02]"
+                style={{ objectPosition: '5% 40%' }}
+                className="h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
             </div>

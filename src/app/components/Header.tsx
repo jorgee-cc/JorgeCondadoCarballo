@@ -9,7 +9,7 @@ const NAV_LINKS = [
 
 export const Header = memo(() => {
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-vigilante-red/10 bg-[#081629]/80 backdrop-blur-2xl">
+    <header className="fixed top-0 z-50 w-full border-b border-blue-500/10 bg-[#081629]/80 backdrop-blur-2xl">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-12">
         {/* Glow effect background */}
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-blue-950/30 via-[#07111f] to-[#050b14] opacity-60" />
@@ -26,7 +26,7 @@ export const Header = memo(() => {
               <span className="text-xl font-black uppercase tracking-tight text-white">
                 Jorge
               </span>
-              <span className="text-xl font-black uppercase tracking-tight bg-gradient-to-r from-red-400 to-cyan-300 bg-clip-text text-transparent">
+              <span className="text-xl font-black uppercase tracking-tight bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                 Condado
               </span>
             </a>
@@ -57,7 +57,7 @@ export const Header = memo(() => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 rounded-full border border-vigilante-red/40 bg-vigilante-red/10 px-4 py-2 font-semibold text-red-200 shadow-[0_0_15px_rgba(217,22,22,0.2)] transition-all hover:border-vigilante-red/60 hover:bg-vigilante-red/20 hover:shadow-[0_0_30px_rgba(217,22,22,0.4)] backdrop-blur-md"
+            className="flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/10 px-4 py-2 font-semibold text-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all hover:border-blue-500/60 hover:bg-blue-500/20 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] backdrop-blur-md"
           >
             <Github className="h-4 w-4" />
             <span className="hidden sm:inline">GitHub</span>

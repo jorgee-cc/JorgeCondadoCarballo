@@ -58,7 +58,7 @@ export const BackgroundEffects = memo(() => {
         animate={BLOB_1_ANIMATE}
         transition={BLOB_1_TRANSITION}
         style={GPU_LAYER_STYLE}
-        className="absolute -top-[20%] -left-[10%] w-[50vw] h-[50vw] bg-vigilante-red/30 rounded-full blur-[120px]"
+        className="absolute -top-[20%] -left-[10%] w-[50vw] h-[50vw] bg-blue-600/30 rounded-full blur-[120px]"
       />
 
       {/* BLOB 2 — Reflective Blue right
@@ -69,7 +69,7 @@ export const BackgroundEffects = memo(() => {
         animate={BLOB_2_ANIMATE}
         transition={BLOB_2_TRANSITION}
         style={GPU_LAYER_STYLE}  /* ← AÑADIDO: faltaba en el original */
-        className="absolute top-[30%] -right-[10%] w-[40vw] h-[40vw] bg-reflective-blue/40 rounded-full blur-[100px]"
+        className="absolute top-[30%] -right-[10%] w-[40vw] h-[40vw] bg-cyan-500/30 rounded-full blur-[100px]"
       />
 
       {/* BLOB 3 — Golden Amber bottom
@@ -84,7 +84,7 @@ export const BackgroundEffects = memo(() => {
         animate={BLOB_3_ANIMATE}
         transition={BLOB_3_TRANSITION}
         style={GPU_LAYER_STYLE}  /* ← AÑADIDO: faltaba en el original */
-        className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] bg-golden-amber/20 rounded-full blur-[130px]"
+        className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] bg-indigo-500/20 rounded-full blur-[130px]"
       />
 
       {/* Noise overlay — estático, no necesita GPU layer */}

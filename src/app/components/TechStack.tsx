@@ -5,10 +5,10 @@ import { Code2, Server, Terminal, Settings } from "lucide-react";
 const stackCategories = [
   {
     title: "Frontend",
-    icon: <Code2 className="h-6 w-6 text-red-400" />,
+    icon: <Code2 className="h-6 w-6 text-blue-400" />,
     skills: ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Framer Motion", "Web Audio API"],
-    glow: "shadow-[0_0_30px_rgba(217,22,22,0.15)]",
-    border: "border-vigilante-red/20"
+    glow: "shadow-[0_0_30px_rgba(59,130,246,0.15)]",
+    border: "border-blue-500/20"
   },
   {
     title: "Backend",
