@@ -4,6 +4,22 @@ import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Pale
 
 const projects = [
   {
+    title: "Binairo CSP & A* Search Engine",
+    description: "Case study de IA aplicada con un solver CSP para Binairo y un motor A* en C++ sobre grafos DIMACS de carreteras reales.",
+    image: "/images/ai-csp-heuristic-search-thumb.svg",
+    features: [
+      { icon: <MonitorPlay className="h-4 w-4" />, text: "Python 3" },
+      { icon: <Cpu className="h-4 w-4" />, text: "C++17" },
+      { icon: <Compass className="h-4 w-4" />, text: "CSP + A*" },
+      { icon: <Activity className="h-4 w-4" />, text: "Heurística Haversine" },
+    ],
+    color: "from-cyan-500/20 to-violet-500/20",
+    border: "group-hover:border-cyan-500/50",
+    textHover: "group-hover:text-cyan-300",
+    link: "/templates/AI-csp-HeuristicSearch.html",
+    external: false,
+  },
+  {
     title: "Spider-Man: Brand New Day",
     description: "Landing narrativa interactiva con animaciones de alto rendimiento ligadas al scroll y ambiente sonoro real.",
     image: "/images/Spiderman_BrandNewDay.png",
