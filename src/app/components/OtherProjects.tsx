@@ -4,7 +4,7 @@ import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Pale
 
 const projects = [
   {
-    title: "DistributedMessagingSystem-Multi-threaded-TCP-RPC-SOAP-Architecture",
+    title: "DMS Multi-threaded TCP, RPC, SOAP Architecture",
     description: "Sistema distribuido de mensajería de alta concurrencia con servidor multihilo en C, clientes Python, entregas diferidas, transferencia P2P y servicios SOAP y ONC-RPC.",
     image: "/images/distributed-messaging-system-thumb.svg",
     features: [
