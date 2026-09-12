@@ -71,7 +71,7 @@ export const Hero = memo(() => {
         </h1>
 
         <div className="mx-auto mb-10 max-w-2xl rounded-xl border-l-4 border-blue-500/60 bg-zinc-900/50 p-6 text-lg font-medium text-zinc-300 sm:text-2xl">
-          Construyo interfaces que no solo se ven bien, sino que aguantan cuando de verdad importa: tráfico real, producción real, usuarios reales. Frontend cuidado al detalle, respaldado por sistemas que yo mismo despliego y mantengo.
+            Ingeniero de software especializado en IA aplicada, algoritmos de búsqueda y ciberseguridad. Construyo desde motores de alto rendimiento en C++ hasta arquitecturas seguras en producción. Código eficiente respaldado por una toma de decisiones forjada bajo presión.
         </div>
 
       </motion.div>
