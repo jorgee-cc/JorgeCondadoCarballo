@@ -71,7 +71,7 @@ export const Hero = memo(() => {
         </h1>
 
         <div className="mx-auto mb-10 max-w-2xl rounded-xl border-l-4 border-blue-500/60 bg-zinc-900/50 p-6 text-lg font-medium text-zinc-300 sm:text-2xl">
-            Ingeniero de software especializado en IA aplicada, algoritmos de búsqueda y ciberseguridad. Construyo desde motores de alto rendimiento en C++ hasta arquitecturas seguras en producción. Código eficiente respaldado por una toma de decisiones forjada bajo presión.
+            Estudiante de 4 año de Ingeniería Informática especializado en IA aplicada, algoritmos de búsqueda y ciberseguridad. Construyo desde motores de alto rendimiento en C++ hasta arquitecturas seguras en producción. Código eficiente respaldado por una toma de decisiones forjada bajo presión.
         </div>
 
       </motion.div>
