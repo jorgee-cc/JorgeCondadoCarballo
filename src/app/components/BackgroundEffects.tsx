@@ -47,7 +47,7 @@ export const BackgroundEffects = memo(() => {
      * y fuercen recomposición del árbol entero en cada frame
      */
     <div
-      className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#07111f]"
+      className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[var(--bg)]"
       style={{ isolation: "isolate" }}
     >
       {/* BLOB 1 — Vigilante Red top-left
@@ -58,7 +58,7 @@ export const BackgroundEffects = memo(() => {
         animate={BLOB_1_ANIMATE}
         transition={BLOB_1_TRANSITION}
         style={GPU_LAYER_STYLE}
-        className="absolute -top-[20%] -left-[10%] w-[50vw] h-[50vw] bg-blue-600/30 rounded-full blur-[120px]"
+        className="absolute -top-[20%] -left-[10%] w-[50vw] h-[50vw] bg-[var(--signal-ok)]/10 rounded-full blur-[120px]"
       />
 
       {/* BLOB 2 — Reflective Blue right
@@ -69,7 +69,7 @@ export const BackgroundEffects = memo(() => {
         animate={BLOB_2_ANIMATE}
         transition={BLOB_2_TRANSITION}
         style={GPU_LAYER_STYLE}  /* ← AÑADIDO: faltaba en el original */
-        className="absolute top-[30%] -right-[10%] w-[40vw] h-[40vw] bg-cyan-500/30 rounded-full blur-[100px]"
+        className="absolute top-[30%] -right-[10%] w-[40vw] h-[40vw] bg-[var(--signal-warn)]/10 rounded-full blur-[100px]"
       />
 
       {/* BLOB 3 — Golden Amber bottom
@@ -84,7 +84,7 @@ export const BackgroundEffects = memo(() => {
         animate={BLOB_3_ANIMATE}
         transition={BLOB_3_TRANSITION}
         style={GPU_LAYER_STYLE}  /* ← AÑADIDO: faltaba en el original */
-        className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] bg-indigo-500/20 rounded-full blur-[130px]"
+        className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] bg-[var(--signal-warn)]/10 rounded-full blur-[130px]"
       />
 
       {/* Noise overlay — estático, no necesita GPU layer */}
@@ -98,7 +98,7 @@ export const BackgroundEffects = memo(() => {
       />
 
       {/* Gradient fade — estático */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06101d]/50 to-[#050b14]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--bg)]/50 to-[var(--bg)]" />
     </div>
   );
 });

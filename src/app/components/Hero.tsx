@@ -36,7 +36,7 @@ export const Hero = memo(() => {
           initial={INITIAL_STATES.scaleIn}
           animate={ANIMATE_IN}
           transition={TRANSITIONS.avatar}
-          className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-blue-500/40 shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+          className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-[var(--signal-ok)]/40"
         >
           <ImageWithFallback
             src="/images/1726564320490.jpeg"
@@ -53,24 +53,22 @@ export const Hero = memo(() => {
           initial={INITIAL_STATES.scaleDown}
           animate={ANIMATE_IN}
           transition={TRANSITIONS.badge}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/10 px-4 py-1.5 text-sm font-semibold text-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.2)] backdrop-blur-md"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--signal-ok)]/40 bg-[var(--signal-ok)]/10 px-4 py-1.5 text-sm font-semibold text-[var(--signal-ok)] backdrop-blur-md"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--signal-ok)] opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--signal-ok)]" />
           </span>
           ESTUDIANTE DE ING. INFORMÁTICA · UC3M — CONSTRUYENDO PRODUCTOS REALES
         </motion.div>
 
-        <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-          <span className="relative mb-2 block text-3xl font-bold sm:text-4xl lg:text-5xl drop-shadow-[0_0_5px_rgba(255,255,255,0.3)] gradient-text-container">
-            <span className="bg-[linear-gradient(90deg,#e2e8f0,#ffffff,#94a3b8,#475569,#ffffff,#e2e8f0,#ffffff,#94a3b8)] bg-clip-text text-transparent">
-              Jorge Condado
-            </span>
+        <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-[var(--text)] sm:text-7xl lg:text-8xl">
+          <span className="relative mb-2 block text-3xl font-bold text-[var(--text)] sm:text-4xl lg:text-5xl">
+            Jorge Condado
           </span>
         </h1>
 
-        <div className="mx-auto mb-10 max-w-2xl rounded-xl border-l-4 border-blue-500/60 bg-zinc-900/50 p-6 text-lg font-medium text-zinc-300 sm:text-2xl">
+        <div className="mx-auto mb-10 max-w-2xl rounded-xl border-l-4 border-[var(--signal-warn)] bg-[var(--surface)]/80 p-6 text-lg font-medium text-[var(--text-muted)] sm:text-2xl">
             Estudiante de 4 año de Ingeniería Informática especializado en IA aplicada, algoritmos de búsqueda y ciberseguridad. Construyo desde motores de alto rendimiento en C++ hasta arquitecturas seguras en producción. Código eficiente respaldado por una toma de decisiones forjada bajo presión.
         </div>
 
@@ -80,7 +78,7 @@ export const Hero = memo(() => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={TRANSITIONS.scroll}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-500"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--text-muted)]"
       >
         <ChevronDown className="h-8 w-8 opacity-50" />
       </motion.div>

@@ -10,22 +10,20 @@ export const Contact = memo(() => {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
-        className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1a31]/90 p-6 text-center shadow-[0_24px_120px_rgba(0,0,0,0.45)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-16"
+        className="group relative overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 text-center shadow-[0_24px_120px_rgba(0,0,0,0.45)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-10 lg:p-16"
       >
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.2),_transparent_46%),linear-gradient(180deg,rgba(11,26,49,0.96),rgba(7,17,31,1))] opacity-90 transition-opacity duration-1000 group-hover:opacity-100" />
-        <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
-        <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="absolute inset-0 z-0 bg-[var(--surface)] opacity-90 transition-opacity duration-1000 group-hover:opacity-100" />
 
         <div className="relative z-10 mx-auto max-w-4xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-blue-200/80 sm:text-sm">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--signal-warn)] sm:text-sm">
             Contacto
           </p>
 
-          <h2 className="mx-auto max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl md:text-6xl">
+          <h2 className="mx-auto max-w-3xl text-3xl font-black tracking-tight text-[var(--text)] sm:text-5xl md:text-6xl">
             ¿Trabajamos juntos? <br className="hidden sm:block" /> Hablemos.
           </h2>
 
-          <div className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base sm:leading-8 flex flex-col gap-4">
+          <div className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-[var(--text-muted)] sm:text-base sm:leading-8 flex flex-col gap-4">
             <p>
               Busco siempre nuevos retos donde pueda aportar valor tanto en la arquitectura backend como en la experiencia de usuario frontend.
             </p>
@@ -39,7 +37,7 @@ export const Contact = memo(() => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="mailto:jorge.condado.carballo@gmail.com"
-              className="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3.5 font-semibold text-white shadow-[0_12px_40px_rgba(59,130,246,0.35)] transition-all hover:shadow-[0_18px_50px_rgba(59,130,246,0.5)] sm:w-auto sm:px-7"
+              className="flex w-full items-center justify-center gap-3 rounded-full bg-[var(--signal-warn)] px-5 py-3.5 font-semibold text-[var(--bg)] transition-all hover:brightness-110 sm:w-auto sm:px-7"
             >
               <Mail className="h-5 w-5" />
               <span>jorge.condado.carballo@gmail.com</span>
@@ -49,15 +47,15 @@ export const Contact = memo(() => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="tel:+34611176138"
-              className="flex w-full items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3.5 font-semibold text-white transition-all hover:border-white/20 hover:bg-white/10 sm:w-auto sm:px-7"
+              className="flex w-full items-center justify-center gap-3 rounded-full border border-[var(--line)] bg-[var(--bg)] px-5 py-3.5 font-semibold text-[var(--text)] transition-all hover:border-[var(--text-muted)] sm:w-auto sm:px-7"
             >
               <Phone className="h-5 w-5" />
               <span>+34 611 17 61 38</span>
             </motion.a>
           </div>
           
-          <div className="mt-10 flex items-center justify-center gap-6 border-t border-white/10 pt-6 text-sm text-zinc-400 sm:mt-14 sm:gap-8 sm:pt-8">
-            <a href="https://github.com/jorgee-cc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-white">
+          <div className="mt-10 flex items-center justify-center gap-6 border-t border-[var(--line)] pt-6 text-sm text-[var(--text-muted)] sm:mt-14 sm:gap-8 sm:pt-8">
+            <a href="https://github.com/jorgee-cc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-[var(--text)]">
               <Github className="h-4 w-4" /> GitHub
             </a>
           </div>

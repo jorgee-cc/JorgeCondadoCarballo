@@ -120,9 +120,16 @@
     color: transparent;
   }
 
+  .template-nav { display:flex; align-items:center; gap:1rem; margin-left:1.5rem; }
+  .template-nav a { color:var(--muted); font-family:'DM Sans',sans-serif; font-size:.78rem; font-weight:600; text-decoration:none; transition:color .2s; }
+  .template-nav a:hover { color:var(--text); }
+
   .site-header-right {
     position: relative;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
   }
 
   .github-btn {
@@ -156,10 +163,12 @@
   .github-text {
     display: none;
   }
+  .linkedin-text { display: inline; }
 
   @media (min-width: 640px) {
     .github-text { display: inline; }
   }
+  @media (max-width: 1000px) { .template-nav { display:none; } }
 
   /* ─── HERO ─────────────────────────────────────── */
   .hero {
@@ -658,6 +667,52 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
   }
+  .status-progress {
+    color: #e8891a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .hcheck-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .hcheck-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 130px;
+    gap: 2px;
+    background: var(--border);
+  }
+  .hcheck-row.header > div {
+    background: var(--bg-3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    padding: 10px 14px;
+  }
+  .hcheck-row > div {
+    background: var(--bg-2);
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #b0aaa3;
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 640px) {
+    .hcheck-row { grid-template-columns: 1fr 1fr; }
+    .hcheck-row > div:nth-child(2) { display: none; }
+  }
 
   .layers {
     display: flex;
@@ -907,18 +962,24 @@
         <span class="site-brand-j">Jorge</span>
         <span class="site-brand-c">Condado</span>
       </a>
+      <nav class="template-nav" aria-label="Navegación del proyecto">
+        <a href="#hero">Inicio</a><a href="#arquitectura">Arquitectura</a><a href="#stack">Stack</a><a href="#seguridad">Seguridad</a><a href="#resultados">Resultados</a>
+      </nav>
     </div>
     <div class="site-header-right">
       <a href="https://github.com/jorgee-cc" target="_blank" rel="noopener noreferrer" class="github-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
         <span class="github-text">GitHub</span>
       </a>
+      <a href="https://www.linkedin.com/in/jorge-condado-carballo-4065bb2b4/" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="Abrir perfil de LinkedIn">
+        <span class="linkedin-text">LinkedIn</span>
+      </a>
     </div>
   </div>
 </header>
 
 <!-- ═══════════════ HERO ═══════════════ -->
-<section class="hero">
+<section id="hero" class="hero">
   <div class="hero-inner">
     <div class="hero-tag">Proyecto Full-Stack · Producción Real</div>
 
@@ -963,7 +1024,7 @@
 </section>
 
 <!-- ═══════════════ PROBLEMA ═══════════════ -->
-<section>
+<section id="contexto">
   <div class="section-inner">
     <div class="section-label">01 — Contexto</div>
     <h2 class="section-title">El Problema Real</h2>
@@ -996,7 +1057,7 @@
 </section>
 
 <!-- ═══════════════ ARQUITECTURA ═══════════════ -->
-<section>
+<section id="arquitectura">
   <div class="section-inner">
     <div class="section-label">02 — Arquitectura</div>
     <h2 class="section-title">Cómo Funciona el Sistema</h2>
@@ -1084,7 +1145,7 @@
 </section>
 
 <!-- ═══════════════ TECH STACK ═══════════════ -->
-<section>
+<section id="stack">
   <div class="section-inner">
     <div class="section-label">03 — Stack Tecnológico</div>
     <h2 class="section-title">Tecnologías Utilizadas</h2>
@@ -1135,7 +1196,7 @@
 </section>
 
 <!-- ═══════════════ FUNCIONALIDADES ═══════════════ -->
-<section>
+<section id="funcionalidades">
   <div class="section-inner">
     <div class="section-label">04 — Funcionalidades</div>
     <h2 class="section-title">31 Funcionalidades Implementadas</h2>
@@ -1176,7 +1237,7 @@
 </section>
 
 <!-- ═══════════════ SEGURIDAD ═══════════════ -->
-<section>
+<section id="seguridad">
   <div class="section-inner">
     <div class="section-label">05 — Ciberseguridad</div>
     <h2 class="section-title">Auditoría OWASP Top 10</h2>
@@ -1278,7 +1339,7 @@
 </section>
 
 <!-- ═══════════════ RETOS ═══════════════ -->
-<section>
+<section id="retos">
   <div class="section-inner">
     <div class="section-label">06 — Ingeniería</div>
     <h2 class="section-title">Retos y Soluciones</h2>
@@ -1340,7 +1401,7 @@
 </section>
 
 <!-- ═══════════════ RESULTADOS ═══════════════ -->
-<section>
+<section id="resultados">
   <div class="section-inner">
     <div class="section-label">07 — Resultados</div>
     <h2 class="section-title">Qué se Consiguió</h2>
@@ -1380,10 +1441,81 @@
   </div>
 </section>
 
+<!-- ═══════════════ HARDENING DEL SERVIDOR ═══════════════ -->
+<section id="hardening">
+  <div class="section-inner">
+    <div class="section-label">08 — Infraestructura</div>
+    <h2 class="section-title">Hardening del Servidor</h2>
+
+    <div class="security-intro">
+      <p>
+        Más allá de la aplicación, el servidor que la aloja sigue un proceso de hardening continuo
+        basado en la guía de referencia de la comunidad
+        <a href="https://github.com/imthenachoman/How-To-Secure-A-Linux-Server" target="_blank" rel="noreferrer" style="color:var(--blue)">How-To-Secure-A-Linux-Server</a>.
+        Es un proceso vivo: esta tabla documenta las medidas de hardening implementadas.
+      </p>
+    </div>
+
+    <div class="hcheck-grid">
+      <div class="hcheck-row header">
+        <div>Medida</div>
+        <div>Bloque de la guía</div>
+        <div>Estado</div>
+      </div>
+      <div class="hcheck-row">
+        <div>UFW con política deny-by-default, solo puertos necesarios abiertos</div>
+        <div style="font-size:12px;color:var(--muted)">Firewall</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+      <div class="hcheck-row">
+        <div>Snort IDS/IPS monitorizando tráfico, integrado con Fail2Ban</div>
+        <div style="font-size:12px;color:var(--muted)">Detección de intrusiones</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+      <div class="hcheck-row">
+        <div>Fail2Ban con jails para SSH y patrones de ataque web</div>
+        <div style="font-size:12px;color:var(--muted)">Fuerza bruta</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+      <div class="hcheck-row">
+        <div>Traefik como reverse proxy con TLS automático (Let's Encrypt vía Coolify)</div>
+        <div style="font-size:12px;color:var(--muted)">Transporte / TLS</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+      <div class="hcheck-row">
+        <div>SSH solo por clave pública, root login deshabilitado, puerto no estándar</div>
+        <div style="font-size:12px;color:var(--muted)">Acceso remoto</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+      <div class="hcheck-row">
+        <div>Actualizaciones de seguridad automáticas (unattended-upgrades)</div>
+        <div style="font-size:12px;color:var(--muted)">Mantenimiento</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+      <div class="hcheck-row">
+        <div>Endurecimiento de kernel vía sysctl (SYN flood, IP spoofing)</div>
+        <div style="font-size:12px;color:var(--muted)">Kernel</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+      <div class="hcheck-row">
+        <div>Registro centralizado y auditoría (auditd o equivalente)</div>
+        <div style="font-size:12px;color:var(--muted)">Logging</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+      <div class="hcheck-row">
+        <div>Copias de seguridad automatizadas fuera del propio VPS</div>
+        <div style="font-size:12px;color:var(--muted)">Recuperación ante desastres</div>
+        <div><span class="status-ok">✓ Implementado</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══════════════ MEJORAS FUTURAS ═══════════════ -->
 <section style="border-bottom:none">
   <div class="section-inner">
-    <div class="section-label">08 — Roadmap</div>
+    <div class="section-label">09 — Roadmap</div>
     <h2 class="section-title">Mejoras Futuras</h2>
 
     <div class="future-list">
