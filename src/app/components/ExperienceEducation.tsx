@@ -7,6 +7,8 @@ import {
   GraduationCap,
   Languages,
   ChevronDown,
+  Briefcase,
+  ExternalLink,
   LucideIcon,
 } from "lucide-react";
 
@@ -21,6 +23,7 @@ type Experience = {
     context: string;
     challenge: string;
     action: string[];
+    link?: { href: string; label: string };
   };
 };
 
@@ -33,7 +36,7 @@ const experiences: Experience[] = [
     Icon: MessageCircle,
     accent: "var(--signal-ok)",
     detail: {
-      context: "Puma (Sept2025-Act) y Samsung (Mar 2026) — promotor de ventas en centro comercial, con clientes nacionales e internacionales.",
+      context: "Puma (Sept–Dic 2025) y Samsung (Mar 2026) — promotor de ventas en centro comercial, con clientes nacionales e internacionales.",
       challenge: "Captar y fidelizar clientes en un entorno de alta rotación, incluyendo público internacional que requería atención en inglés y picos de tráfico en eventos como Hyrox.",
       action: [
         "Atención personalizada asesorando sobre características, tallas y beneficios de producto.",
@@ -74,6 +77,24 @@ const experiences: Experience[] = [
         "Gestión de registros e informes garantizando cumplimiento de objetivos.",
         "Actuación rápida ante problemas o riesgos detectados durante actividades, coordinando grupos completos.",
       ],
+    },
+  },
+  {
+    id: "talleresoja",
+    title: "Desarrollo Full-Stack",
+    reframe: "De cliente real a producción",
+    description: "Mi primer encargo remunerado: llevar un negocio real de papel a una plataforma digital, de principio a fin.",
+    Icon: Briefcase,
+    accent: "var(--signal-ok)",
+    detail: {
+      context: "Talleres Oja — encargo freelance, Sept 2025 – Actualidad.",
+      challenge: "Diseñar y entregar un sistema de gestión de reservas completo para un taller mecánico real, sin equipo, siendo responsable tanto del desarrollo como del despliegue y la seguridad del servidor.",
+      action: [
+        "Arquitectura MVC completa (Flask + PostgreSQL) con autenticación por roles y defensa en profundidad.",
+        "Motor de notificaciones asíncronas con patrón Outbox y Dead Letter Queue para tolerancia a fallos.",
+        "Hardening y despliegue del VPS: Docker, Traefik, UFW, Fail2Ban, Snort IDS/IPS.",
+      ],
+      link: { href: "/templates/talleresoja-portfolio.html", label: "Ver ficha técnica completa" },
     },
   },
 ];
@@ -159,6 +180,16 @@ const ExperienceCard = memo(({ exp, idx }: { exp: Experience; idx: number }) => 
                       ))}
                     </ul>
                   </div>
+                  {exp.detail.link && (
+                    <a
+                      href={exp.detail.link.href}
+                      className="inline-flex items-center gap-1.5 font-medium"
+                      style={{ color: exp.accent }}
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      {exp.detail.link.label}
+                    </a>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -172,7 +203,7 @@ ExperienceCard.displayName = "ExperienceCard";
 
 export const ExperienceEducation = memo(() => {
   return (
-    <section id="experiencia" className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12" style={{ background: "var(--bg)" }}>
+    <section className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12" style={{ background: "var(--bg)" }}>
       <div className="grid gap-16 lg:grid-cols-2">
         {/* Experience Reframed */}
         <div>
@@ -230,7 +261,7 @@ export const ExperienceEducation = memo(() => {
                 className="h-1.5 w-1.5 rounded-full"
                 style={{ background: "var(--signal-ok)" }}
               />
-              Impartido en bilingüe (castellano e inglés).
+              Impartido 100% en inglés
             </div>
           </motion.div>
 
@@ -264,8 +295,8 @@ export const ExperienceEducation = memo(() => {
               Inglés — C1 (autoevaluado)
             </h3>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Grado impartido en inglés y español en la UC3M; atención habitual a clientes internacionales
-              en Puma, Samsung y en la F1.
+              Grado 100% impartido en inglés en la UC3M; atención habitual a clientes internacionales
+              en Puma y Samsung.
             </p>
           </motion.div>
         </div>

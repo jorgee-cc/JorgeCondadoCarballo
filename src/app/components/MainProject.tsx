@@ -11,7 +11,7 @@ export const MainProject = memo(() => {
     >
       <div className="mb-12 max-w-2xl">
         <p className="mb-3 font-mono text-xs uppercase tracking-wider" style={{ color: "var(--signal-ok)" }}>
-          Proyecto principal
+          Proyecto principal · Encargo freelance real (Sept 2025 – Actualidad)
         </p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -93,7 +93,8 @@ export const MainProject = memo(() => {
             </div>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
               VPS propio con Docker y Traefik como proxy inverso, endurecido con UFW, Fail2Ban y Snort IDS/IPS.
-              Auditoría manual completa contra el OWASP Top 10. Hardening completo.
+              Auditoría manual completa contra el OWASP Top 10. El hardening del servidor sigue en marcha, documentado
+              en la ficha del proyecto.
             </p>
           </div>
 
@@ -105,6 +106,13 @@ export const MainProject = memo(() => {
             >
               <ExternalLink className="h-4 w-4" />
               Ver ficha completa
+            </a>
+            <a
+              href="/templates/talleresoja-portfolio.html#hardening"
+              className="inline-flex items-center gap-2 text-sm font-medium"
+              style={{ color: "var(--signal-warn)" }}
+            >
+              Ver checklist de hardening →
             </a>
           </div>
         </motion.div>

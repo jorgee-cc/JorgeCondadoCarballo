@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { ChevronDown } from "lucide-react";
 import { ImageWithFallback } from "./ui/ImageWithFallback";
 
 // ⚡ PERF: Objetos de transición fuera del componente
@@ -9,7 +8,6 @@ const TRANSITIONS = {
   avatar:    { delay: 0.1, duration: 0.8 },
   badge:     { delay: 0.2, duration: 0.8 },
   container: { duration: 0.8, ease: "easeOut" as const },
-  scroll:    { duration: 2, repeat: Infinity, ease: "easeInOut" as const },
 };
 
 const INITIAL_STATES = {
@@ -72,15 +70,6 @@ export const Hero = memo(() => {
             Estudiante de 4 año de Ingeniería Informática especializado en IA aplicada, algoritmos de búsqueda y ciberseguridad. Construyo desde motores de alto rendimiento en C++ hasta arquitecturas seguras en producción. Código eficiente respaldado por una toma de decisiones forjada bajo presión.
         </div>
 
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={TRANSITIONS.scroll}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--text-muted)]"
-      >
-        <ChevronDown className="h-8 w-8 opacity-50" />
       </motion.div>
     </section>
   );
