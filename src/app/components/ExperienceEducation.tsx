@@ -33,7 +33,7 @@ const experiences: Experience[] = [
     Icon: MessageCircle,
     accent: "var(--signal-ok)",
     detail: {
-      context: "Puma (Sept–Dic 2025) y Samsung (Mar 2026) — promotor de ventas en centro comercial, con clientes nacionales e internacionales.",
+      context: "Puma (Sept2025-Act) y Samsung (Mar 2026) — promotor de ventas en centro comercial, con clientes nacionales e internacionales.",
       challenge: "Captar y fidelizar clientes en un entorno de alta rotación, incluyendo público internacional que requería atención en inglés y picos de tráfico en eventos como Hyrox.",
       action: [
         "Atención personalizada asesorando sobre características, tallas y beneficios de producto.",
@@ -230,7 +230,7 @@ export const ExperienceEducation = memo(() => {
                 className="h-1.5 w-1.5 rounded-full"
                 style={{ background: "var(--signal-ok)" }}
               />
-              Impartido 100% en inglés
+              Impartido en bilingüe (castellano e inglés).
             </div>
           </motion.div>
 
@@ -264,8 +264,8 @@ export const ExperienceEducation = memo(() => {
               Inglés — C1 (autoevaluado)
             </h3>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Grado 100% impartido en inglés en la UC3M; atención habitual a clientes internacionales
-              en Puma y Samsung.
+              Grado impartido en inglés y español en la UC3M; atención habitual a clientes internacionales
+              en Puma, Samsung y en la F1.
             </p>
           </motion.div>
         </div>
