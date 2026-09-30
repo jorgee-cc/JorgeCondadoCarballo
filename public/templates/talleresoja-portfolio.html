@@ -4,14 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TalleresOja — Portfolio</title>
-<meta name="description" content="TalleresOja — Sistema de gestión de citas para taller mecánico. Flask, n8n, Docker, Hetzner VPS, auditado OWASP Top 10.">
+<meta name="description" content="TalleresOja — plataforma de citas para taller mecánico en producción. Flask, PostgreSQL, n8n, Coolify. Seguridad auditada, concurrencia verificada en PostgreSQL, cumplimiento RGPD y 186 tests.">
 <meta name="author" content="Jorge Condado">
 <meta property="og:title" content="TalleresOja — Proyecto Full-Stack en Producción">
-<meta property="og:description" content="Plataforma web completa: Flask, n8n, PostgreSQL, Traefik, Docker. 31 funcionalidades. 10/10 vulnerabilidades OWASP corregidas.">
+<meta property="og:description" content="Full-stack en producción: sesiones revocables, reautenticación de admin en servidor, control de concurrencia verificado en PostgreSQL, RGPD, logs de auditoría y 186 tests.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://tu-dominio.com/templates/talleresoja-portfolio.html">
-<meta property="og:image" content="https://tu-dominio.com/images/TalleresOja.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -210,7 +208,7 @@
     text-transform: uppercase;
     color: var(--accent);
     background: var(--accent-lo);
-    border: 1px solid rgba(232,137,26,0.2);
+    border: 1px solid rgba(168,85,247,0.2);
     padding: 6px 14px;
     border-radius: 100px;
     margin-bottom: 2.5rem;
@@ -262,13 +260,13 @@
 
   .hero-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    max-width: 700px;
+    max-width: 960px;
   }
 
   .stat {
@@ -650,7 +648,7 @@
     border-radius: 4px;
   }
   .sev-critica  { background: rgba(232,85,85,0.15);  color: #e85555; border: 1px solid rgba(232,85,85,0.25); }
-  .sev-alta     { background: rgba(232,137,26,0.15); color: var(--accent); border: 1px solid rgba(232,137,26,0.25); }
+  .sev-alta     { background: rgba(168,85,247,0.15); color: var(--accent); border: 1px solid rgba(168,85,247,0.25); }
   .sev-media    { background: rgba(91,156,246,0.12); color: var(--blue); border: 1px solid rgba(91,156,246,0.25); }
   .sev-baja     { background: rgba(61,186,122,0.12); color: var(--green); border: 1px solid rgba(61,186,122,0.25); }
 
@@ -668,7 +666,7 @@
     font-size: 11px;
   }
   .status-progress {
-    color: #e8891a;
+    color: var(--accent);
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     display: flex;
@@ -872,7 +870,7 @@
     width: 32px;
     height: 32px;
     background: var(--accent-lo);
-    border: 1px solid rgba(232,137,26,0.2);
+    border: 1px solid rgba(168,85,247,0.2);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -950,6 +948,38 @@
   .hero-desc    { animation-delay: 0.16s; }
   .hero-badges  { animation-delay: 0.24s; }
   .hero-stats   { animation-delay: 0.32s; }
+
+  /* ─── AÑADIDOS v2 ──────────────────────────────── */
+  .hero-cta { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:3rem; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:.65rem 1.25rem; border-radius:9999px; font-size:14px; font-weight:600; text-decoration:none; transition:all .25s; }
+  .btn-primary { background:linear-gradient(90deg,var(--accent),#7c3aed); color:#fff; box-shadow:0 0 24px rgba(168,85,247,.3); }
+  .btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 34px rgba(168,85,247,.5); }
+  .btn-ghost { border:1px solid var(--border-hi); color:var(--text); }
+  .btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
+  .lead { font-size:15px; color:#a09a93; max-width:760px; line-height:1.75; margin-bottom:2.5rem; }
+  .lead strong { color:var(--text); font-weight:600; }
+  .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .tag { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--accent2); background:var(--accent2-lo); border:1px solid rgba(6,182,212,.2); padding:2px 8px; border-radius:100px; }
+  .tbl { display:flex; flex-direction:column; gap:2px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; margin-bottom:2.5rem; }
+  .tbl-row { display:grid; grid-template-columns:var(--cols,1fr 1fr 1fr); gap:2px; background:var(--border); }
+  .tbl-row > div { background:var(--bg-2); padding:10px 14px; font-size:13px; color:#b0aaa3; line-height:1.5; }
+  .tbl-row.header > div { background:var(--bg-3); font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+  .tbl-row .k { color:var(--text); font-weight:500; }
+  .sub-title { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:2.5rem 0 1rem; }
+  .callout { background:var(--bg-2); border:1px solid var(--border); border-left:3px solid var(--accent2); border-radius:var(--radius-lg); padding:1.25rem 1.5rem; font-size:14px; color:#a09a93; line-height:1.7; margin-bottom:2rem; }
+  .callout strong { color:var(--text); }
+  .future-item.done { opacity:.85; }
+  .note { font-size:12px; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-top:1.5rem; }
+  .template-nav { gap:.9rem; }
+  a:focus-visible, .btn:focus-visible { outline:2px solid var(--accent2); outline-offset:3px; }
+  @media (max-width: 768px) {
+    .tbl-row { grid-template-columns:1fr; }
+    .tbl-row.header { display:none; }
+    .tbl-row > div:not(:first-child) { padding-top:0; font-size:12px; }
+    section { padding:3.5rem 1.25rem; }
+    .hero { padding:6rem 1.25rem 3rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { html{scroll-behavior:auto} .hero-tag,.hero h1,.hero-desc,.hero-badges,.hero-stats{animation:none} }
 </style>
 </head>
 <body>
@@ -958,16 +988,16 @@
   <div class="site-header-inner">
     <div class="site-header-bg"></div>
     <div class="site-header-left">
-      <a class="site-brand" href="/" aria-label="Ir a la página de inicio">
+      <a class="site-brand" href="#hero" aria-label="Ir al inicio">
         <span class="site-brand-j">Jorge</span>
         <span class="site-brand-c">Condado</span>
       </a>
       <nav class="template-nav" aria-label="Navegación del proyecto">
-        <a href="#hero">Inicio</a><a href="#arquitectura">Arquitectura</a><a href="#stack">Stack</a><a href="#seguridad">Seguridad</a><a href="#resultados">Resultados</a>
+        <a href="#arquitectura">Arquitectura</a><a href="#seguridad">Seguridad</a><a href="#concurrencia">Concurrencia</a><a href="#privacidad">RGPD</a><a href="#calidad">Calidad</a><a href="#retos">Retos</a>
       </nav>
     </div>
     <div class="site-header-right">
-      <a href="https://github.com/jorgee-cc" target="_blank" rel="noopener noreferrer" class="github-btn">
+      <a href="https://github.com/jorgee-cc" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="Perfil de GitHub">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
         <span class="github-text">GitHub</span>
       </a>
@@ -978,78 +1008,76 @@
   </div>
 </header>
 
+<main>
 <!-- ═══════════════ HERO ═══════════════ -->
 <section id="hero" class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">Proyecto Full-Stack · Producción Real</div>
+    <div class="hero-tag">Full-Stack · Seguridad · En producción</div>
 
     <h1>Talleres<span>OJA</span></h1>
 
     <p class="hero-desc">
-      Plataforma web completa que digitaliza la gestión de citas de un taller mecánico: del teléfono al panel de control, con automatizaciones, seguridad auditada e infraestructura propia.
+      Plataforma de citas para un taller mecánico, diseñada como un sistema de producción: sesiones revocables, reautenticación de administrador en servidor, control de concurrencia verificado en PostgreSQL, cumplimiento RGPD y trazabilidad completa mediante logs de auditoría.
     </p>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://talleresoja.com" target="_blank" rel="noopener noreferrer">Ver sitio en producción ↗</a>
+      <a class="btn btn-ghost" href="#seguridad">Ver decisiones de seguridad</a>
+    </div>
 
     <div class="hero-badges">
       <span class="badge">Python 3.12</span>
-      <span class="badge">Flask</span>
-      <span class="badge">SQLAlchemy</span>
+      <span class="badge">Flask 3.1</span>
+      <span class="badge">SQLAlchemy 2</span>
+      <span class="badge">PostgreSQL 16</span>
+      <span class="badge">gunicorn</span>
       <span class="badge">n8n</span>
-      <span class="badge">Docker</span>
-      <span class="badge">Hetzner VPS</span>
-      <span class="badge">Coolify</span>
+      <span class="badge">Coolify · Nixpacks</span>
       <span class="badge">Traefik</span>
-      <span class="badge">JavaScript ES6+</span>
-      <span class="badge">OWASP Top 10</span>
+      <span class="badge">Tailwind</span>
+      <span class="badge">JS vanilla</span>
+      <span class="badge">pytest</span>
+      <span class="badge">RGPD</span>
     </div>
 
     <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">31</span>
-        <span class="stat-label">Funcionalidades</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">10</span>
-        <span class="stat-label">Vulnerabilidades auditadas</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">5</span>
-        <span class="stat-label">Capas de seguridad</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">2</span>
-        <span class="stat-label">Roles de usuario</span>
-      </div>
+      <div class="stat"><span class="stat-num">186</span><span class="stat-label">Tests automáticos</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Auditorías internas</span></div>
+      <div class="stat"><span class="stat-num">13</span><span class="stat-label">Carreras de concurrencia cerradas</span></div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">Eventos de notificación</span></div>
+      <div class="stat"><span class="stat-num">~11k</span><span class="stat-label">Líneas (Python, JS, Jinja)</span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ PROBLEMA ═══════════════ -->
+<!-- ═══════════════ CONTEXTO ═══════════════ -->
 <section id="contexto">
   <div class="section-inner">
     <div class="section-label">01 — Contexto</div>
     <h2 class="section-title">El Problema Real</h2>
 
+    <p class="lead">
+      Un taller que gestionaba las citas por teléfono. Diseñé y desplegué el sistema completo, de la interfaz al servidor, tratándolo desde el primer día como un servicio expuesto a Internet: <strong>datos personales reales</strong>, un panel de administración y correo transaccional.
+    </p>
+
     <div class="problem-grid">
       <div class="problem-col">
-        <h3>Antes del sistema</h3>
+        <h3>Antes</h3>
         <ul class="problem-list">
-          <li>Gestión de citas exclusivamente por teléfono</li>
-          <li>Doble reserva de horarios sin control</li>
-          <li>Sin trazabilidad ni historial por cliente</li>
-          <li>Dificultad para asociar vehículos a clientes</li>
-          <li>Cancelaciones de última hora incontroladas</li>
-          <li>Sin notificaciones automáticas al cliente</li>
+          <li>Citas solo por teléfono, sin historial ni trazabilidad</li>
+          <li>Dobles reservas y cancelaciones de última hora sin control</li>
+          <li>Vehículos sin asociar de forma fiable a sus clientes</li>
+          <li>Sin avisos automáticos al cliente ni al taller</li>
         </ul>
       </div>
       <div class="problem-col">
-        <h3>Después del sistema</h3>
+        <h3>Después</h3>
         <ul class="problem-list solution-list">
-          <li>Solicitudes online 24/7 con validación en tiempo real</li>
-          <li>Panel de administración centralizado con estados de cita</li>
-          <li>Historial completo de citas y vehículos por cliente</li>
-          <li>Asociación automática de matrículas al crear citas</li>
-          <li>Regla de cancelación de 24 horas aplicada automáticamente</li>
-          <li>Notificaciones vía email automáticas por eventos</li>
+          <li>Solicitud online 24/7 con reglas de negocio validadas en servidor</li>
+          <li>Panel de administración con estados de cita y observaciones internas</li>
+          <li>Historial por cliente y vehículos N:M (coche compartido en familia)</li>
+          <li>Notificaciones por evento con reintentos y deduplicación</li>
+          <li>Cancelación del cliente con regla de 24 h aplicada en backend</li>
         </ul>
       </div>
     </div>
@@ -1063,134 +1091,62 @@
     <h2 class="section-title">Cómo Funciona el Sistema</h2>
 
     <div class="flow-diagram">
-      <div class="flow-step">
-        <div class="flow-node">
-          <span class="fn-label">Cliente</span>
-          <span class="fn-name">Formulario Web</span>
-        </div>
-        <div class="flow-arrow"></div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-node accent">
-          <span class="fn-label">Backend</span>
-          <span class="fn-name">Flask · Blueprint MVC</span>
-        </div>
-        <div class="flow-arrow"></div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-node">
-          <span class="fn-label">Base de Datos</span>
-          <span class="fn-name">SQLite / PostgreSQL</span>
-        </div>
-        <div class="flow-arrow"></div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-node accent">
-          <span class="fn-label">Automatización</span>
-          <span class="fn-name">n8n via Webhook</span>
-        </div>
-        <div class="flow-arrow"></div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-node">
-          <span class="fn-label">Notificación</span>
-          <span class="fn-name">Email SMTP</span>
-        </div>
-      </div>
+      <div class="flow-step"><div class="flow-node"><span class="fn-label">Cliente</span><span class="fn-name">Navegador</span></div><div class="flow-arrow"></div></div>
+      <div class="flow-step"><div class="flow-node"><span class="fn-label">Proxy</span><span class="fn-name">Traefik · TLS</span></div><div class="flow-arrow"></div></div>
+      <div class="flow-step"><div class="flow-node accent"><span class="fn-label">Backend</span><span class="fn-name">Flask · gunicorn</span></div><div class="flow-arrow"></div></div>
+      <div class="flow-step"><div class="flow-node"><span class="fn-label">Datos</span><span class="fn-name">PostgreSQL</span></div><div class="flow-arrow"></div></div>
+      <div class="flow-step"><div class="flow-node accent"><span class="fn-label">Automatización</span><span class="fn-name">n8n · Webhook</span></div><div class="flow-arrow"></div></div>
+      <div class="flow-step"><div class="flow-node"><span class="fn-label">Salida</span><span class="fn-name">Email</span></div></div>
     </div>
 
     <div class="arch-flow">
       <div class="arch-row">
-        <div class="arch-label">
-          <div class="icon" style="background:var(--accent-lo);color:var(--accent)">⬡</div>
-          <span>Core</span>
-        </div>
+        <div class="arch-label"><div class="icon" style="background:var(--accent-lo);color:var(--accent)">⬡</div><span>Core</span></div>
         <div class="arch-content">
-          <strong>Monolito Flask con patrón Blueprint MVC</strong>
-          <p>Tres módulos independientes: <code>auth</code> (autenticación), <code>cliente</code> (solicitudes y cancelaciones) y <code>admin</code> (gestión completa). Cada Blueprint aísla su lógica, rutas y decoradores de control de acceso por rol.</p>
+          <strong>Monolito modular con application factory y Blueprints</strong>
+          <p><code>auth</code>, <code>cliente</code>, <code>admin</code> y <code>legal</code>, con <code>create_app()</code>, modelos SQLAlchemy 2 y utilidades separadas por responsabilidad (seguridad, decoradores, logs, webhook, bloqueo de login, mantenimiento). Sin dependencias externas para CSRF, hashing ni rate limiting: implementados y testeados sobre la stdlib.</p>
         </div>
       </div>
       <div class="arch-row">
-        <div class="arch-label">
-          <div class="icon" style="background:var(--blue-lo);color:var(--blue)">⊞</div>
-          <span>Outbox</span>
-        </div>
+        <div class="arch-label"><div class="icon" style="background:var(--blue-lo);color:var(--blue)">⊞</div><span>Notificaciones</span></div>
         <div class="arch-content">
-          <strong>Patrón Store-and-Forward para resiliencia</strong>
-          <p>Si n8n no está disponible, Flask guarda la notificación en la tabla <code>notificaciones_fallidas</code>. Un Cron Job (Flask-APScheduler) reintenta cada hora hasta 24 veces antes de abandonar, evitando pérdida de datos.</p>
+          <strong>Envío asíncrono con cola de reintentos (outbox)</strong>
+          <p>Pool de 4 hilos hacia un único webhook autenticado de n8n. Si falla, el aviso se guarda en <code>notificaciones_fallidas</code> y se reintenta con <strong>backoff exponencial (2 → 120 min) durante 24 h</strong>. Cada evento lleva un <code>id_evento</code> para deduplicar. Los eventos con token (recuperación, verificación) <strong>nunca se persisten en la cola</strong>.</p>
         </div>
       </div>
       <div class="arch-row">
-        <div class="arch-label">
-          <div class="icon" style="background:var(--green-lo);color:var(--green)">▶</div>
-          <span>n8n</span>
-        </div>
+        <div class="arch-label"><div class="icon" style="background:var(--green-lo);color:var(--green)">▶</div><span>Sesiones</span></div>
         <div class="arch-content">
-          <strong>Motor de automatización vía Docker</strong>
-          <p>Recibe webhooks de Flask con autenticación por cabecera. Un nodo Switch enruta según el tipo de evento (<code>nueva_cita</code> / <code>estado_actualizado</code>) y lanza el flujo de email correspondiente al admin y/o al cliente.</p>
+          <strong>Sesión mínima y revocable</strong>
+          <p>La cookie solo contiene <code>user_id</code> y una versión de sesión; nombre y rol se leen siempre de la BD. Incrementar <code>session_version</code> (de forma atómica en SQL) cierra todas las sesiones del usuario: logout, cambio de contraseña, de email, de rol o baja.</p>
         </div>
       </div>
       <div class="arch-row">
-        <div class="arch-label">
-          <div class="icon" style="background:rgba(122,118,114,0.12);color:var(--muted)">⛭</div>
-          <span>Infra</span>
-        </div>
+        <div class="arch-label"><div class="icon" style="background:rgba(122,118,114,0.12);color:var(--muted)">⛭</div><span>Infra</span></div>
         <div class="arch-content">
-          <strong>VPS Hetzner · Coolify · Traefik</strong>
-          <p>Coolify gestiona contenedores Docker y certificados SSL. Traefik actúa como proxy inverso enrutando el tráfico a Flask (puerto 5000) y n8n (puerto 5678) sin exponerlos directamente. Ubuntu 24 endurecido con UFW, Fail2Ban y Snort IDS/IPS.</p>
+          <strong>VPS Hetzner · Coolify · Nixpacks · Traefik</strong>
+          <p>Despliegue continuo desde GitHub. gunicorn con 1 worker y 8 hilos (decisión consciente: rate limiter y scheduler viven en memoria). Un middleware de proxy propio solo acepta <code>X-Forwarded-For</code> si el salto pertenece a redes de confianza. La app <strong>se niega a arrancar</strong> en producción con secretos débiles, sin cookie <code>Secure</code>, con DEBUG o con un dominio sin https.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ TECH STACK ═══════════════ -->
+<!-- ═══════════════ STACK ═══════════════ -->
 <section id="stack">
   <div class="section-inner">
     <div class="section-label">03 — Stack Tecnológico</div>
     <h2 class="section-title">Tecnologías Utilizadas</h2>
 
     <div class="tech-grid">
-      <div class="tech-card">
-        <div class="tech-category">Backend</div>
-        <div class="tech-name">Python 3.12 · Flask</div>
-        <p class="tech-desc">Framework web ligero con arquitectura de Blueprints para separación de módulos. ORM SQLAlchemy para consultas seguras parametrizadas.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">Plantillas</div>
-        <div class="tech-name">Jinja2 · JavaScript ES6+</div>
-        <p class="tech-desc">Motor de plantillas con auto-escape activo. AJAX con fetch API para actualizaciones dinámicas sin recarga de página completa.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">Base de Datos</div>
-        <div class="tech-name">SQLite → PostgreSQL</div>
-        <p class="tech-desc">SQLite para desarrollo; PostgreSQL como backend de producción para n8n. Diseño escalable con SQLAlchemy que no requiere cambios de código al migrar.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">Automatización</div>
-        <div class="tech-name">n8n + Docker</div>
-        <p class="tech-desc">Motor de workflows low-code desplegado como contenedor. Recibe webhooks autenticados, evalúa condiciones y ejecuta envíos SMTP.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">Tareas programadas</div>
-        <div class="tech-name">Flask-APScheduler</div>
-        <p class="tech-desc">Cron job integrado en la factoría create_app para reintentos automáticos de notificaciones fallidas con inyección manual de contexto de app.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">Infraestructura</div>
-        <div class="tech-name">Hetzner VPS · Coolify 4</div>
-        <p class="tech-desc">Panel self-hosted que gestiona Docker, SSL automático y deploy desde repositorio privado GitHub vía SSH Deploy Keys.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">Proxy / Red</div>
-        <div class="tech-name">Traefik · UFW · Iptables</div>
-        <p class="tech-desc">Traefik enruta tráfico SSL. UFW bloquea puertos no autorizados. Hashlimit en cadena DOCKER-USER como anti-DoS a nivel de red.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-category">Seguridad</div>
-        <div class="tech-name">Fail2Ban · Snort IDS/IPS</div>
-        <p class="tech-desc">Fail2Ban banea IPs tras intentos SSH fallidos. Snort detecta SQLi y XSS en el tráfico web y se integra con Fail2Ban para bans automáticos.</p>
-      </div>
+      <div class="tech-card"><div class="tech-category">Backend</div><div class="tech-name">Python 3.12 · Flask 3.1</div><p class="tech-desc">Blueprints, application factory, comandos CLI propios (<code>init-db</code>, <code>revocar-sesiones</code>, purgas de conservación).</p></div>
+      <div class="tech-card"><div class="tech-category">Datos</div><div class="tech-name">PostgreSQL · SQLAlchemy 2</div><p class="tech-desc">Bloqueos <code>SELECT … FOR UPDATE</code>, <code>INSERT … ON CONFLICT</code> y <code>UPDATE</code> condicionales. SQLite solo en desarrollo.</p></div>
+      <div class="tech-card"><div class="tech-category">Frontend</div><div class="tech-name">Jinja2 · Tailwind · JS vanilla</div><p class="tech-desc">Sin frameworks: módulos ES6 con <code>fetch</code> y delegación de eventos, compatibles con una CSP que prohíbe JS en línea.</p></div>
+      <div class="tech-card"><div class="tech-category">Automatización</div><div class="tech-name">n8n</div><p class="tech-desc">Webhook único con cabecera de API key; el flujo enruta por tipo de evento y envía el email correspondiente.</p></div>
+      <div class="tech-card"><div class="tech-category">Tareas programadas</div><div class="tech-name">APScheduler</div><p class="tech-desc">Reintentos de notificaciones, purga de cuentas no verificadas (cada hora) y destrucción de datos caducados (diaria).</p></div>
+      <div class="tech-card"><div class="tech-category">Servidor</div><div class="tech-name">gunicorn · Nixpacks</div><p class="tech-desc">Configuración propia que sustituye la cabecera <code>Server</code>; build reproducible sin Dockerfile.</p></div>
+      <div class="tech-card"><div class="tech-category">Infraestructura</div><div class="tech-name">Hetzner · Coolify · Traefik</div><p class="tech-desc">PaaS self-hosted con TLS automático, despliegue desde repositorio privado y Log Drain.</p></div>
+      <div class="tech-card"><div class="tech-category">Calidad</div><div class="tech-name">pytest</div><p class="tech-desc">186 tests: seguridad, concurrencia, privacidad, logs, SEO y verificación contra PostgreSQL real.</p></div>
     </div>
   </div>
 </section>
@@ -1199,38 +1155,59 @@
 <section id="funcionalidades">
   <div class="section-inner">
     <div class="section-label">04 — Funcionalidades</div>
-    <h2 class="section-title">31 Funcionalidades Implementadas</h2>
+    <h2 class="section-title">Qué Hace la Aplicación</h2>
 
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-num">F-01 / F-02</div>
-        <div class="feature-title">Autenticación por roles</div>
-        <p class="feature-desc">Registro y login con hash PBKDF2-SHA256 (600K iteraciones). Dos roles diferenciados: cliente y administrador con acceso completamente separado. La interfaz se adapta dinámicamente según el rol detectado vía AJAX.</p>
+        <div class="feature-num">CLIENTE</div>
+        <div class="feature-title">Reserva y gestión de citas</div>
+        <p class="feature-desc">Solo lunes a viernes, hasta 90 días de antelación y 3 citas activas por cliente. Historial propio, cancelación con regla de 24 h y protección contra doble clic y peticiones duplicadas.</p>
+        <div class="tag-row"><span class="tag">reglas en servidor</span><span class="tag">anti-IDOR</span></div>
       </div>
       <div class="feature-card">
-        <div class="feature-num">F-03 / F-04 / F-05</div>
-        <div class="feature-title">Solicitud y gestión de citas</div>
-        <p class="feature-desc">Reserva online con selección de fecha, hora, motivo y matrícula. Estados: pendiente → confirmada / cancelada → completada. Regla de cancelación de 24 horas aplicada automáticamente en backend y frontend.</p>
+        <div class="feature-num">CLIENTE</div>
+        <div class="feature-title">Vehículos N:M con anti-enumeración</div>
+        <p class="feature-desc">Hasta 5 matrículas por cliente. Si una matrícula pertenece a otro usuario, la cita se crea igualmente con una nota interna para el taller: el sistema nunca revela a quién pertenece.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-num">F-06 — F-13</div>
-        <div class="feature-title">Panel de administración de citas</div>
-        <p class="feature-desc">Vista completa con filtrado por fecha. El admin acepta, rechaza, completa o modifica manualmente el estado de cualquier cita. Puede añadir observaciones internas invisibles para el cliente.</p>
+        <div class="feature-num">AUTENTICACIÓN</div>
+        <div class="feature-title">Registro con verificación de email</div>
+        <p class="feature-desc">Verificación obligatoria; el GET solo muestra un botón y la activación es un POST con CSRF, para que los escáneres de correo no consuman el token. Tokens guardados como hash SHA-256 y consumidos de forma atómica.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-num">F-14 — F-23</div>
-        <div class="feature-title">Gestión completa de usuarios</div>
-        <p class="feature-desc">CRUD completo con verificación de contraseña del admin para acciones sensibles. Búsqueda por nombre y matrícula. Cambio de roles, historial de citas por cliente separado en activas y completadas.</p>
+        <div class="feature-num">AUTENTICACIÓN</div>
+        <div class="feature-title">Login resistente a fuerza bruta</div>
+        <p class="feature-desc">Bloqueo por email+IP con backoff (15 min → 24 h) y bloqueo de cuenta ante ataques distribuidos. El intento se reserva de forma atómica <em>antes</em> de calcular el hash. Salida por reset o desbloqueo desde el panel.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-num">F-24 — F-26</div>
-        <div class="feature-title">Gestión de vehículos (N:M)</div>
-        <p class="feature-desc">Relación muchos-a-muchos entre usuarios y vehículos. Un vehículo puede pertenecer a varios usuarios (coche familiar). La eliminación de un usuario no borra el vehículo si está compartido.</p>
+        <div class="feature-num">ADMIN</div>
+        <div class="feature-title">Panel de citas</div>
+        <p class="feature-desc">Confirmar, completar, cambio manual de estado y observaciones internas. Control optimista de edición: si otro administrador modificó el mismo campo, el servidor responde 409 y la UI no queda incoherente.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-num">Sistema</div>
-        <div class="feature-title">Notificaciones automáticas</div>
-        <p class="feature-desc">Envío asíncrono via threading para no bloquear el hilo principal de Flask. n8n enruta por tipo de evento y envía emails HTML personalizados al admin y al cliente mediante SMTP.</p>
+        <div class="feature-num">ADMIN</div>
+        <div class="feature-title">Gestión de usuarios</div>
+        <p class="feature-desc">Búsqueda por nombre, email, teléfono y matrícula; ficha, cambio de rol, vehículos, reset de contraseña, alta de citas y desbloqueo de cuentas. No se puede degradar ni dar de baja al último administrador.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">ADMIN</div>
+        <div class="feature-title">Reautenticación en el servidor</div>
+        <p class="feature-desc">Todo el panel exige confirmar la contraseña: caduca a los 15 min de inactividad y a las 2 h como máximo. Las peticiones JSON reciben 401 y el frontend solo vuelve a pedirla cuando hace falta.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">SISTEMA</div>
+        <div class="feature-title">Notificaciones por evento</div>
+        <p class="feature-desc">Solicitud, cancelación, aceptación, creación por admin, recuperación, verificación, aviso de cambio de email a la dirección anterior y confirmación de baja con las citas anuladas.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">OPERACIÓN</div>
+        <div class="feature-title">Herramientas de mantenimiento</div>
+        <p class="feature-desc">Consola de solo lectura sobre la BD (SQL libre en transacción de solo lectura), comandos CLI para revocar sesiones, hashear emails de logs y ejecutar purgas de conservación.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">WEB</div>
+        <div class="feature-title">Interfaz móvil y SEO técnico</div>
+        <p class="feature-desc">Portada y menú rediseñados para móvil, carga optimizada de imágenes, <code>robots.txt</code>, <code>sitemap.xml</code>, favicon y metadatos de sitio cubiertos por tests.</p>
       </div>
     </div>
   </div>
@@ -1240,162 +1217,186 @@
 <section id="seguridad">
   <div class="section-inner">
     <div class="section-label">05 — Ciberseguridad</div>
-    <h2 class="section-title">Auditoría OWASP Top 10</h2>
+    <h2 class="section-title">Seguridad por Diseño y Auditada</h2>
 
-    <div class="security-intro">
-      <p>El sistema pasó por una auditoría completa siguiendo la metodología OWASP Top 10 · CWE Top 25 · NIST SP 800-53. Se identificaron 10 vulnerabilidades de las cuales 10 fueron corregidas.</p>
-      <p>La arquitectura implementa un modelo de <strong>Defensa en Profundidad</strong> con 5 capas concéntricas independientes: el fallo de una capa no compromete automáticamente el sistema completo.</p>
+    <p class="lead">
+      Realicé <strong>tres rondas de auditoría</strong> sobre mi propio código (seguridad, concurrencia y una revisión de seguimiento), con más de 28 hallazgos corregidos. Cada corrección tiene un test de regresión que reproduce el fallo. Además, el modelo es de <strong>defensa en profundidad</strong>: ninguna capa es la única barrera.
+    </p>
+
+    <div class="tbl" style="--cols:1.4fr 1.6fr 1fr">
+      <div class="tbl-row header"><div>Riesgo</div><div>Mitigación implementada</div><div>Categoría</div></div>
+      <div class="tbl-row"><div class="k">Stored XSS en paneles</div><div>Escape en todas las salidas, CSP con nonce por petición y <strong>sin JS en línea</strong> (todo en <code>static/js</code>)</div><div>A03 · Inyección</div></div>
+      <div class="tbl-row"><div class="k">CSRF</div><div>Tokens HMAC-SHA256 propios, <code>csrfFetch</code> unificado en el frontend, verificación en todos los POST</div><div>A01 · Control de acceso</div></div>
+      <div class="tbl-row"><div class="k">Escalada y sesiones robadas</div><div><code>session_version</code> revocable, rol leído de la BD (no de la cookie), caducidad de 12 h para admin y reauth en servidor</div><div>A01 / A07</div></div>
+      <div class="tbl-row"><div class="k">Fuerza bruta y relleno de credenciales</div><div>Bloqueo por email+IP con backoff y por cuenta, reserva atómica del intento, PBKDF2-SHA256</div><div>A07 · Autenticación</div></div>
+      <div class="tbl-row"><div class="k">Enumeración de usuarios</div><div>Misma respuesta <strong>y mismo tiempo</strong> en registro, login y recuperación (hash calculado en ambos caminos y tiempo mínimo de respuesta)</div><div>A07</div></div>
+      <div class="tbl-row"><div class="k">Suplantación de IP / X-Forwarded-For</div><div><code>ProxyConfiable</code>: solo acepta cabeceras de proxies en redes de confianza y con el número de saltos esperado</div><div>A05 · Configuración</div></div>
+      <div class="tbl-row"><div class="k">IDOR</div><div>Comprobación de propiedad en cada recurso; 404 indistinguible de «no existe»</div><div>A01</div></div>
+      <div class="tbl-row"><div class="k">Fuga de secretos en logs</div><div>Emails como HMAC, redacción de contraseñas, tokens, cookies y query strings; trazas de BD sin parámetros</div><div>A09 · Logging</div></div>
+      <div class="tbl-row"><div class="k">Configuración insegura en producción</div><div>Fail-fast: la app no arranca con secretos &lt; 32 caracteres, DEBUG, dominio sin https o cookie sin <code>Secure</code></div><div>A05</div></div>
+      <div class="tbl-row"><div class="k">Dependencia de import circular</div><div>Detectado por una prueba que importa cada punto de entrada en un intérprete limpio (pytest no lo veía)</div><div>Robustez</div></div>
     </div>
 
-    <div class="vuln-grid">
-      <div class="vuln-row header">
-        <div>Vulnerabilidad</div>
-        <div>Severidad</div>
-        <div>Categoría OWASP</div>
-        <div>Estado</div>
-      </div>
-      <div class="vuln-row">
-        <div>Stored XSS via innerHTML en paneles de administración</div>
-        <div><span class="vuln-sev sev-critica">CRÍTICA</span></div>
-        <div style="font-size:12px;color:var(--muted)">A03:2021 – XSS</div>
-        <div><span class="status-ok">✓ Corregido</span></div>
-      </div>
-      <div class="vuln-row">
-        <div>XSS en atributos onclick con escape insuficiente</div>
-        <div><span class="vuln-sev sev-alta">ALTA</span></div>
-        <div style="font-size:12px;color:var(--muted)">A03:2021 – XSS</div>
-        <div><span class="status-ok">✓ Corregido</span></div>
-      </div>
-      <div class="vuln-row">
-        <div>Bug de precedencia Python: CSRF inoperante en formularios</div>
-        <div><span class="vuln-sev sev-alta">ALTA</span></div>
-        <div style="font-size:12px;color:var(--muted)">A01:2021 – Broken AC</div>
-        <div><span class="status-ok">✓ Corregido</span></div>
-      </div>
-      <div class="vuln-row">
-        <div>IP Spoofing vía X-Forwarded-For — evasión de rate limiting</div>
-        <div><span class="vuln-sev sev-alta">ALTA</span></div>
-        <div style="font-size:12px;color:var(--muted)">A05:2021 – Misc.</div>
-        <div><span class="status-ok">✓ Corregido</span></div>
-      </div>
-      <div class="vuln-row">
-        <div>CSP con 'unsafe-inline' en scripts — neutraliza protección XSS</div>
-        <div><span class="vuln-sev sev-media">MEDIA</span></div>
-        <div style="font-size:12px;color:var(--muted)">A05:2021 – Misc.</div>
-        <div><span class="status-ok">✓ Corregido</span></div>
-      </div>
-      <div class="vuln-row">
-        <div>HSTS deshabilitado — riesgo de downgrade a HTTP</div>
-        <div><span class="vuln-sev sev-baja">BAJA</span></div>
-        <div style="font-size:12px;color:var(--muted)">A05:2021 – Misc.</div>
-        <div><span class="status-ok">✓ Corregido</span></div>
-      </div>
-      <div class="vuln-row">
-        <div>N+1 queries en búsqueda de usuarios — potencial DoS interno</div>
-        <div><span class="vuln-sev sev-baja">BAJA</span></div>
-        <div style="font-size:12px;color:var(--muted)">A04:2021 – Insecure Design</div>
-        <div><span class="status-ok">✓ Corregido</span></div>
-      </div>
-    </div>
-
+    <div class="sub-title">Defensa en profundidad · 5 capas</div>
     <div class="layers">
-      <div class="layer">
-        <div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--muted)">1</span></div>
-        <div class="layer-body">
-          <strong>Presentación (más cercana al atacante)</strong>
-          <p>CSP con nonce único por petición · escapeHTML() · Jinja2 auto-escape · X-Frame-Options · MIME sniffing protection</p>
-        </div>
-      </div>
-      <div class="layer">
-        <div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--blue)">2</span></div>
-        <div class="layer-body">
-          <strong>Integridad de Petición</strong>
-          <p>CSRF Tokens HMAC-SHA256 · Rate Limiting con ProxyFix · Validación y sanitización de inputs en backend y frontend</p>
-        </div>
-      </div>
-      <div class="layer">
-        <div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--accent)">3</span></div>
-        <div class="layer-body">
-          <strong>Autenticación y Autorización</strong>
-          <p>PBKDF2-SHA256 · 600K iteraciones · compare_digest contra timing attacks · Decoradores @login_required / @admin_required</p>
-        </div>
-      </div>
-      <div class="layer">
-        <div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--green)">4</span></div>
-        <div class="layer-body">
-          <strong>Transporte y Sesión</strong>
-          <p>SESSION_COOKIE_HTTPONLY · SESSION_COOKIE_SECURE · SESSION_COOKIE_SAMESITE=Lax · HSTS activado</p>
-        </div>
-      </div>
-      <div class="layer">
-        <div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--red)">5</span></div>
-        <div class="layer-body">
-          <strong>Infraestructura</strong>
-          <p>ProxyFix · Traefik TLS · Fail2Ban (SSH + Snort) · Snort IDS/IPS · iptables hashlimit en DOCKER-USER</p>
-        </div>
-      </div>
+      <div class="layer"><div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--muted)">1</span></div><div class="layer-body"><strong>Presentación</strong><p>CSP con nonce · Jinja2 auto-escape · X-Content-Type-Options · X-Frame-Options · Cache-Control: no-store en páginas dinámicas</p></div></div>
+      <div class="layer"><div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--blue)">2</span></div><div class="layer-body"><strong>Integridad de petición</strong><p>CSRF HMAC · rate limiting por IP y por usuario · validación de entrada en backend y frontend · bloqueo de IPs por configuración</p></div></div>
+      <div class="layer"><div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--accent)">3</span></div><div class="layer-body"><strong>Autenticación y autorización</strong><p>PBKDF2-SHA256 · compare_digest · @login_required / @admin_required / @reauth_required · reautenticación en servidor</p></div></div>
+      <div class="layer"><div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--green)">4</span></div><div class="layer-body"><strong>Sesión y transporte</strong><p>Cookie HttpOnly + Secure + SameSite · HSTS · sesiones revocables · caducidad diferenciada por rol</p></div></div>
+      <div class="layer"><div class="layer-num"><span>Capa</span><span class="layer-n" style="color:var(--red)">5</span></div><div class="layer-body"><strong>Infraestructura</strong><p>Traefik TLS · proxy de confianza · UFW · Fail2Ban · Snort IDS/IPS · iptables hashlimit en DOCKER-USER</p></div></div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONCURRENCIA ═══════════════ -->
+<section id="concurrencia">
+  <div class="section-inner">
+    <div class="section-label">06 — Fiabilidad</div>
+    <h2 class="section-title">Concurrencia y Consistencia</h2>
+
+    <p class="lead">
+      Un sistema de citas es, en esencia, un problema de condiciones de carrera: dos administradores, un cliente que cancela mientras se confirma, doble clic, reintentos. Auditué <strong>13 escenarios (R1–R13)</strong> y los cerré con mecanismos de base de datos, no con parches en Python.
+    </p>
+
+    <div class="tbl" style="--cols:1.2fr 1.8fr">
+      <div class="tbl-row header"><div>Escenario</div><div>Mecanismo</div></div>
+      <div class="tbl-row"><div class="k">Cambio de estado simultáneo de una cita</div><div><code>UPDATE … WHERE estado IN (…)</code> y comprobación de <code>rowcount</code>. El perdedor recibe <strong>409</strong> y <strong>no se envía notificación</strong></div></div>
+      <div class="tbl-row"><div class="k">Superar el límite de citas activas en paralelo</div><div><code>SELECT … FOR UPDATE</code> sobre el usuario al pedir cita, dar de baja, crear desde admin y emitir tokens</div></div>
+      <div class="tbl-row"><div class="k">Matrículas duplicadas por peticiones paralelas</div><div><code>INSERT … ON CONFLICT DO NOTHING</code> en creación y asociación</div></div>
+      <div class="tbl-row"><div class="k">Sobrescritura de observaciones</div><div>Control optimista: el cliente envía el valor original y el servidor rechaza con 409 si cambió</div></div>
+      <div class="tbl-row"><div class="k">Reutilización de un token de un solo uso</div><div><code>UPDATE … WHERE usado = false</code> atómico; el ganador se decide en la BD</div></div>
+      <div class="tbl-row"><div class="k">Degradar a la vez a dos administradores</div><div>Bloqueo de la lista de admins: siempre queda al menos uno y quien actúa sigue siéndolo</div></div>
+    </div>
+
+    <div class="callout">
+      <strong>Verificado contra PostgreSQL 16 real.</strong> SQLite ignora <code>FOR UPDATE</code>, así que los tests de concurrencia sobre SQLite solo comprobarían que se pide el bloqueo. Preparé una batería específica (<code>tests/test_postgres.py</code>) que se ejecuta contra una BD real y comprobé que <strong>sin el bloqueo, R1, R2 y R9 fallan</strong>: la prueba detecta la ausencia del arreglo.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PRIVACIDAD ═══════════════ -->
+<section id="privacidad">
+  <div class="section-inner">
+    <div class="section-label">07 — Cumplimiento</div>
+    <h2 class="section-title">Privacidad y RGPD</h2>
+
+    <p class="lead">
+      Las decisiones de privacidad se definieron con un asesor legal y se implementaron como comportamiento del sistema, no solo como texto en una página.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-title">Baja con bloqueo</div><p class="feature-desc">La baja no borra: marca la cuenta, anonimiza el email en uso (queda libre para registrarse de nuevo), revoca sesiones y tokens y cancela las citas futuras. La cuenta pasa a ser un 404 en todo el sistema.</p></div>
+      <div class="feature-card"><div class="feature-title">Plazos de conservación</div><p class="feature-desc">Cuentas no verificadas sin citas: borrado a las 48 h. Datos bloqueados: destrucción a los 6 años de la última interacción, mediante tareas programadas que registran un evento de auditoría.</p></div>
+      <div class="feature-card"><div class="feature-title">Consentimiento de cookies</div><p class="feature-desc">Banner con «Configurar cookies» siempre accesible. El mapa de Google solo carga con consentimiento y se retira al instante si se revoca. El logout limpia el almacenamiento local.</p></div>
+      <div class="feature-card"><div class="feature-title">Minimización en logs y cola</div><p class="feature-desc">Sin datos personales en claro en logs; la baja y la destrucción de datos purgan los avisos pendientes del usuario de la cola de notificaciones.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ OBSERVABILIDAD ═══════════════ -->
+<section id="observabilidad">
+  <div class="section-inner">
+    <div class="section-label">08 — Operación</div>
+    <h2 class="section-title">Observabilidad y Respuesta a Incidentes</h2>
+
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-title">Logs JSON estructurados</div><p class="feature-desc">Una línea por evento con <code>ts</code>, <code>level</code>, <code>event</code>, <code>rid</code> (también en la cabecera <code>X-Request-ID</code>), <code>ip</code> y <code>uid</code>: correlación de extremo a extremo.</p></div>
+      <div class="feature-card"><div class="feature-title">Catálogo de eventos</div><p class="feature-desc">Eventos de seguridad con nombre estable (<code>LOGIN_ACCOUNT_LOCKED</code>, <code>UNAUTHORIZED_ADMIN_ACCESS</code>…) documentados junto a guías de investigación y de contención de ataques.</p></div>
+      <div class="feature-card"><div class="feature-title">Privacidad en observabilidad</div><p class="feature-desc">Emails como HMAC con clave dedicada, para poder buscar una cuenta sin almacenarla. Envío a Axiom vía Log Drain de Coolify.</p></div>
+      <div class="feature-card"><div class="feature-title">Herramientas de respuesta</div><p class="feature-desc"><code>BLOCKED_IPS</code> para cortar un ataque sin desplegar, <code>flask revocar-sesiones</code> para cerrar todas las sesiones de una cuenta comprometida.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CALIDAD ═══════════════ -->
+<section id="calidad">
+  <div class="section-inner">
+    <div class="section-label">09 — Calidad</div>
+    <h2 class="section-title">Estrategia de Pruebas</h2>
+
+    <div class="results-grid">
+      <div class="result-card"><div class="result-num">186</div><div class="result-label">Tests (181 en SQLite + 5 contra PostgreSQL real)</div></div>
+      <div class="result-card"><div class="result-num">9</div><div class="result-label">Módulos de test por dominio</div></div>
+      <div class="result-card"><div class="result-num">1:1</div><div class="result-label">Cada bug hallado tiene su test de regresión</div></div>
+    </div>
+
+    <div class="tbl" style="--cols:1fr 2fr">
+      <div class="tbl-row header"><div>Suite</div><div>Cubre</div></div>
+      <div class="tbl-row"><div class="k">Seguridad y auditorías</div><div>CSRF, cabeceras, reautenticación, sesiones revocables, bloqueo de login, proxy de confianza, enumeración por tiempo, IDOR</div></div>
+      <div class="tbl-row"><div class="k">Concurrencia</div><div>Estados de cita, tokens de un solo uso, límites por usuario; más batería específica en PostgreSQL</div></div>
+      <div class="tbl-row"><div class="k">Privacidad</div><div>Baja, anonimización, purgas por plazo y purga de la cola de notificaciones</div></div>
+      <div class="tbl-row"><div class="k">Logs y SEO</div><div>Redacción de datos sensibles, formato de eventos, robots, sitemap e iconos</div></div>
+      <div class="tbl-row"><div class="k">Puntos de entrada</div><div>Importación de cada script en un intérprete nuevo (detecta ciclos que pytest oculta)</div></div>
+    </div>
+
+    <p class="note">La validación en navegador (móvil, modales, flujos de baja y ascenso de rol) se planificó como protocolo de pruebas manuales y automatizadas con un agente de Chrome.</p>
   </div>
 </section>
 
 <!-- ═══════════════ RETOS ═══════════════ -->
 <section id="retos">
   <div class="section-inner">
-    <div class="section-label">06 — Ingeniería</div>
+    <div class="section-label">10 — Ingeniería</div>
     <h2 class="section-title">Retos y Soluciones</h2>
 
     <div class="challenge-list">
       <div class="challenge">
-        <div class="challenge-problem">
-          <div class="challenge-label">Reto</div>
-          <h4>Envíos de email bloqueando el servidor</h4>
-          <p>Los envíos síncronos a n8n bloqueaban el hilo principal de Flask causando latencia visible en la UI. Además, si n8n caía temporalmente, la notificación se perdía definitivamente.</p>
-        </div>
-        <div class="challenge-solution">
-          <div class="challenge-label">Solución</div>
-          <h4>Threading + Patrón Outbox</h4>
-          <p>El envío se delega a un hilo secundario con <code>threading.Thread</code>. Si falla, se guarda en <code>notificaciones_fallidas</code> y APScheduler reintenta cada hora hasta 24 veces. Zero pérdida de datos.</p>
-        </div>
+        <div class="challenge-problem"><div class="challenge-label">Reto</div><h4>CSRF que creía funcionar</h4><p>Un error de precedencia de operadores en Python hacía que la validación nunca se ejecutara, dejando los POST desprotegidos sin ningún síntoma visible.</p></div>
+        <div class="challenge-solution"><div class="challenge-label">Solución</div><h4>Reescritura + tests que fallan sin ella</h4><p>Tokens HMAC-SHA256 y <code>csrfFetch</code> unificado. Lección aplicada a todo el proyecto: una defensa no cuenta hasta que existe un test que falla cuando se elimina.</p></div>
       </div>
 
       <div class="challenge">
-        <div class="challenge-problem">
-          <div class="challenge-label">Reto</div>
-          <h4>CSP estricta rompiendo toda la interfaz</h4>
-          <p>Al aplicar CSP sin <code>unsafe-inline</code> para prevenir XSS, el navegador bloqueaba todos los manejadores de eventos <code>onclick="..."</code> usados extensivamente en los paneles de admin.</p>
-        </div>
-        <div class="challenge-solution">
-          <div class="challenge-label">Solución</div>
-          <h4>Delegación de eventos + atributos data-*</h4>
-          <p>Eliminación de todos los <code>onclick</code> del HTML. Event listeners en contenedor padre leyendo atributos <code>data-cita-id</code>, <code>data-estado</code>. CSP con nonce único por petición en su lugar.</p>
-        </div>
+        <div class="challenge-problem"><div class="challenge-label">Reto</div><h4>Una CSP estricta rompe una interfaz llena de <code>onclick</code></h4><p>Al prohibir JS en línea, los paneles de administración dejaron de responder.</p></div>
+        <div class="challenge-solution"><div class="challenge-label">Solución</div><h4>Delegación de eventos + <code>data-*</code></h4><p>Se eliminó todo el JS embebido; listeners en contenedores leyendo <code>data-cita-id</code>, <code>data-estado</code> o <code>data-verify-url</code>, y CSP con nonce por petición.</p></div>
       </div>
 
       <div class="challenge">
-        <div class="challenge-problem">
-          <div class="challenge-label">Reto</div>
-          <h4>CSRF completamente inoperante</h4>
-          <p>El sistema creía tener CSRF activo, pero un bug de precedencia de operadores en Python hacía que la validación nunca se ejecutara realmente, dejando todos los formularios POST desprotegidos.</p>
-        </div>
-        <div class="challenge-solution">
-          <div class="challenge-label">Solución</div>
-          <h4>HMAC-SHA256 + csrfFetch</h4>
-          <p>Reescritura completa del sistema CSRF con tokens HMAC-SHA256. Función <code>csrfFetch</code> estandarizada en todo el frontend que inyecta automáticamente el token en cada petición POST/PATCH/DELETE.</p>
-        </div>
+        <div class="challenge-problem"><div class="challenge-label">Reto</div><h4>Carreras invisibles en SQLite</h4><p>Los tests de concurrencia pasaban en SQLite porque este ignora <code>FOR UPDATE</code>: eran falsos positivos.</p></div>
+        <div class="challenge-solution"><div class="challenge-label">Solución</div><h4>Verificación contra PostgreSQL 16</h4><p>Batería específica ejecutada contra PostgreSQL real, comprobando además que <strong>falla</strong> al retirar los bloqueos (prueba negativa de la propia prueba).</p></div>
       </div>
 
       <div class="challenge">
-        <div class="challenge-problem">
-          <div class="challenge-label">Reto</div>
-          <h4>IP Spoofing evitando el rate limiter</h4>
-          <p>El rate limiter leía directamente la cabecera <code>X-Forwarded-For</code> sin validar, permitiendo a atacantes cambiar su IP aparente en cada request y evadir completamente el sistema anti-DoS.</p>
-        </div>
-        <div class="challenge-solution">
-          <div class="challenge-label">Solución</div>
-          <h4>ProxyFix con num_proxies=1</h4>
-          <p>Middleware de Werkzeug configurado para confiar solo en el proxy legítimo (Traefik). La IP del cliente se normaliza correctamente antes de aplicar rate limiting, invalidando el vector de spoofing.</p>
-        </div>
+        <div class="challenge-problem"><div class="challenge-label">Reto</div><h4>Enumeración de cuentas por tiempo de respuesta</h4><p>Aunque los mensajes eran idénticos, un email existente tardaba más (cálculo de hash y envío), delatando qué cuentas existen.</p></div>
+        <div class="challenge-solution"><div class="challenge-label">Solución</div><h4>Igualar el trabajo y fijar un mínimo</h4><p>El registro calcula el hash en ambos caminos y registro y recuperación imponen un tiempo mínimo de respuesta configurable.</p></div>
       </div>
+
+      <div class="challenge">
+        <div class="challenge-problem"><div class="challenge-label">Reto</div><h4>Import circular oculto por pytest</h4><p>El script de consulta a la BD fallaba en producción con <code>ImportError</code>, mientras la web y los tests funcionaban porque los módulos ya estaban cargados.</p></div>
+        <div class="challenge-solution"><div class="challenge-label">Solución</div><h4>Rediseño de <code>utils/__init__</code> y test de aislamiento</h4><p>El paquete ya no reexporta nada y una prueba importa cada punto de entrada en un intérprete nuevo.</p></div>
+      </div>
+
+      <div class="challenge">
+        <div class="challenge-problem"><div class="challenge-label">Reto</div><h4>Emails y tokens frente a la resiliencia</h4><p>Reintentar avisos garantiza la entrega, pero guardar en una cola un enlace de recuperación es un riesgo de seguridad.</p></div>
+        <div class="challenge-solution"><div class="challenge-label">Solución</div><h4>Cola selectiva con deduplicación</h4><p>Los eventos con token jamás se persisten; el resto usa backoff exponencial durante 24 h y un <code>id_evento</code> para que n8n no envíe duplicados.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ HARDENING ═══════════════ -->
+<section id="hardening">
+  <div class="section-inner">
+    <div class="section-label">11 — Infraestructura</div>
+    <h2 class="section-title">Hardening del Servidor</h2>
+
+    <div class="security-intro">
+      <p>
+        El servidor sigue un proceso de endurecimiento continuo basado en la guía
+        <a href="https://github.com/imthenachoman/How-To-Secure-A-Linux-Server" target="_blank" rel="noopener noreferrer" style="color:var(--blue)">How-To-Secure-A-Linux-Server</a>.
+      </p>
+    </div>
+
+    <div class="tbl" style="--cols:1.6fr 1fr 130px">
+      <div class="tbl-row header"><div>Medida</div><div>Bloque</div><div>Estado</div></div>
+      <div class="tbl-row"><div>UFW deny-by-default, solo puertos necesarios</div><div>Firewall</div><div><span class="status-ok">✓ Implementado</span></div></div>
+      <div class="tbl-row"><div>Snort IDS/IPS integrado con Fail2Ban</div><div>Detección de intrusiones</div><div><span class="status-ok">✓ Implementado</span></div></div>
+      <div class="tbl-row"><div>Fail2Ban con jails para SSH y patrones web</div><div>Fuerza bruta</div><div><span class="status-ok">✓ Implementado</span></div></div>
+      <div class="tbl-row"><div>Traefik con TLS automático (Let's Encrypt vía Coolify)</div><div>Transporte</div><div><span class="status-ok">✓ Implementado</span></div></div>
+      <div class="tbl-row"><div>SSH solo con clave pública, sin root, puerto no estándar</div><div>Acceso remoto</div><div><span class="status-ok">✓ Implementado</span></div></div>
+      <div class="tbl-row"><div>Actualizaciones de seguridad automáticas</div><div>Mantenimiento</div><div><span class="status-ok">✓ Implementado</span></div></div>
+      <div class="tbl-row"><div>Endurecimiento de kernel vía sysctl</div><div>Kernel</div><div><span class="status-ok">✓ Implementado</span></div></div>
+      <div class="tbl-row"><div>Registro centralizado y auditoría</div><div>Logging</div><div><span class="status-ok">✓ Implementado</span></div></div>
+      <div class="tbl-row"><div>Copias de seguridad fuera del VPS</div><div>Recuperación</div><div><span class="status-ok">✓ Implementado</span></div></div>
     </div>
   </div>
 </section>
@@ -1403,150 +1404,45 @@
 <!-- ═══════════════ RESULTADOS ═══════════════ -->
 <section id="resultados">
   <div class="section-inner">
-    <div class="section-label">07 — Resultados</div>
+    <div class="section-label">12 — Resultados</div>
     <h2 class="section-title">Qué se Consiguió</h2>
 
     <div class="results-grid">
-      <div class="result-card">
-        <div class="result-num">31</div>
-        <div class="result-label">Funcionalidades implementadas y documentadas</div>
-      </div>
-      <div class="result-card">
-        <div class="result-num">10/10</div>
-        <div class="result-label">Vulnerabilidades OWASP corregidas</div>
-      </div>
-      <div class="result-card">
-        <div class="result-num">0</div>
-        <div class="result-label">Pérdida de notificaciones gracias al patrón Outbox</div>
-      </div>
-      <div class="result-card">
-        <div class="result-num">24/7</div>
-        <div class="result-label">Disponibilidad de solicitud de citas online</div>
-      </div>
-      <div class="result-card">
-        <div class="result-num">5</div>
-        <div class="result-label">Capas de seguridad independientes activas</div>
-      </div>
-      <div class="result-card">
-        <div class="result-num">100%</div>
-        <div class="result-label">Gestión manual de citas eliminada</div>
-      </div>
+      <div class="result-card"><div class="result-num">186</div><div class="result-label">Tests automáticos</div></div>
+      <div class="result-card"><div class="result-num">28+</div><div class="result-label">Hallazgos de 3 auditorías corregidos</div></div>
+      <div class="result-card"><div class="result-num">13</div><div class="result-label">Condiciones de carrera cerradas y verificadas</div></div>
+      <div class="result-card"><div class="result-num">5</div><div class="result-label">Capas de seguridad independientes</div></div>
+      <div class="result-card"><div class="result-num">6 años</div><div class="result-label">Plazo de conservación aplicado automáticamente</div></div>
+      <div class="result-card"><div class="result-num">24/7</div><div class="result-label">Solicitud de citas online</div></div>
     </div>
 
-    <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;margin-top:2rem;">
-      <p style="font-size:15px;color:#a09a93;line-height:1.75;max-width:700px;">
-        El proyecto pasó de una idea de digitalización a un sistema en producción real sobre infraestructura propia, con pipeline de deploy automatizado desde GitHub, seguridad auditada con metodología profesional, y un sistema de automatización resiliente con recuperación de fallos integrada.
-      </p>
+    <div class="callout" style="border-left-color:var(--accent)">
+      Desplegado en <strong>talleresoja.com</strong> con despliegue continuo, un sistema de notificaciones tolerante a fallos, seguridad auditada con regresión automatizada y cumplimiento RGPD implementado como comportamiento. Documenté además los límites conocidos con honestidad: es lo que hace útil una auditoría.
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ HARDENING DEL SERVIDOR ═══════════════ -->
-<section id="hardening">
-  <div class="section-inner">
-    <div class="section-label">08 — Infraestructura</div>
-    <h2 class="section-title">Hardening del Servidor</h2>
-
-    <div class="security-intro">
-      <p>
-        Más allá de la aplicación, el servidor que la aloja sigue un proceso de hardening continuo
-        basado en la guía de referencia de la comunidad
-        <a href="https://github.com/imthenachoman/How-To-Secure-A-Linux-Server" target="_blank" rel="noreferrer" style="color:var(--blue)">How-To-Secure-A-Linux-Server</a>.
-        Es un proceso vivo: esta tabla documenta las medidas de hardening implementadas.
-      </p>
-    </div>
-
-    <div class="hcheck-grid">
-      <div class="hcheck-row header">
-        <div>Medida</div>
-        <div>Bloque de la guía</div>
-        <div>Estado</div>
-      </div>
-      <div class="hcheck-row">
-        <div>UFW con política deny-by-default, solo puertos necesarios abiertos</div>
-        <div style="font-size:12px;color:var(--muted)">Firewall</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-      <div class="hcheck-row">
-        <div>Snort IDS/IPS monitorizando tráfico, integrado con Fail2Ban</div>
-        <div style="font-size:12px;color:var(--muted)">Detección de intrusiones</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-      <div class="hcheck-row">
-        <div>Fail2Ban con jails para SSH y patrones de ataque web</div>
-        <div style="font-size:12px;color:var(--muted)">Fuerza bruta</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-      <div class="hcheck-row">
-        <div>Traefik como reverse proxy con TLS automático (Let's Encrypt vía Coolify)</div>
-        <div style="font-size:12px;color:var(--muted)">Transporte / TLS</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-      <div class="hcheck-row">
-        <div>SSH solo por clave pública, root login deshabilitado, puerto no estándar</div>
-        <div style="font-size:12px;color:var(--muted)">Acceso remoto</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-      <div class="hcheck-row">
-        <div>Actualizaciones de seguridad automáticas (unattended-upgrades)</div>
-        <div style="font-size:12px;color:var(--muted)">Mantenimiento</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-      <div class="hcheck-row">
-        <div>Endurecimiento de kernel vía sysctl (SYN flood, IP spoofing)</div>
-        <div style="font-size:12px;color:var(--muted)">Kernel</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-      <div class="hcheck-row">
-        <div>Registro centralizado y auditoría (auditd o equivalente)</div>
-        <div style="font-size:12px;color:var(--muted)">Logging</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-      <div class="hcheck-row">
-        <div>Copias de seguridad automatizadas fuera del propio VPS</div>
-        <div style="font-size:12px;color:var(--muted)">Recuperación ante desastres</div>
-        <div><span class="status-ok">✓ Implementado</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════ MEJORAS FUTURAS ═══════════════ -->
+<!-- ═══════════════ ROADMAP ═══════════════ -->
 <section style="border-bottom:none">
   <div class="section-inner">
-    <div class="section-label">09 — Roadmap</div>
-    <h2 class="section-title">Mejoras Futuras</h2>
+    <div class="section-label">13 — Roadmap</div>
+    <h2 class="section-title">Próximos Pasos</h2>
 
     <div class="future-list">
-      <div class="future-item">
-        <div>
-          <h4>Geo-blocking</h4>
-          <p>Bloquear rangos de IPs de países fuera del mercado objetivo, reduciendo el tráfico basura en un ~80%.</p>
-        </div>
-      </div>
-
-      <div class="future-item">
-        <div>
-          <h4>Celery / Redis Queue</h4>
-          <p>Migrar de threading a Celery si el volumen supera miles de transacciones por minuto para mayor robustez.</p>
-        </div>
-      </div>
-      <div class="future-item">
-        <div>
-          <h4>Adjuntos en notificaciones</h4>
-          <p>Envío de presupuestos en PDF directamente adjuntos al email del cliente vía Multipart/form-data en n8n.</p>
-        </div>
-      </div>
-
+      <div class="future-item"><div><h4>Migraciones con Flask-Migrate</h4><p>Antes del siguiente cambio de modelos con clientes reales: hoy se recrea la BD.</p></div></div>
+      <div class="future-item"><div><h4>MFA para administradores</h4><p>Segundo factor sobre la reautenticación en servidor ya existente.</p></div></div>
+      <div class="future-item"><div><h4>Rate limiting compartido (Redis)</h4><p>Permitiría escalar a varios workers sin multiplicar límites ni duplicar reintentos.</p></div></div>
+      <div class="future-item"><div><h4>Capacidad por franja horaria</h4><p>Modelar la capacidad real del taller por hueco y evitar la sobreocupación.</p></div></div>
+      <div class="future-item"><div><h4>Pruebas de carga</h4><p>Medir el comportamiento con concurrencia real sobre la infraestructura de producción.</p></div></div>
+      <div class="future-item"><div><h4>Adjuntos en notificaciones</h4><p>Presupuestos en PDF adjuntos al email vía n8n.</p></div></div>
     </div>
   </div>
 </section>
+</main>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
-  <p>TalleresOja — Sistema de Gestión de Citas · 2026</p>
-  <p>Python · Flask · n8n · Docker · Hetzner VPS</p>
+  <p>TalleresOja — Sistema de Gestión de Citas · 2026 · Jorge Condado</p>
+  <p>Flask · PostgreSQL · n8n · Coolify · Hetzner</p>
 </footer>
 
 </body>
