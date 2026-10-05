@@ -25,10 +25,10 @@ export const Contact = memo(() => {
 
           <div className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-[var(--text-muted)] sm:text-base sm:leading-8 flex flex-col gap-4">
             <p>
-              Busco siempre nuevos retos donde pueda aportar valor tanto en la arquitectura backend como en la experiencia de usuario frontend.
+              Busco siempre nuevos retos donde pueda aportar valor, donde pueda razonar, aprender, equivocarme y crecer profesionalmente. Además, me encanta trabajar en equipo para crear soluciones innovadoras.
             </p>
             <p>
-              Si tienes un proyecto en mente, necesitas a alguien resolutivo para tu equipo, o simplemente quieres hablar de tecnología, no dudes en escribirme.
+              Si mi perfil encaja con lo que estás buscando, no dudes en contactarme. Estoy abierto a nuevas oportunidades.
             </p>
           </div>
 
