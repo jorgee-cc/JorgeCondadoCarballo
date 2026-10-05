@@ -261,7 +261,7 @@ export const ExperienceEducation = memo(() => {
                 className="h-1.5 w-1.5 rounded-full"
                 style={{ background: "var(--signal-ok)" }}
               />
-              Impartido 100% en inglés
+              Impartido en bilingüe
             </div>
           </motion.div>
 
