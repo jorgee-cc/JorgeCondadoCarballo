@@ -295,7 +295,7 @@ export const ExperienceEducation = memo(() => {
               Inglés — C1 (autoevaluado)
             </h3>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              Grado 100% impartido en inglés en la UC3M; atención habitual a clientes internacionales
+              Grado impartido en bilinüe (inglés y español) en la UC3M; atención habitual a clientes internacionales
               en Puma y Samsung.
             </p>
           </motion.div>
