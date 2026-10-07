@@ -159,6 +159,13 @@
 
   html {
     font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   h1 {
@@ -269,6 +276,19 @@
        La actualización de CSS vars solo triggerea composite, no paint */
     will-change: background;
     transform: translateZ(0);
+  }
+
+  /* =====================================================
+     CATEGORY NAV — Scroll horizontal sin scrollbar visible
+     Panel de categorías de proyectos navegable en móvil
+     ===================================================== */
+  .category-nav-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .category-nav-scroll::-webkit-scrollbar {
+    display: none;
   }
 
   /* =====================================================

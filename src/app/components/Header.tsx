@@ -1,6 +1,6 @@
-import React, { memo } from "react";
-import { motion } from "motion/react";
-import { Github, Linkedin } from "lucide-react";
+import React, { memo, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Github, Linkedin, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "#proyectos", label: "Proyectos" },
@@ -10,6 +10,8 @@ const NAV_LINKS = [
 ] as const;
 
 export const Header = memo(() => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="fixed top-0 z-50 w-full border-b border-[var(--line)] bg-[var(--bg)]/80 backdrop-blur-2xl">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-12">
@@ -76,8 +78,46 @@ export const Header = memo(() => {
             <Github className="h-4 w-4" />
             <span className="hidden sm:inline">GitHub</span>
           </motion.a>
+          <motion.button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            whileTap={{ scale: 0.95 }}
+            aria-label={menuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--surface)]/60 text-[var(--text)] transition-colors hover:border-[var(--signal-ok)]/50 hover:text-[var(--signal-ok)] sm:hidden"
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </motion.button>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            id="mobile-nav"
+            aria-label="Navegación móvil"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="overflow-hidden border-t border-[var(--line)] bg-[var(--bg)]/95 backdrop-blur-2xl sm:hidden"
+          >
+            <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
+              {NAV_LINKS.map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-[var(--text-muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--text)]"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 });

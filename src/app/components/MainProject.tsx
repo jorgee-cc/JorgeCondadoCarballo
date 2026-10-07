@@ -93,8 +93,7 @@ export const MainProject = memo(() => {
             </div>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
               VPS propio con Docker y Traefik como proxy inverso, endurecido con UFW, Fail2Ban y Snort IDS/IPS.
-              Auditoría manual completa contra el OWASP Top 10. El hardening del servidor sigue en marcha, documentado
-              en la ficha del proyecto.
+              Auditoría manual completa contra el OWASP Top 10. Con un hardening completamente implementado y documentado
             </p>
           </div>
 

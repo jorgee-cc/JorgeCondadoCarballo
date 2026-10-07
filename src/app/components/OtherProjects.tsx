@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Mic, Cpu, Share2, Compass, ArrowRight, MonitorPlay, Zap, Activity, Palette, Github, ShieldCheck, KeyRound, LockKeyhole, FileSignature } from "lucide-react";
 
@@ -16,6 +16,7 @@ type Project = {
 type Category = {
   id: string;
   label: string;
+  short: string;
   title: string;
   subtitle: string;
   accent: string;
@@ -27,6 +28,7 @@ const categories: Category[] = [
   {
     id: "ia",
     label: "A",
+    short: "IA",
     title: "IA & Algoritmos de Búsqueda",
     subtitle: "Problemas de decisión y optimización resueltos con búsqueda informada y programación matemática, no solo con librerías.",
     accent: "var(--signal-ok)",
@@ -81,6 +83,7 @@ const categories: Category[] = [
   {
     id: "security",
     label: "B",
+    short: "Ciber",
     title: "Ciberseguridad",
     subtitle: "Criptografía, PKI y seguridad aplicada. Sistemas donde la protección de datos y la autenticación son el núcleo del problema.",
     accent: "var(--signal-warn)",
@@ -106,6 +109,7 @@ const categories: Category[] = [
   {
     id: "systems",
     label: "C",
+    short: "Sistemas",
     title: "Sistemas y Programación de Bajo Nivel",
     subtitle: "Arquitecturas de sistemas, compiladores y programación concurrente. Donde el rendimiento y el control del hardware son críticos.",
     accent: "var(--signal-ok)",
@@ -148,7 +152,7 @@ const categories: Category[] = [
           { icon: <Mic className="h-4 w-4" />, text: "Voz y SOS" },
           { icon: <Cpu className="h-4 w-4" />, text: "Sensores y gestos" },
           { icon: <Share2 className="h-4 w-4" />, text: "Socket.IO" },
-          { icon: <Activity className="h-4 w-4" />, text: "Redundancia total" },
+          { icon: <Activity className="h-4 w-4" />, text: "Vision Artificial" },  
         ],
         link: "/templates/ironman-portfolio.html",
         external: false,
@@ -160,6 +164,7 @@ const categories: Category[] = [
   {
     id: "frontend",
     label: "D",
+    short: "Frontend",
     title: "Frontend & Producto Digital",
     subtitle: "Interfaces de alto rendimiento donde la prioridad es la experiencia: animación, fluidez y storytelling.",
     accent: "var(--text)",
@@ -271,10 +276,75 @@ const ProjectCard = memo(({ project, idx }: { project: Project; idx: number }) =
 ));
 ProjectCard.displayName = "ProjectCard";
 
+const CategoryNav = memo(() => {
+  const [active, setActive] = useState(categories[0].id);
+
+  useEffect(() => {
+    const sections = categories
+      .map((category) => document.getElementById(category.id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <nav
+      aria-label="Saltar a categoría de proyectos"
+      className="sticky top-[72px] z-30 mb-14"
+    >
+      <div
+        className="category-nav-scroll flex gap-1.5 overflow-x-auto rounded-full border p-1.5 backdrop-blur-xl sm:gap-2"
+        style={{
+          borderColor: "var(--line)",
+          background: "color-mix(in srgb, var(--surface) 85%, transparent)",
+        }}
+      >
+        {categories.map((category) => {
+          const isActive = active === category.id;
+          return (
+            <a
+              key={category.id}
+              href={`#${category.id}`}
+              aria-current={isActive ? "true" : undefined}
+              className={`flex shrink-0 items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium transition-colors sm:px-4 ${
+                isActive
+                  ? "text-[var(--bg)]"
+                  : "text-[var(--text-muted)] hover:text-[var(--text)]"
+              }`}
+              style={{ background: isActive ? category.accent : undefined }}
+            >
+              <span
+                className="font-mono text-[11px]"
+                style={{ color: isActive ? "var(--bg)" : category.accent }}
+              >
+                [{category.label}]
+              </span>
+              {category.short}
+            </a>
+          );
+        })}
+      </div>
+    </nav>
+  );
+});
+CategoryNav.displayName = "CategoryNav";
+
 export const OtherProjects = memo(() => {
   return (
     <section className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12" style={{ background: "var(--bg)" }}>
-      <div className="mb-16 max-w-2xl">
+      <div className="mb-8 max-w-2xl">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl" style={{ color: "var(--text)" }}>
           Más proyectos
         </h2>
@@ -283,9 +353,11 @@ export const OtherProjects = memo(() => {
         </p>
       </div>
 
+      <CategoryNav />
+
       <div className="flex flex-col gap-16">
         {categories.map((category) => (
-          <div key={category.id}>
+          <div key={category.id} id={category.id} className="scroll-mt-[150px]">
             <div
               className="mb-6 flex items-baseline gap-3 border-b pb-4"
               style={{ borderColor: "var(--line)" }}
