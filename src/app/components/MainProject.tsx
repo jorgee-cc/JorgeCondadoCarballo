@@ -6,7 +6,7 @@ export const MainProject = memo(() => {
   return (
     <section
       id="proyectos"
-      className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12"
+      className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:px-12 sm:py-24"
       style={{ background: "var(--bg)" }}
     >
       <div className="mb-12 max-w-2xl">

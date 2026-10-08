@@ -138,6 +138,9 @@
 :root {
   --x: 50vw;
   --y: 50vh;
+  /* Altura real del header fijo (py-4 + contenido 40px + border-b 1px).
+     La usa la barra sticky de categorías de proyectos como offset superior. */
+  --header-h: 73px;
 }
 
 @layer base {
@@ -285,17 +288,27 @@
   .category-nav-scroll {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    /* En móvil permite recorrer las categorías con snap y sin arrastrar la página */
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .category-nav-scroll::-webkit-scrollbar {
     display: none;
   }
 
+  .category-nav-scroll > a {
+    scroll-snap-align: start;
+  }
+
   /* =====================================================
      CONTENT VISIBILITY — Renderizado diferido de secciones
      Browser skip layout+paint de secciones off-screen
      ===================================================== */
-  section:not(:first-of-type) {
+  /* Se excluye la sección de proyectos: su barra sticky depende de no tener
+     contenedor de layout (contain) y evita saltos de scroll al diferir render */
+  section:not(:first-of-type):not(#otros-proyectos) {
     content-visibility: auto;
     /* containIntrinsicSize evita scroll jumps al estimar la altura */
     contain-intrinsic-size: 0 800px;

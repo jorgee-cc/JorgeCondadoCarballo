@@ -22,12 +22,12 @@ const ANIMATE_IN = { opacity: 1, y: 0, scale: 1 };
 // Si el padre (App) re-renderiza, Hero NO se re-renderiza
 export const Hero = memo(() => {
   return (
-    <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-28 text-center sm:px-12">
+    <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 text-center sm:px-12 sm:pt-28">
       <motion.div
         initial={INITIAL_STATES.fadeUp}
         animate={ANIMATE_IN}
         transition={TRANSITIONS.container}
-        className="max-w-4xl"
+        className="w-full max-w-4xl"
       >
         {/* Avatar — fetchpriority="high" para mejorar LCP */}
         <motion.div
@@ -51,9 +51,9 @@ export const Hero = memo(() => {
           initial={INITIAL_STATES.scaleDown}
           animate={ANIMATE_IN}
           transition={TRANSITIONS.badge}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--signal-ok)]/40 bg-[var(--signal-ok)]/10 px-4 py-1.5 text-sm font-semibold text-[var(--signal-ok)] backdrop-blur-md"
+          className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--signal-ok)]/40 bg-[var(--signal-ok)]/10 px-3 py-1.5 text-center text-[11px] font-semibold leading-snug text-[var(--signal-ok)] backdrop-blur-md sm:max-w-none sm:px-4 sm:text-sm"
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-2 w-2 shrink-0">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--signal-ok)] opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--signal-ok)]" />
           </span>
@@ -66,7 +66,7 @@ export const Hero = memo(() => {
           </span>
         </h1>
 
-        <div className="mx-auto mb-10 max-w-2xl rounded-xl border-l-4 border-[var(--signal-warn)] bg-[var(--surface)]/80 p-6 text-lg font-medium text-[var(--text-muted)] sm:text-2xl">
+        <div className="mx-auto mb-10 max-w-2xl rounded-xl border-l-4 border-[var(--signal-warn)] bg-[var(--surface)]/80 p-5 text-base font-medium text-[var(--text-muted)] sm:p-6 sm:text-2xl">
             Estudiante de 4 año de Ingeniería Informática especializado en IA aplicada, algoritmos de búsqueda y ciberseguridad. Construyo desde motores de alto rendimiento en C++ hasta arquitecturas seguras en producción. Código eficiente respaldado por una toma de decisiones forjada bajo presión.
         </div>
 

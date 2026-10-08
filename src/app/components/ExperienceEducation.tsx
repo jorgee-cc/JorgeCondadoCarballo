@@ -203,8 +203,8 @@ ExperienceCard.displayName = "ExperienceCard";
 
 export const ExperienceEducation = memo(() => {
   return (
-    <section className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12" style={{ background: "var(--bg)" }}>
-      <div className="grid gap-16 lg:grid-cols-2">
+    <section className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:px-12 sm:py-24" style={{ background: "var(--bg)" }}>
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Experience Reframed */}
         <div>
           <div className="mb-10">
@@ -236,7 +236,7 @@ export const ExperienceEducation = memo(() => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4 }}
-            className="rounded-lg border p-8"
+            className="rounded-lg border p-6 sm:p-8"
             style={{ borderColor: "var(--line)", background: "var(--surface)" }}
           >
             <div
@@ -281,7 +281,7 @@ export const ExperienceEducation = memo(() => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="mt-6 rounded-lg border p-8"
+            className="mt-6 rounded-lg border p-6 sm:p-8"
             style={{ borderColor: "var(--line)", background: "var(--surface)" }}
           >
             <div

@@ -37,10 +37,10 @@ export const Contact = memo(() => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="mailto:jorge.condado.carballo@gmail.com"
-              className="flex w-full items-center justify-center gap-3 rounded-full bg-[var(--signal-warn)] px-5 py-3.5 font-semibold text-[var(--bg)] transition-all hover:brightness-110 sm:w-auto sm:px-7"
+              className="flex w-full items-center justify-center gap-3 rounded-full bg-[var(--signal-warn)] px-4 py-3.5 text-sm font-semibold text-[var(--bg)] transition-all hover:brightness-110 sm:w-auto sm:px-7 sm:text-base"
             >
-              <Mail className="h-5 w-5" />
-              <span>jorge.condado.carballo@gmail.com</span>
+              <Mail className="h-5 w-5 shrink-0" />
+              <span className="break-all sm:break-normal">jorge.condado.carballo@gmail.com</span>
             </motion.a>
 
             <motion.a

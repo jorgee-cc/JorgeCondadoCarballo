@@ -14,7 +14,7 @@ export const Header = memo(() => {
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-[var(--line)] bg-[var(--bg)]/80 backdrop-blur-2xl">
-      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-12">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-12">
         {/* Glow effect background */}
         <div className="absolute inset-0 z-0 bg-[var(--surface)]/60" />
 
@@ -27,10 +27,10 @@ export const Header = memo(() => {
             className="flex items-center gap-2"
           >
             <a href="/" className="flex items-center gap-2" aria-label="Ir a la página de inicio">
-              <span className="text-xl font-black uppercase tracking-tight text-white">
+              <span className="text-lg font-black uppercase tracking-tight text-white sm:text-xl">
                 Jorge
               </span>
-              <span className="text-xl font-black uppercase tracking-tight text-[var(--signal-warn)]">
+              <span className="text-lg font-black uppercase tracking-tight text-[var(--signal-warn)] sm:text-xl">
                 Condado
               </span>
             </a>
@@ -103,13 +103,13 @@ export const Header = memo(() => {
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="overflow-hidden border-t border-[var(--line)] bg-[var(--bg)]/95 backdrop-blur-2xl sm:hidden"
           >
-            <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
+            <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
               {NAV_LINKS.map(({ href, label }) => (
                 <a
                   key={href}
                   href={href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-[var(--text-muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--text)]"
+                  className="rounded-lg px-3 py-3 text-sm font-medium text-[var(--text-muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--text)]"
                 >
                   {label}
                 </a>

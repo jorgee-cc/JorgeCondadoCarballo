@@ -37,8 +37,8 @@ const stackCategories = [
 
 export const TechStack = memo(() => {
   return (
-    <section id="stack" className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12" style={{ background: "var(--bg)" }}>
-      <div className="mb-16 max-w-2xl">
+    <section id="stack" className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:px-12 sm:py-24" style={{ background: "var(--bg)" }}>
+      <div className="mb-10 max-w-2xl sm:mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

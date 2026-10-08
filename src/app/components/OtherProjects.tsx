@@ -254,7 +254,7 @@ const ProjectCard = memo(({ project, idx }: { project: Project; idx: number }) =
       />
     </div>
 
-    <div className="flex flex-1 flex-col p-6">
+    <div className="flex flex-1 flex-col p-5 sm:p-6">
       <h4 className="mb-2 text-lg font-semibold" style={{ color: "var(--text)" }}>
         {project.title}
       </h4>
@@ -266,11 +266,11 @@ const ProjectCard = memo(({ project, idx }: { project: Project; idx: number }) =
         {project.features.map((feature, fIdx) => (
           <div
             key={fIdx}
-            className="flex items-center gap-2 rounded px-2.5 py-1.5 font-mono text-xs"
+            className="flex min-w-0 items-center gap-2 rounded px-2.5 py-1.5 font-mono text-[11px] leading-tight sm:text-xs"
             style={{ background: "var(--bg)", color: "var(--text-muted)" }}
           >
-            {feature.icon}
-            {feature.text}
+            <span className="shrink-0">{feature.icon}</span>
+            <span className="min-w-0 break-words">{feature.text}</span>
           </div>
         ))}
       </div>
@@ -317,10 +317,10 @@ const CategoryNav = memo(() => {
   return (
     <nav
       aria-label="Saltar a categoría de proyectos"
-      className="sticky top-[72px] z-30 mb-14"
+      className="sticky top-[var(--header-h)] z-30 mb-10 sm:mb-14"
     >
       <div
-        className="category-nav-scroll flex gap-1.5 overflow-x-auto rounded-full border p-1.5 backdrop-blur-xl sm:gap-2"
+        className="category-nav-scroll flex gap-1 overflow-x-auto rounded-full border p-1 backdrop-blur-xl sm:gap-2 sm:p-1.5"
         style={{
           borderColor: "var(--line)",
           background: "color-mix(in srgb, var(--surface) 85%, transparent)",
@@ -333,7 +333,7 @@ const CategoryNav = memo(() => {
               key={category.id}
               href={`#${category.id}`}
               aria-current={isActive ? "true" : undefined}
-              className={`flex shrink-0 items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium transition-colors sm:px-4 ${
+              className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-medium transition-colors sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
                 isActive
                   ? "text-[var(--bg)]"
                   : "text-[var(--text-muted)] hover:text-[var(--text)]"
@@ -341,7 +341,7 @@ const CategoryNav = memo(() => {
               style={{ background: isActive ? category.accent : undefined }}
             >
               <span
-                className="font-mono text-[11px]"
+                className="hidden font-mono text-[11px] sm:inline"
                 style={{ color: isActive ? "var(--bg)" : category.accent }}
               >
                 [{category.label}]
@@ -358,7 +358,11 @@ CategoryNav.displayName = "CategoryNav";
 
 export const OtherProjects = memo(() => {
   return (
-    <section className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:px-12" style={{ background: "var(--bg)" }}>
+    <section
+      id="otros-proyectos"
+      className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:px-12 sm:py-24"
+      style={{ background: "var(--bg)" }}
+    >
       <div className="mb-8 max-w-2xl">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl" style={{ color: "var(--text)" }}>
           Más proyectos
@@ -370,9 +374,9 @@ export const OtherProjects = memo(() => {
 
       <CategoryNav />
 
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-14 sm:gap-16">
         {categories.map((category) => (
-          <div key={category.id} id={category.id} className="scroll-mt-[150px]">
+          <div key={category.id} id={category.id} className="scroll-mt-[140px]">
             <div
               className="mb-6 flex items-baseline gap-3 border-b pb-4"
               style={{ borderColor: "var(--line)" }}
@@ -384,7 +388,7 @@ export const OtherProjects = memo(() => {
                 [{category.label}]
               </span>
               <div>
-                <h3 className="text-xl font-semibold" style={{ color: "var(--text)" }}>
+                <h3 className="text-lg font-semibold sm:text-xl" style={{ color: "var(--text)" }}>
                   {category.title}
                 </h3>
                 <p className="mt-1 text-sm" style={{ color: "var(--text-muted)" }}>
