@@ -34,6 +34,21 @@ const categories: Category[] = [
     accent: "var(--signal-ok)",
     projects: [
       {
+        title: "Optimización de Asignación Arbitral (TFG en curso)",
+        description: "TFG en curso: sistema en C++ que asigna árbitros a partidos maximizando la retribución por hora trabajada, contabilizando tiempos de desplazamiento, tiempos muertos entre encuentros y tiempo efectivo de arbitraje.",
+        image: "/images/referee-scheduler-thumb.svg",
+        features: [
+          { icon: <Cpu className="h-4 w-4" />, text: "C++17" },
+          { icon: <Compass className="h-4 w-4" />, text: "Algoritmos de búsqueda" },
+          { icon: <Activity className="h-4 w-4" />, text: "Retribución / hora" },
+          { icon: <Zap className="h-4 w-4" />, text: "En curso" },
+        ],
+        link: "https://github.com/jorgee-cc/TFG-Referee-Scheduler",
+        external: true,
+        isGithub: true,
+        ctaLabel: "Ver en GitHub",
+      },
+      {
         title: "Binairo CSP & Motor de Búsqueda A*",
         description: "Solver CSP para el puzzle Binairo y un motor A* en C++17 sobre grafos DIMACS de carreteras reales, con heurística admisible de Haversine.",
         image: "/images/ai-csp-heuristic-search-thumb.svg",
