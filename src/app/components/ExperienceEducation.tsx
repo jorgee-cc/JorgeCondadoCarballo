@@ -203,7 +203,11 @@ ExperienceCard.displayName = "ExperienceCard";
 
 export const ExperienceEducation = memo(() => {
   return (
-    <section className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:px-12 sm:py-24" style={{ background: "var(--bg)" }}>
+    <section
+      id="experiencia"
+      className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:px-12 sm:py-24"
+      style={{ background: "var(--bg)" }}
+    >
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Experience Reframed */}
         <div>
