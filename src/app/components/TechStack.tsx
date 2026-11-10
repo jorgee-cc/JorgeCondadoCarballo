@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "motion/react";
-import { Code2, Server, Terminal, Cog, BrainCircuit, ShieldCheck } from "lucide-react";
+import { Code2, Server, Cog, BrainCircuit, ShieldCheck, Database, Sparkles } from "lucide-react";
 
 const stackCategories = [
   {
@@ -24,14 +24,22 @@ const stackCategories = [
     skills: ["OWASP Top 10", "Snort IDS/IPS", "Fail2Ban", "UFW", "SSH hardening", "Traefik (TLS)"],
   },
   {
-    title: "Automatización & Infraestructura",
+    title: "Automatización, Infraestructura, DevOps & Cloud",
     icon: <Cog className="h-6 w-6" style={{ color: "var(--text)" }} />,
-    skills: ["Docker", "n8n", "Colas (Message Queues)", "Coolify"],
+    skills: ["Docker", "n8n", "Colas (Message Queues)", "Coolify", "Git", "GitHub", "Vercel", "CI/CD"],
   },
   {
-    title: "DevOps & Cloud",
-    icon: <Terminal className="h-6 w-6" style={{ color: "var(--text)" }} />,
-    skills: ["Git", "GitHub", "Vercel", "CI/CD"],
+    title: "Bases de datos",
+    icon: <Database className="h-6 w-6" style={{ color: "var(--text)" }} />,
+    skillGroups: [
+      { title: "Relacional", skills: ["PostgreSQL", "SQL", "SQLAlchemy"] },
+      { title: "NoSQL", skills: ["MongoDB", "Redis", "Cassandra"] },
+    ],
+  },
+  {
+    title: "IA generativa",
+    icon: <Sparkles className="h-6 w-6" style={{ color: "var(--signal-ok)" }} />,
+    skills: ["Claude Code", "OpenCode", "MCP", "Agent Skills", "plugins"],
   },
 ] as const;
 
@@ -71,17 +79,40 @@ export const TechStack = memo(() => {
               </h3>
             </div>
 
-            <div className="flex flex-wrap gap-2">
-              {category.skills.map((skill, sIdx) => (
-                <span
-                  key={sIdx}
-                  className="rounded border px-2.5 py-1 font-mono text-xs"
-                  style={{ borderColor: "var(--line)", color: "var(--text-muted)", background: "var(--bg)" }}
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+            {"skillGroups" in category ? (
+              <div className="space-y-4">
+                {category.skillGroups.map((group) => (
+                  <div key={group.title}>
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
+                      {group.title}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {group.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded border px-2.5 py-1 font-mono text-xs"
+                          style={{ borderColor: "var(--line)", color: "var(--text-muted)", background: "var(--bg)" }}
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded border px-2.5 py-1 font-mono text-xs"
+                    style={{ borderColor: "var(--line)", color: "var(--text-muted)", background: "var(--bg)" }}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
           </motion.div>
         ))}
       </div>
