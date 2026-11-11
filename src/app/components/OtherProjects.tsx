@@ -186,13 +186,13 @@ const categories: Category[] = [
     accent: "var(--text)",
     projects: [
       {
-        title: "Autoescuela Viñateros Moratalaz",
+        title: "Autoescuela Vinateros Moratalaz",
         description: "Web corporativa para un cliente real de Madrid que convierte la cercanía y la experiencia de la autoescuela en una experiencia digital clara: equipo, clases teóricas, prácticas y gestión de matrícula y examen.",
         image: "/images/autoescuela-vinateros-moratalaz.webp",
         imagePosition: "52% 50%",
         features: [
           { icon: <Palette className="h-4 w-4" />, text: "Identidad local" },
-          { icon: <MonitorPlay className="h-4 w-4" />, text: "Responsive" },
+          { icon: <MonitorPlay className="h-4 w-4" />, text: "Atencion automatizada" },
           { icon: <Compass className="h-4 w-4" />, text: "UX orientada a conversión" },
           { icon: <Zap className="h-4 w-4" />, text: "Cliente real" },
         ],
