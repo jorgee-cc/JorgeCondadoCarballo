@@ -12,6 +12,16 @@ const NAV_LINKS = [
 export const Header = memo(() => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault();
+    setMenuOpen(false);
+
+    window.requestAnimationFrame(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.pushState(null, "", href);
+    });
+  };
+
   return (
     <header className="fixed top-0 z-50 w-full border-b border-[var(--line)] bg-[var(--bg)]/80 backdrop-blur-2xl">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-12">
@@ -62,7 +72,7 @@ export const Header = memo(() => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Abrir perfil de LinkedIn"
-            className="flex items-center gap-2 rounded-full border border-[var(--signal-ok)]/40 bg-[var(--signal-ok)]/10 px-4 py-2 font-semibold text-[var(--signal-ok)] transition-all hover:border-[var(--signal-ok)]/60 hover:bg-[var(--signal-ok)]/20 backdrop-blur-md"
+            className="hidden items-center gap-2 rounded-full border border-[var(--signal-ok)]/40 bg-[var(--signal-ok)]/10 px-4 py-2 font-semibold text-[var(--signal-ok)] transition-all hover:border-[var(--signal-ok)]/60 hover:bg-[var(--signal-ok)]/20 backdrop-blur-md sm:flex"
           >
             <Linkedin className="h-4 w-4" />
             <span className="hidden sm:inline">LinkedIn</span>
@@ -73,7 +83,7 @@ export const Header = memo(() => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 rounded-full border border-[var(--signal-warn)]/40 bg-[var(--signal-warn)]/10 px-4 py-2 font-semibold text-[var(--signal-warn)] transition-all hover:border-[var(--signal-warn)]/60 hover:bg-[var(--signal-warn)]/20 backdrop-blur-md"
+            className="hidden items-center gap-2 rounded-full border border-[var(--signal-warn)]/40 bg-[var(--signal-warn)]/10 px-4 py-2 font-semibold text-[var(--signal-warn)] transition-all hover:border-[var(--signal-warn)]/60 hover:bg-[var(--signal-warn)]/20 backdrop-blur-md sm:flex"
           >
             <Github className="h-4 w-4" />
             <span className="hidden sm:inline">GitHub</span>
@@ -108,7 +118,7 @@ export const Header = memo(() => {
                 <a
                   key={href}
                   href={href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(event) => handleNavClick(event, href)}
                   className="rounded-lg px-3 py-3 text-sm font-medium text-[var(--text-muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--text)]"
                 >
                   {label}
